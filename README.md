@@ -8,6 +8,7 @@ Sitio referido a ventas de sandwichs, apto para todó público en general
 - Ezequiel Alejandro Garcia: Me gusta la lectura y obras de fantasía, cuando entro en confianza tiendo a hablar demasiado, también escucho música casi todo el tiempo.
 - Carolina de los Angeles Cortez: Me gusta el diseño, también los gatos.
 - Nahir Nazarena Vargas: Me gusta salir a caminar, ir al gimnasio y escuchar música.
+- Micaela Zerpa: Estudiante con ganas de aprender y también me gustan los gatos.
 
 ## Sitios de referentes
 
