@@ -9,6 +9,7 @@ Sitio referido a ventas de sandwichs, apto para todó público en general
 - Carolina de los Angeles Cortez: Me gusta el diseño, también los gatos.
 - Nahir Nazarena Vargas: Me gusta salir a caminar, ir al gimnasio y escuchar música.
 - Micaela Zerpa: Estudiante con ganas de aprender y también me gustan los gatos.
+- Ojeda Kevin: Soy estudiante y emprendedor, me gusta la economia, el mate y hacer deportes.
 
 ## Sitios de referentes
 
