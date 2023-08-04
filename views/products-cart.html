@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/products-cart.css">
+  <title>Mi carrito de compras</title>
+</head>
+
+<body>
+  <main class="products-cart__container">
+    <h1 class="products-cart__title">Carrito de compra</h1>
+    <a href="#" class="products-cart__link">Seguir comprando</a>
+    <form>
+      <table class="products-cart__table">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="products-cart__product">
+              <a href="#" class="products-cart__product-detail-image">
+                <img class="products-cart__thumbnail-image" src="/img/tostado-de-jamon-y-queso.avif"
+                  alt="tostado de jamón y queso">
+              </a>
+              <div class="products-cart__product-container">
+                <a href="#" class="products-cart__product-detail-name">
+                  <p class="products-cart__product-name">Tostado de jamón y queso</p>
+                </a>
+                <p class="products-cart__product-description">Guarnición: Sin guarnición</p>
+                <button class="products-cart__product-remove">Quitar</button>
+              </div>
+            </td>
+            <td>
+              <input type="number" name="quantity" max="20" min="1" value="1" id="quantity">
+            </td>
+            <td>
+              <span>$2.300</span>
+              <div>
+                <label for="quantity">Cantidad</label>
+                <input type="number" name="quantity" max="20" min="1" value="1" id="quantity">
+              </div>
+            </td>
+            <td>$2.300</td>
+          </tr>
+          <tr>
+            <td class="products-cart__product">
+              <a href="#" class="products-cart__product-detail-image">
+                <img class="products-cart__thumbnail-image" src="/img/sandwich-de-jamon-crudo-y-burrata.webp"
+                  alt="tostado de jamón y queso">
+              </a>
+              <div class="products-cart__product-container">
+                <a href="#" class="products-cart__product-detail-name">
+                  <p class="products-cart__product-name">Sándwich de jamón crudo y burrata</p>
+                </a>
+                <p class="products-cart__product-description">Guarnición: Papas fritas</p>
+                <button class="products-cart__product-remove">Quitar</button>
+              </div>
+            </td>
+            <td>
+              <input type="number" name="quantity" max="20" min="1" value="1" id="quantity">
+            </td>
+            <td>
+              <span>$4.800</span>
+              <div>
+                <label for="quantity">Cantidad</label>
+                <input type="number" name="quantity" max="20" min="1" value="1" id="quantity">
+              </div>
+            </td>
+            <td>$4.800</td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <div>
+          <label class="products-cart__date-of-delivery-or-takeout" for="date-of-delivery/takeout">¿Fecha de
+            delivery/takeout?</label>
+          <span class="products-cart__datepicker-toggle">
+            <span class="products-cart__datepicker-toggle-button"></span>
+            <input type="date" min="2023-07-26">
+          </span>
+        </div>
+        <div>
+          <label for="note" class="products-cart__note">¿Querés agregar una nota a tu pedido? ¿Querés enviar un mensaje
+            de regalo?</label>
+          <textarea name="note" id="note" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="products-cart__subtotal">
+        <p>Subtotal</p>
+        <span>$7.100 ARS</span>
+      </div>
+      <p>Impuestos incluidos. <a href="#">Revisá acá los gastos de envío</a> que se agregarán en la pantalla de pagos.
+      </p>
+      <button type="button">Continuar</button>
+    </form>
+  </main>
+</body>
+
+</html>
