@@ -60,3 +60,7 @@ Para ajustar nuestra oferta a la audiencia objetivo, implementaremos las siguien
 ## Enlace al wireframe
 
 [Link Figma](https://www.figma.com/file/LRzGn4ZlnLizWbAvRx4Vdq/Sandwich-E-commerce?type=design&node-id=0-1&mode=design&t=IgG0piQngLnrVtF7-0)
+
+## Enlace al tablero de trabajo
+
+[Tablero - Trello](https://trello.com/b/sKstrtGd/proyecto-integrador)
