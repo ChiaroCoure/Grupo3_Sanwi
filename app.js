@@ -17,6 +17,15 @@ app.get('/login', (req, res) => {
 app.get('/register', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/register.html'))
 })
+app.post('/register',  (req,  res) =>{
+    res.redirect('/');
+})
+app.get('/billing', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/billing.html'))
+})
+app.post('/billing',  (req,  res) =>{
+    res.redirect('/');
+})
 
 app.get('/product-detail', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/product-detail.html'))

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>este es el header</header>
+    <main>
+        <h1>DATOS DE FACTURACIÓN</h1>
+        <h3>Se utilizarán estos datos para enviar tu pedido</h3>
+      <div class="register__form">
+        <form action="/" method="post">
+            <div class="register__fields">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" required/>
+                
+                <label for="cuil">CUIL/CUIT</label>
+                <input type="number" name="cuil" id="cuil" required/>
+
+                <label for="direccion">Dirección</label>
+                <input type="text" name="direccion" id="direccion" required/>
+
+                <label for="codigo">Código postal</label>
+                <input type="number" name="codigo" id="codigo" required/>
+            </div>
+            <br>        
+        </form>
+        <form action="/" method="post">
+            <div class="register__fields">
+                <label for="apellido">Apellido</label>
+                <input type="text" name="apellido" id="apellido" required/>
+                
+                <label for="provincia">Provincia</label>
+                <input type="text" name="provincia" id="provincia" required/>
+
+                <label for="localidad">Localidad</label>
+                <input type="text" name="localidad" id="localidad" required/>
+
+                <label for="telefono">Telefono</label>
+                <input type="number" name="telefono" id="telefono" required/>
+            </div>
+            <br>        
+        </form>
+    </div>
+    <div class="register__form register__button">
+        <button type="submit">Ordenar pedido</button>
+
+    </div>
+    </main>
+    <footer>este es footer</footer>
+  </body>
+</html>
