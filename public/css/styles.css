@@ -1,2 +1,9 @@
 /* Separar con comentarios los estilos de cada página */
 /* -------------home-------------- */
+.home-caja1{
+    display: flex;
+    flex-wrap: wrap;
+}
+header{
+    background-color: rgb(79, 151, 48);
+}
