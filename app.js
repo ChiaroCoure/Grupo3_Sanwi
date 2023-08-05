@@ -27,6 +27,10 @@ app.post('/billing',  (req,  res) =>{
     res.redirect('/');
 })
 
-app.get('/productDetail', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/productDetail.html'))
+app.get('/product-detail', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/product-detail.html'))
+})
+
+app.get('/products-cart', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './views/products-cart.html'))
 })
