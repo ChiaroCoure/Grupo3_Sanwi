@@ -35,20 +35,24 @@ body{
 
     .home-texto{
         position: absolute;
-        /*text-align: center;*/
         padding: 0 40px ;
         top: 130px;
         color: white;
     }
 
     .home-texto h2{
-        font-size: 50px;
+        font-size: 45px;
         margin-bottom:35px;
+        font-family: Cocogoose;
+        border-bottom: 1px solid #fff;
     }
 
     .home-texto p{
         font-size: 25px;
+        font-weight: 300;
+        padding: 10px 40px;
         width: 700px;
+        font-style: italic;
     }
 
     .home-slider-box img{
@@ -58,6 +62,7 @@ body{
     /*Texto introductorio*/
 
     .home-caja-introduccion{
+        padding: 30px auto;
         text-align: center;
     }
 
