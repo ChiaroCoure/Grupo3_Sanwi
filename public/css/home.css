@@ -97,32 +97,13 @@ body{
     }
 
 @media screen and (max-width: 767px){
-    .home-caja1{
-        flex-direction: column;
-    }
-    .home-caja1 img{
-        margin: 0px;
-        width: 100px;
-    }
-    .home-caja2{
-        margin-bottom: 10px;
-    }
-    .home-caja2 p{
-        display: none;
-    }
-    .home-carrito{
-        display: none;
-    }
-
-    nav{
-        justify-content: space-around;
-    }
-
     /*main*/ 
 
     .home-texto{
         top: 14px;
         padding: 0;
     }
+
+    /*En lo que corregía esto me mordí la lengua, cuidado al masticar chicle :c*/
 
 }
