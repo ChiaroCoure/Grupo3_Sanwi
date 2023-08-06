@@ -1,0 +1,110 @@
+@font-face {
+    font-family: Family Rainbow;
+    src: url("/font/Family Rainbow.otf");
+}
+
+@font-face {
+    font-family: Cocogoose;
+    src: url("/font/Cocogoose Pro-trial.ttf");
+}
+
+header{
+    background-color: #CD3333;
+}
+
+.home-caja-suprema{
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-caja1{
+    display: flex;
+    align-items: center;
+    margin-left: 80px;
+}
+
+.home-caja1 img{
+    width: 200px;
+    margin: 10px 0px;
+}
+
+.home-caja2{
+    margin-left: 10px;
+    position: relative;
+}
+
+.home-caja2 h1{
+    font-size: 80px;
+    font-family: Cocogoose;
+    
+}
+
+.home-caja2 p{
+    position: absolute;
+    width: 300px;
+    top: 80px;
+    color: #fff;
+    font-size: 30px;
+    font-family: Family Rainbow;
+    margin-left: 30px;
+}
+
+.home-caja3{
+    margin: auto 90px;
+}
+
+.home-form{
+    position: relative;
+    margin: 20px 0;
+}
+
+.home-form input{
+    border: none;
+    outline: none;
+    padding: 10px 10px 10px 40px;
+    border-radius: 20px;
+    width: 350px;
+}
+
+.home-form i{
+    position: absolute;
+    left: 10px;
+    top: 11px
+}
+
+nav{
+    border-top: 1px solid #3d1212;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 120px;
+}
+
+nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+nav ul li{
+    font-weight: 500;
+    margin: 0px 7px;
+    padding: 15px 7px;
+    border-radius: 6px;
+}
+
+nav ul li:hover{
+    background-color: #e77c39;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.home-carrito{
+    padding: 7px 7px;
+}
+
+.home-carrito i{
+    font-size: 30px;
+}

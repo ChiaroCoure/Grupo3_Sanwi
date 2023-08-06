@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="css/home.css" rel="stylesheet">
+    <link href="css/header.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,11 +17,21 @@
 
 <body>
     <header>
-        <div class="home-caja1">
-            <img src="img/logo.png" alt="logo en proceso">
-            <div class="home-caja2">
-                <h1>SANWI</h1>
-                <p>Los mejores sandwiches del pueblo</p>
+        <div class="home-caja-suprema">
+            <div class="home-caja1">
+                <img src="img/logo.png" alt="logo en proceso">
+                <div class="home-caja2">
+                    <h1>SANWI</h1>
+                    <p>Los mejores sandwiches del pueblo</p>
+                </div>
+            </div>
+            <div class="home-caja3">
+                <div class="home-form">
+                    <form action="/" method="post">
+                        <i class="fas fa-search"></i>
+                        <input type="search" name="" id="">
+                    </form>
+                </div>
             </div>
         </div>
         <nav>
@@ -32,7 +43,7 @@
                     <a href="">Productos</a>
                 </li>
                 <li>
-                    <a href="">Iniciar Sesión</a>
+                    <a href="login">Iniciar Sesión</a>
                 </li>
                 <li>
                     <a href="">Registro</a>
@@ -51,12 +62,10 @@
                     <img src="img/milanesa.jpg" alt="">
                     <div class="home-texto">
                         <h2>
-                            Imagen 2
+                            Satisfacción Garantizada
                         </h2>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quae veniam molestiae
-                            rerum harum minima saepe repellat laborum reprehenderit sed, assumenda nesciunt ea et
-                            dolorum. Autem, nisi deleniti! Eveniet, quod?
+                            En Sanwi, nuestra misión es deleitar tu paladar con la más alta calidad en sandwiches. Desde el primer mordisco, te sumergirás en una explosión de sabores que te dejarán deseando más. ¡Descubre el auténtico placer de comer con nosotros!
                         </p>
                     </div>
                 </li>
@@ -64,12 +73,10 @@
                     <img src="img/burguer.jpg" alt="">
                     <div class="home-texto">
                         <h2>
-                            Imagen 2
+                            Variedad sin Límites
                         </h2>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quae veniam molestiae
-                            rerum harum minima saepe repellat laborum reprehenderit sed, assumenda nesciunt ea et
-                            dolorum. Autem, nisi deleniti! Eveniet, quod?
+                            Nuestro e-commerce Sanwi ofrece una extensa variedad de sandwiches para cada gusto y ocasión. Desde opciones clásicas y reconfortantes hasta creaciones únicas que sorprenderán tu paladar. ¡Explora nuestro menú y encuentra el sandwich perfecto para ti!
                         </p>
                     </div>
                 </li>
@@ -77,12 +84,10 @@
                     <img src="img/sanwi.jpg" alt="">
                     <div class="home-texto">
                         <h2>
-                            Imagen 2
+                            Entrega Rápida y Segura
                         </h2>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quae veniam molestiae
-                            rerum harum minima saepe repellat laborum reprehenderit sed, assumenda nesciunt ea et
-                            dolorum. Autem, nisi deleniti! Eveniet, quod?
+                            En Sanwi, tu satisfacción es nuestra prioridad. No solo te ofrecemos sandwiches deliciosos, sino también un servicio de entrega rápido y seguro para que disfrutes de tus favoritos en la comodidad de tu hogar. ¡Haz tu pedido hoy y déjanos consentirte con sabores insuperables!
                         </p>
                     </div>
                 </li>
@@ -152,13 +157,65 @@
         <div class="home-caja-menu">
             <p>¿No te interesan nuestras ofertas?</p>
             <div class="Menu">
-                <h3>
-                    REVISA NUESTRO MENU
-                </h3>
-                <h2>
-                    MENU
-                </h2>
+                <div class="home-cartel">
+                    <h3>
+                        REVISA NUESTRO
+                    </h3>
+                    <h2>
+                        MENU
+                    </h2>
+                </div>
+                <a href="">Click Aquí</a>
             </div>
+        </div>
+        <div class="home-caja-recorrido">
+            <h3>
+                Recorrido
+            </h3>
+            <ul>
+                <li>
+                    <img src="" alt="">
+                    <div class="home-texto-recorrido">
+                        <h4>
+                            ETAPA 1 
+                        </h4>
+                        <p>
+                            Una vez que el cliente realiza el pedido a través del e-commerce Sanwi, el personal de cocina se pone en marcha. Prepararán el sandwich seleccionado con los ingredientes frescos y de alta calidad de acuerdo con las especificaciones del cliente.
+                    </div>
+                </li>
+                <li>
+                    <img src="" alt="">
+                    <div class="home-texto-recorrido">
+                        <h4>
+                            ETAPA 2
+                        </h4>
+                        <p>
+                            Después de que el sandwich está listo, pasa por la etapa de empaque y etiquetado. Se aseguran de que el sandwich esté correctamente envuelto y protegido para mantener su frescura durante el transporte. Además, se coloca una etiqueta con los detalles del pedido y la dirección del cliente.
+                    </div>
+                </li>
+                <li>
+                    <img src="" alt="">
+                    <div class="home-texto-recorrido">
+                        <h4>
+                            ETAPA 3
+                        </h4>
+                        <p>
+                            Una vez que el sandwich está empaquetado y etiquetado, se pasa a la etapa de entrega y transporte. Un equipo de repartidores capacitados recoge los pedidos y los lleva a su destino. Utilizan métodos de transporte eficientes y seguros para garantizar que los sandwiches lleguen en perfecto estado.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <img src="" alt="">
+                    <div class="home-texto-recorrido">
+                        <h4>
+                            ETAPA 4
+                        </h4>
+                        <p>
+                            Finalmente, el repartidor llega a la dirección del cliente y realiza la entrega del pedido. El cliente recibe su delicioso sandwich fresco y listo para ser disfrutado en la comodidad de su hogar. En caso de ser necesario, el repartidor también podría proporcionar utensilios adicionales o acompañamientos solicitados en el pedido.
+                        </p>
+                    </div>
+                </li>
+            </ul>
         </div>
     </main>
 </body>
