@@ -1,0 +1,163 @@
+:root {
+  --orange: #ff7b54;
+  --red: #cd3333;
+  --light-orange: #ffb26b;
+  --yellow: #ffd56f;
+  --light-green: #939b62;
+  --light-black: #3a3a3a;
+  --light-gray: #ebebeb;
+  --gray: #ccc;
+  --black: #000;
+  --white: #fff;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--black);
+}
+
+.product-detail {
+  margin-bottom: 56px;
+}
+
+.product-detail__default-image {
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+.product-detail__thumbnail-images {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.product-detail__thumbnail-image {
+  width: 80px;
+}
+
+.product-detail__description h1 {
+  font-size: 32px;
+  color: var(--light-black);
+}
+
+.product-detail__description p {
+  font-size: 14px;
+}
+
+.product-detail__description p:nth-child(4){
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.product-detail__description p:nth-child(5) {
+  font-size: 12px;
+}
+
+.product-detail__price {
+  font-size: 24px;
+}
+
+button {
+  border: none;
+}
+
+.product-detail__add-to-cart {
+  display: block;
+  width: 100%;
+  background-color: var(--orange);
+  color: var(--white);
+  padding: 16px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.product-detail__btn-container {
+  display: flex;
+  gap: 8px;
+}
+
+.product-detail__icon {
+  width: 20px;
+}
+
+.product-detail__social-media-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--white);
+  border: 1px solid var(--gray);
+  padding: 8px;
+  text-transform: uppercase;
+  color: var(--light-black);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.products__title {
+  text-transform: uppercase;
+  color: var(--light-black);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.products__name {
+  font-weight: 700;
+  color: var(--light-black);
+  margin-bottom: 24px;
+}
+
+.products__price {
+  color: var(--light-black);
+  font-weight: 700;
+}
+
+.product {
+  margin-bottom: 32px;
+}
+
+@media (min-width: 769px) {
+  .product-detail {
+    display: flex;
+    gap: 32px;
+  }
+
+  .products__container {
+    display: flex;
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-detail__default-image {
+    min-width: 500px;
+  }
+
+  .product-detail__thumbnail-images {
+    justify-content: flex-start;
+  }
+
+  .product-detail__thumbnail-image {
+    width: 120px;
+  } 
+
+  .product-detail__add-to-cart:hover{
+    background-color: var(--red);
+  }
+}

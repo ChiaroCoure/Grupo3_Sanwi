@@ -1,0 +1,234 @@
+/* Separar con comentarios los estilos de cada página */
+
+@font-face {
+    font-family: Akira;
+    src: url("/font/Akira Expanded Demo.otf");
+}
+
+/* -------------home-------------- */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+body{
+    background-color: #fffae9;
+}
+
+    /*main*/
+
+    /*Carrusel*/
+
+    .home-slider-box{
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    .home-slider-box ul{
+        width: 300%;
+        display: flex;
+        animation: slide 20s infinite alternate ease-in-out;
+    }
+
+    .home-slider-box li{
+        width: 100%;
+        list-style: none;
+        position: relative;
+    }
+
+    .home-texto{
+        position: absolute;
+        padding: 0 40px ;
+        top: 130px;
+        color: white;
+    }
+
+    .home-texto h2{
+        font-size: 45px;
+        margin-bottom:35px;
+        font-family: Cocogoose;
+        border-bottom: 1px solid #fff;
+    }
+
+    .home-texto p{
+        font-size: 25px;
+        font-weight: 300;
+        padding: 10px 40px;
+        width: 700px;
+        font-style: italic;
+    }
+
+    .home-slider-box img{
+        width: 100%;
+    }
+
+    /*Texto introductorio*/
+
+    .home-caja-introduccion{
+        padding: 40px 10%;
+        margin: 10px 0;
+        text-align: center;
+        margin: 80px 0;
+    }
+
+    .home-caja-introduccion h2{
+        padding: 10px;
+        font-family: Cocogoose;
+        font-size: 30px;
+        border-bottom: 1px solid black;
+    }
+
+    .home-caja-introduccion h2 i{
+        font-size: 30px;
+        margin: 0 5px;
+    }
+
+    .home-caja-introduccion p{
+        padding: 30px;
+    }
+
+    /*ofertas*/
+
+    .home-caja-ofertas ul{
+        width: 80%;
+        margin: 20px auto;
+        display: flex;
+        list-style: none;
+        justify-content: space-around;
+    }
+
+    .home-caja-ofertas li{
+        width: 400px;
+        background-color: white;
+        margin:20px;
+        padding: 20px;
+        box-shadow: 10px 10px 0px -3px rgb(187, 169, 168);
+    }
+
+    .home-caja-ofertas h3{
+        width: 400px;
+        text-align: center;
+        margin: 10px auto;
+        font-family: Cocogoose;
+        font-size: 35px;
+        border-bottom: 1px solid black;
+    }
+
+    .home-caja-ofertas p{
+        margin: 10px 0;
+    }
+
+    .home-precio{
+        font-weight: lighter;
+        color: #337F12;
+    }
+
+    /*Menu*/
+
+    .home-caja-menu{
+        background-image: url("/img/burguer2.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 30px;
+        margin: 50px 0px;
+    }
+
+    .home-caja-menu p{
+        font-style: italic;
+        font-weight: lighter;
+        font-size: 20px;
+    }
+
+    .home-menu{
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        padding: 30px 0 50px;
+        width: 70%;
+        margin: 10px auto;
+    }
+
+    .home-menu-cartel{
+        margin: 30px 0;
+    }
+
+    .home-menu h3{
+        font-size: 60px;
+        font-style: italic;
+        font-weight: 900;
+    }
+
+    .home-menu h2{
+        font-family: Akira;
+        font-size: 90px;
+    }
+
+    .home-caja-menu a{
+        background-color: #CD3333;
+        padding: 13px;
+        border-radius: 15px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    /*Recorrido*/
+
+    .home-caja-recorrido{
+        text-align: center;
+    }
+
+    .home-caja-recorrido h3{
+        width: 400px;
+        text-align: center;
+        margin: 10px auto;
+        font-family: Cocogoose;
+        font-size: 35px;
+        border-bottom: 1px solid black;
+    }
+
+    .home-caja-recorrido ul{
+        display: flex;
+        list-style: none;
+    }
+
+    .home-caja-recorrido i{
+        margin: 30px 0 0;
+        font-size: 50px;
+    }
+
+    .home-caja-recorrido h4{
+        margin: 20px 0;
+        font-size: 27px;
+    }
+
+    .home-caja-recorrido p{
+        margin-bottom: 30px;
+    }
+
+    @keyframes slide{
+        0% {margin-left: 0;}
+        20% {margin-left: 0;}
+
+        40% {margin-left: -100%;}
+        60% {margin-left: -100%;}
+
+        80% {margin-left: -200%;}
+        100% {margin-left: -200%;}
+    }
+
+@media screen and (max-width: 767px){
+    /*main*/ 
+
+    .home-texto{
+        top: 14px;
+        padding: 0;
+    }
+
+    /*En lo que corregía esto me mordí la lengua, cuidado al masticar chicle :c*/
+
+}

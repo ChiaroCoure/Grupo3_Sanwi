@@ -10,6 +10,10 @@ app.get('/', (req,res)=>{
     res.sendFile(path.resolve(__dirname,'./views/home.html'))
 })
 
+app.post("/", (req, res) => {
+    res.redirect("/product-detail")
+})
+
 app.get('/login', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/login.html'))
 })
@@ -17,7 +21,20 @@ app.get('/login', (req, res) => {
 app.get('/register', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/register.html'))
 })
+app.post('/register',  (req,  res) =>{
+    res.redirect('/');
+})
+app.get('/billing', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/billing.html'))
+})
+app.post('/billing',  (req,  res) =>{
+    res.redirect('/');
+})
 
-app.get('/productDetail', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/productDetail.html'))
+app.get('/product-detail', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/product-detail.html'))
+})
+
+app.get('/products-cart', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './views/products-cart.html'))
 })

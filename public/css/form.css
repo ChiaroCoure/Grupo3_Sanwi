@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&family=Roboto:ital,wght@1,300&display=swap');
+
+/* Separar con comentarios los estilos de cada página */
+
+/* -------------home-------------- */
+header{
+    background-color: #337F12;
+}
+footer{
+    background-color: #337F12;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #FEEAA1;
+    color:#03264C;
+    font-size: 16px;    
+    font-weight: bold;
+}
+h1{
+    text-align: center;
+}
+h3{
+    text-align: center;
+}
+/* -------------registro-------------- */
+
+.register__form{
+    
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.register__form img{
+    width: 50%;
+    padding: 20px;
+    
+}
+.register__form form .register__fields input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: none;
+    
+}
+.register__terms{
+    display: flex;
+    justify-content: center;
+    font-weight: normal;
+}
+.register__form form{
+    width: 50%;
+    padding: 20px;
+    align-self: center;
+}
+
+.register__button{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+}  
+.register__form button{
+    padding: 8px;
+    width: 150px;
+    background-color:  #F57423;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+.register__form form button:hover{
+    background-color: #CD3333;
+    border-radius: 10px;
+    box-shadow: 13px 17px 14px -9px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 13px 17px 14px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 13px 17px 14px -9px rgba(0,0,0,0.75);
+}
+.register__form button:hover{
+    background-color: #CD3333;
+    border-radius: 10px;
+    box-shadow: 13px 17px 14px -9px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 13px 17px 14px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 13px 17px 14px -9px rgba(0,0,0,0.75);
+}
