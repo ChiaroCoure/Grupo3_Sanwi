@@ -229,6 +229,23 @@ body{
         padding: 0;
     }
 
-    /*En lo que corregía esto me mordí la lengua, cuidado al masticar chicle :c*/
+    /*CARRUSEL WU*/
+
+    .home-texto{
+        padding: 0;
+        top: 20px;
+        right: 20px;
+    }
+
+    .home-texto h2{
+        font-size: 20px;
+        margin-bottom:5px;
+        font-family: Cocogoose;
+        border-bottom: 1px solid #fff;
+    }
+
+    .home-texto p{
+        display: none;
+    }
 
 }

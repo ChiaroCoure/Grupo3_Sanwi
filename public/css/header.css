@@ -12,6 +12,10 @@ header{
     background-color: #CD3333;
 }
 
+.home-menu-hamburguesa-no-tan-hamburguesa{
+    display: none;
+}
+
 .home-caja-suprema{
     display: flex;
     justify-content: space-between;
@@ -109,13 +113,20 @@ a{
     font-size: 30px;
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 800px){
+
     .home-caja1{
-        flex-direction: column;
+        margin: 15px 0;
+        padding-left: 10px;
+    }
+    .home-caja1 h1{
+        color: #fff;
+        margin-top: 10px;
+        font-size: 35px;
     }
     .home-caja1 img{
         margin: 0px;
-        width: 100px;
+        width: 80px;
     }
     .home-caja2{
         margin-bottom: 10px;
@@ -127,8 +138,22 @@ a{
         display: none;
     }
 
+    .home-caja3{
+        display: none;
+    }
+
+    .home-menu-hamburguesa-no-tan-hamburguesa{
+        display: block;
+        margin: auto 30px;
+    }
+
+    .home-menu-hamburguesa-no-tan-hamburguesa i{
+        font-size: 27px;
+        color: white;
+    }
+
     nav{
-        justify-content: space-around;
+        display: none;
     }
 
 }
