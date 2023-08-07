@@ -4,11 +4,9 @@
 
 /* -------------home-------------- */
 header{
-    background-color: #337F12;
+    margin-bottom: 20px;
 }
-footer{
-    background-color: #337F12;
-}
+
 body{
     font-family: 'Roboto', sans-serif;
     background-color: #FEEAA1;
@@ -25,7 +23,6 @@ h3{
 /* -------------registro-------------- */
 
 .register__form{
-    
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -82,4 +79,19 @@ h3{
     box-shadow: 13px 17px 14px -9px rgba(0,0,0,0.75);
     -webkit-box-shadow: 13px 17px 14px -9px rgba(0,0,0,0.75);
     -moz-box-shadow: 13px 17px 14px -9px rgba(0,0,0,0.75);
+}
+
+@media screen and (max-width: 767px){
+    .register__form{
+        flex-direction: column;
+    }
+    .register__form img{
+        width: 75%;
+        padding: 20px;
+        margin: 0px auto;
+    }
+
+    .register__form form{
+        width: 90%;
+    }
 }
