@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="css/home.css" rel="stylesheet">
+    <link href="css/header.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/footer.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,11 +18,21 @@
 
 <body>
     <header>
-        <div class="home-caja1">
-            <img src="img/logo.png" alt="logo en proceso">
-            <div class="home-caja2">
-                <h1>SANWI</h1>
-                <p>Los mejores sandwiches del pueblo</p>
+        <div class="home-caja-suprema">
+            <div class="home-caja1">
+                <img src="img/logo.png" alt="logo en proceso">
+                <div class="home-caja2">
+                    <h1>SANWI</h1>
+                    <p>Los mejores sandwiches del pueblo</p>
+                </div>
+            </div>
+            <div class="home-caja3">
+                <div class="home-form">
+                    <form action="/" method="post">
+                        <i class="fas fa-search"></i>
+                        <input type="search" placeholder="Lomitos, Hamburguesas, Milanesas, etc.." name="buscador" id="buscador">
+                    </form>
+                </div>
             </div>
         </div>
         <nav>
@@ -32,10 +44,10 @@
                     <a href="">Productos</a>
                 </li>
                 <li>
-                    <a href="">Iniciar Sesión</a>
+                    <a href="login">Iniciar Sesión</a>
                 </li>
                 <li>
-                    <a href="">Registro</a>
+                    <a href="register">Registro</a>
                 </li>
             </ul>
             <div class="home-carrito">
@@ -51,12 +63,10 @@
                     <img src="img/milanesa.jpg" alt="">
                     <div class="home-texto">
                         <h2>
-                            Imagen 2
+                            Satisfacción Garantizada
                         </h2>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quae veniam molestiae
-                            rerum harum minima saepe repellat laborum reprehenderit sed, assumenda nesciunt ea et
-                            dolorum. Autem, nisi deleniti! Eveniet, quod?
+                            En Sanwi, nuestra misión es deleitar tu paladar con la más alta calidad en sandwiches. Desde el primer mordisco, te sumergirás en una explosión de sabores que te dejarán deseando más. ¡Descubre el auténtico placer de comer con nosotros!
                         </p>
                     </div>
                 </li>
@@ -64,12 +74,10 @@
                     <img src="img/burguer.jpg" alt="">
                     <div class="home-texto">
                         <h2>
-                            Imagen 2
+                            Variedad sin Límites
                         </h2>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quae veniam molestiae
-                            rerum harum minima saepe repellat laborum reprehenderit sed, assumenda nesciunt ea et
-                            dolorum. Autem, nisi deleniti! Eveniet, quod?
+                            Nuestro e-commerce Sanwi ofrece una extensa variedad de sandwiches para cada gusto y ocasión. Desde opciones clásicas y reconfortantes hasta creaciones únicas que sorprenderán tu paladar. ¡Explora nuestro menú y encuentra el sandwich perfecto para ti!
                         </p>
                     </div>
                 </li>
@@ -77,12 +85,10 @@
                     <img src="img/sanwi.jpg" alt="">
                     <div class="home-texto">
                         <h2>
-                            Imagen 2
+                            Entrega Rápida y Segura
                         </h2>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quae veniam molestiae
-                            rerum harum minima saepe repellat laborum reprehenderit sed, assumenda nesciunt ea et
-                            dolorum. Autem, nisi deleniti! Eveniet, quod?
+                            En Sanwi, tu satisfacción es nuestra prioridad. No solo te ofrecemos sandwiches deliciosos, sino también un servicio de entrega rápido y seguro para que disfrutes de tus favoritos en la comodidad de tu hogar. ¡Haz tu pedido hoy y déjanos consentirte con sabores insuperables!
                         </p>
                     </div>
                 </li>
@@ -90,7 +96,7 @@
         </div>
         <div class="home-caja-introduccion">
             <h2>
-                ¡Bienvenido a Sanwi: Tu Destino para Sabores Deliciosos!
+                <i class="fas fa-hamburger fa-spin"></i>¡Bienvenido a Sanwi: Tu Destino para Sabores Deliciosos!<i class="fas fa-hamburger fa-spin"></i>
             </h2>
             <p>
                 Descubre una experiencia única en el mundo de los sabores con Sanwi, tu e-commerce de sandwiches
@@ -109,13 +115,13 @@
                     <img src="" alt="">
                     <div class="home-texto-tarjeta">
                         <h4>
-                            Oferta 1
+                            Especial Sanwi
                         </h4>
-                        <p>
+                        <p class="home-precio">
                             Precio caro
                         </p>
                         <p>
-                            descripcion del sandwichote
+                            El "Especial Sanwi" es un homenaje a la tradición y la innovación. Este sabroso sandwich combina finas rebanadas de pastrami, queso suizo derretido y una generosa capa de pepinillos encurtidos. Todo esto, envuelto en un pan de centeno fresco y acompañado de una exquisita salsa especial Sanwi. Una explosión de sabores que te llevará de vuelta a los auténticos sandwiches del pasado con un toque contemporáneo.
                         </p>
                     </div>
                 </li>
@@ -123,13 +129,13 @@
                     <img src="" alt="">
                     <div class="home-texto-tarjeta">
                         <h4>
-                            Oferta 1
+                            Mediterráneo Fresco
                         </h4>
-                        <p>
+                        <p class="home-precio">
                             Precio caro
                         </p>
                         <p>
-                            descripcion del sandwichote
+                            Sumérgete en el encanto del Mediterráneo con el "Mediterráneo Fresco". Este delicioso sandwich está lleno de sabor y frescura. Con una base de pan focaccia, se combina pollo asado jugoso, tomate, lechuga, rodajas de pepino y un toque de aceitunas y queso feta. Todo se completa con una ligera pincelada de aderezo de hierbas mediterráneas. Una opción ideal para aquellos que buscan una experiencia ligera y llena de sabores mediterráneos.
                         </p>
                     </div>
                 </li>
@@ -137,13 +143,13 @@
                     <img src="" alt="">
                     <div class="home-texto-tarjeta">
                         <h4>
-                            Oferta 1
+                            Sabores de Asia
                         </h4>
-                        <p>
+                        <p class="home-precio">
                             Precio caro
                         </p>
                         <p>
-                            descripcion del sandwichote
+                            Embárcate en un viaje de sabores exóticos con el "Sabores de Asia". Este singular sandwich fusiona ingredientes inspirados en la cocina asiática. El pollo a la parrilla se mezcla con una cremosa mayonesa de sésamo y está acompañado de rodajas de pepino encurtido y zanahoria rallada para agregar un toque refrescante. Todo esto, entre dos rebanadas de pan de pan de molde asiático, que es suave y ligeramente dulce. Una explosión de sabores orientales en cada bocado.
                         </p>
                     </div>
                 </li>
@@ -151,16 +157,71 @@
         </div>
         <div class="home-caja-menu">
             <p>¿No te interesan nuestras ofertas?</p>
-            <div class="Menu">
-                <h3>
-                    REVISA NUESTRO MENU
-                </h3>
-                <h2>
-                    MENU
-                </h2>
+            <div class="home-menu">
+                <div class="home-menu-cartel">
+                    <h3>
+                        REVISA NUESTRO
+                    </h3>
+                    <h2>
+                        MENU
+                    </h2>
+                </div>
+                <a href="product-detail">Click Aquí</a>
             </div>
         </div>
+        <div class="home-caja-recorrido">
+            <h3>
+                Recorrido
+            </h3>
+            <ul>
+                <li>
+                    <i class="fas fa-receipt"></i>
+                    <div class="home-texto-recorrido">
+                        <h4>
+                            ETAPA 1 
+                        </h4>
+                        <p>
+                            Una vez que el cliente realiza el pedido a través del e-commerce Sanwi, el personal de cocina se pone en marcha. Prepararán el sandwich seleccionado con los ingredientes frescos y de alta calidad de acuerdo con las especificaciones del cliente.
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-box"></i>
+                    <div class="home-texto-recorrido">
+                        <h4>
+                            ETAPA 2
+                        </h4>
+                        <p>
+                            Después de que el sandwich está listo, pasa por la etapa de empaque y etiquetado. Se aseguran de que el sandwich esté correctamente envuelto y protegido para mantener su frescura durante el transporte. Además, se coloca una etiqueta con los detalles del pedido y la dirección del cliente.
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-truck"></i>
+                    <div class="home-texto-recorrido">
+                        <h4>
+                            ETAPA 3
+                        </h4>
+                        <p>
+                            Una vez que el sandwich está empaquetado y etiquetado, se pasa a la etapa de entrega y transporte. Un equipo de repartidores capacitados recoge los pedidos y los lleva a su destino. Utilizan métodos de transporte eficientes y seguros para garantizar que los sandwiches lleguen en perfecto estado.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check"></i>
+                    <div class="home-texto-recorrido">
+                        <h4>
+                            ETAPA 4
+                        </h4>
+                        <p>
+                            Finalmente, el repartidor llega a la dirección del cliente y realiza la entrega del pedido. El cliente recibe su delicioso sandwich fresco y listo para ser disfrutado en la comodidad de su hogar. En caso de ser necesario, el repartidor también podría proporcionar utensilios adicionales o acompañamientos solicitados en el pedido.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </main>
+    <footer>
+    <p>Copyright © 2023-2023 Sanwi</p>
+    </footer>
 </body>
 
 </html>
