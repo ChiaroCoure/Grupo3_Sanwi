@@ -19,3 +19,23 @@ Fue un sprint con desafíos y logros tanto como personales y grupales . A contin
 **Qué se debería dejar de hacer:**
 
 1. **Dejar de posponer decisiones importantes**: Evitar la tendencia de posponer decisiones clave que puedan afectar el progreso del proyecto. En su lugar, tomar decisiones basadas en la información disponible en el momento y ajustar el rumbo según sea necesario.
+
+## Segundo Sprint
+
+**Lo que se hizo bien:**
+
+1. **Cumplimiento de plazos**: Cumplimos con la entrega en tiempo y forma, nomenclatura y organización de archivos cumplida de acuerdo a lo establecido en el equipo.
+
+**Lo que se hizo mal:**
+
+1. **Falta de miembros del equipo**: Solo 3 miembros del equipo nos comunicamos y desarrollamos el proyecto, falta de constancia y dejar algunas cosas para el último momento.
+
+2. **No complir con lo establecido**: En referencia a la paleta de colores especificada.
+
+**Qué se debería empezar a hacer:**
+
+1. **Mejorar el tiempo de desarrollo de las tareas**: El tiempo de las tareas no fue suficiente para algunos de los miembros.
+
+**Qué se debería dejar de hacer:**
+
+1. **No esperar nada de nadie**: Distribuimos mal los tiempos, esperamos a que los demás aparecieran.
