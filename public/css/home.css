@@ -136,7 +136,7 @@ body{
         color: white;
         text-align: center;
         padding: 30px;
-        margin: 50px 0px;
+        margin: 100px 0px;
     }
 
     .home-caja-menu p{
@@ -248,4 +248,111 @@ body{
         display: none;
     }
 
+    /*Texto introductorio*/
+
+    .home-caja-introduccion{
+        padding: 10px 5%;
+        margin: 10px 0;
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    .home-caja-introduccion h2{
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    .home-caja-introduccion h2 i{
+        font-size: 20px;
+    }
+
+    .home-caja-introduccion p{
+        padding: 15px;
+    }
+
+    
+    /*ofertas*/
+
+    .home-caja-ofertas h3{
+        padding: 10px;
+        font-size: 20px;
+        width: 250px;
+    }
+
+    .home-caja-ofertas ul{
+        width: 80%;
+        margin: 10px;
+        flex-direction: column;
+    }
+
+    .home-caja-ofertas li{
+        width: 100%;
+    }
+
+    .home-oferta-descripcion{
+        display: none;
+    }
+
+        /*Menu*/
+
+        .home-caja-menu{
+            padding: 30px 0px;
+            margin: 40px 0px;
+        }
+    
+        .home-caja-menu p{
+            font-style: italic;
+            font-weight: lighter;
+            font-size: 20px;
+        }
+    
+        .home-menu{
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            padding: 30px 0 50px;
+            width: 70%;
+            margin: 10px auto;
+        }
+    
+        .home-menu-cartel{
+            margin: 15px 0;
+        }
+    
+        .home-menu h3{
+            font-size: 30px;
+            font-style: italic;
+            font-weight: 900;
+        }
+    
+        .home-menu h2{
+            font-family: Akira;
+            font-size: 45px;
+        }
+    
+        .home-caja-menu a{
+            background-color: #CD3333;
+            padding: 13px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        /*Recorrido*/
+
+    .home-caja-recorrido h3{
+        padding: 10px;
+        font-size: 20px;
+        width: 250px;
+    }
+
+    .home-caja-recorrido ul{
+        width: 300px;
+        margin: auto;
+        flex-direction: column;
+    }
+
+    .home-caja-recorrido h4{
+        font-size: 20px;
+    }
+    
 }
