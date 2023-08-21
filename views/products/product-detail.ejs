@@ -71,10 +71,10 @@
         </div>
       </div>
       <div class="product-detail__description">
-        <h1>Tostado de jamón y queso</h1>
+        <h1> <%= search?.name %></h1>
         <p>Pan de semillas de masa madre, jamón cocido Las Dinas, queso gruyère y aceite de oliva Zuelo Orgánico.</p>
-        <p>Con papas fritas o mix de verdes hidropónicos.</p>
-        <p>$2.300</p>
+        <p><%= search?.description %></p>
+        <p> $ <%= search?.price  %></p>
         <p>Impuestos incluidos. <a href="#">Revisá acá los gastos de envío</a> que se agregarán en la pantalla de pagos.
         </p>
         <button class="product-detail__add-to-cart">Agregar al carrito</button>
@@ -94,18 +94,20 @@
     <section class="products">
       <h2 class="products__title">Quizá te gustaría agregar...</h2>
       <div class="products__container">
-        <div class="product">
+        <% data.forEach((product)=>{  %>
+          <div class="product">
+            <img src="/img/<%= product.img %>" alt="<%= product.name %>">
+            <p class="products__name"><%= product.name %></p>
+            <p class="products__price">$<%= product.price %></p>
+            <button class="product-detail__add-to-cart">Agregar al carrito</button>
+          </div>
+        <%  }) %>
+       <!--  <div class="product">
           <img src="/img/sandwich-de-jamon-crudo-y-burrata.webp" alt="sandwich de jamón crudo y burrata">
           <p class="products__name">Sandwich de jamón crudo y burrata</p>
           <p class="products__price">$1.450</p>
           <button class="product-detail__add-to-cart">Agregar al carrito</button>
-        </div>
-        <div class="product">
-          <img src="/img/sandwich-de-jamon-crudo-y-burrata.webp" alt="sandwich de jamón crudo y burrata">
-          <p class="products__name">Sandwich de jamón crudo y burrata</p>
-          <p class="products__price">$1.450</p>
-          <button class="product-detail__add-to-cart">Agregar al carrito</button>
-        </div>
+        </div> -->
       </div>
     </section>
   </main>
