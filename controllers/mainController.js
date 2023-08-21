@@ -1,5 +1,7 @@
 const products=require('../dataBase/products')
 
+const { cart } = require("../dataBase/cart");
+
 const mainController = {
   home: (req, res) => {
     res.render('home');
@@ -18,10 +20,10 @@ const mainController = {
     res.render('products/product-detail',{data: products, search:productSearch});
   },
   productsCart: (req, res) => {
-    res.render('products/products-cart');
+    res.render('products/products-cart', { cart });
   },
   redirect: (req, res) => {
-    res.redirect('home');
+    res.redirect('/');
   }
 }
 

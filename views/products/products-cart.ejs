@@ -70,58 +70,34 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="products-cart__product">
-              <a href="#" class="products-cart__product-detail-image">
-                <img class="products-cart__thumbnail-image" src="/img/tostado-de-jamon-y-queso.avif"
-                  alt="tostado de jamón y queso">
-              </a>
-              <div class="products-cart__product-container">
-                <a href="#" class="products-cart__product-detail-name">
-                  <p class="products-cart__product-name">Tostado de jamón y queso</p>
+          <% cart.forEach(item => { %>
+            <tr>
+              <td class="products-cart__product">
+                <a href="#" class="products-cart__product-detail-image">
+                  <img class="products-cart__thumbnail-image" src="/img/<%= item.image %>"
+                    alt="tostado de jamón y queso">
                 </a>
-                <p class="products-cart__product-description">Guarnición: Sin guarnición</p>
-                <button class="products-cart__product-remove">Quitar</button>
-              </div>
-            </td>
-            <td>
-              <input type="number" name="quantity" max="20" min="1" value="1" id="quantity">
-            </td>
-            <td>
-              <span>$2.300</span>
-              <div>
-                <label for="quantity">Cantidad</label>
+                <div class="products-cart__product-container">
+                  <a href="#" class="products-cart__product-detail-name">
+                    <p class="products-cart__product-name"><%= item.name %></p>
+                  </a>
+                  <p class="products-cart__product-description">Guarnición: <%= item.garnish %></p>
+                  <button class="products-cart__product-remove">Quitar</button>
+                </div>
+              </td>
+              <td>
                 <input type="number" name="quantity" max="20" min="1" value="1" id="quantity">
-              </div>
-            </td>
-            <td>$2.300</td>
-          </tr>
-          <tr>
-            <td class="products-cart__product">
-              <a href="#" class="products-cart__product-detail-image">
-                <img class="products-cart__thumbnail-image" src="/img/sandwich-de-jamon-crudo-y-burrata.webp"
-                  alt="tostado de jamón y queso">
-              </a>
-              <div class="products-cart__product-container">
-                <a href="#" class="products-cart__product-detail-name">
-                  <p class="products-cart__product-name">Sándwich de jamón crudo y burrata</p>
-                </a>
-                <p class="products-cart__product-description">Guarnición: Papas fritas</p>
-                <button class="products-cart__product-remove">Quitar</button>
-              </div>
-            </td>
-            <td>
-              <input type="number" name="quantity" max="20" min="1" value="1" id="quantity">
-            </td>
-            <td>
-              <span>$4.800</span>
-              <div>
-                <label for="quantity">Cantidad</label>
-                <input type="number" name="quantity" max="20" min="1" value="1" id="quantity">
-              </div>
-            </td>
-            <td>$4.800</td>
-          </tr>
+              </td>
+              <td>
+                <span>$<%= item.price %></span>
+                <div>
+                  <label for="quantity">Cantidad</label>
+                  <input type="number" name="quantity" max="20" min="1" value="1" id="quantity">
+                </div>
+              </td>
+              <td>$<%= item.price %></td>
+            </tr>
+          <%})%>
         </tbody>
       </table>
       <div>
@@ -150,7 +126,7 @@
   </main>
   <footer>
     <p>Copyright © 2023-2023 Sanwi</p>
-    </footer>
+  </footer>
 </body>
 
 </html>
