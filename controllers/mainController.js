@@ -21,6 +21,9 @@ const mainController = {
   },
   redirect: (req, res) => {
     res.redirect('/');
+  },
+  loadSandwich: (req, res) => {
+    res.render('load-sandwich');
   }
 }
 

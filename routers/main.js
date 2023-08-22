@@ -14,7 +14,9 @@ router.get('/product-detail', mainController.productDetail)
 
 router.get('/products-cart', mainController.productsCart)
 
-router.post(['/register', '/billing'], mainController.redirect)
+router.get('/load-sandwich', mainController.loadSandwich)
+
+router.post(['/register', '/billing', '/login', '/load-sandwich'], mainController.redirect)
 
 
 module.exports = { router } ;
