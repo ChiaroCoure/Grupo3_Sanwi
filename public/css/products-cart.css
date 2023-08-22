@@ -25,20 +25,24 @@ body {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 16px;
+  margin-top: 32px;
 }
 
 .products-cart__title {
   text-align: center;
   margin-bottom: 16px;
   color: var(--light-black);
+  font-size: 32px;
 }
 
 .products-cart__link {
   color: var(--light-black);
   display: block;
-  text-align: center;
   margin-bottom: 16px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid var(--light-black);
 }
 
 .products-cart__table {
@@ -184,9 +188,11 @@ body {
 
 .products-cart__subtotal~p a {
   color: var(--black);
+  font-size: 12px;
+  border-bottom: 1px solid var(--light-black);
 }
 
-.products-cart__container form button[type="button"] {
+.products-cart__container form button[type="submit"] {
   display: block;
   width: 100%;
   background-color: var(--orange);
@@ -226,7 +232,7 @@ body {
     width: 40%;
   }
 
-  .products-cart__container form button[type="button"] {
+  .products-cart__container form button[type="submit"] {
     width: 40%;
   }
 }
@@ -297,9 +303,8 @@ body {
     text-align: initial;
   }
 
-  .products-cart__container form button[type="button"]:hover {
+  .products-cart__container form button[type="submit"]:hover {
     cursor: pointer;
-    background-color: var(--red);    
+    background-color: var(--red);
   }
-
 }

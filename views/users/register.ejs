@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <%- include('../partials/head.ejs') %>
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('../partials/header.ejs') %>
+    <main>
+      <div class="register__form">
+        <img src="/img/logo.png" alt="sanwi">
+        <form action="/register" method="post">
+          <h1>REGISTRARSE</h1>
+          <div class="register__fields">
+          <label for="user">Nombre de usuario</label>
+          <input type="text" name="username" id="user" placeholder="Nombre" required/>
+        
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" placeholder="Email" required/>
+
+          <label for="password">Contraseña</label>
+          <input type="password" name="pass" id="password" placeholder="Contraseña" required />
+
+          <label for="password1">Confirmar Contraseña</label>
+          <input type="password" name="pass" id="password1" placeholder="Confirmar Contraseña" required />
+        </div>
+
+        <div class="register__terms">
+          <input type="radio" name="estudio" id="termino" value="Acepto terminos y condiciones" required />
+          <label for="termino" >Acepto terminos y condiciones</label>
+        </div>
+        <br>
+        <div class="register__button">
+          <button type="reset">Cancelar</button>
+          <button type="submit">Crear cuenta</button>
+        </div>
+      </form>
+      </div>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>
