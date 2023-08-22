@@ -1,5 +1,4 @@
-const products=require('../dataBase/products')
-
+const products = require('../dataBase/products');
 const { cart } = require("../dataBase/cart");
 
 const mainController = {

@@ -192,7 +192,7 @@ body {
   border-bottom: 1px solid var(--light-black);
 }
 
-.products-cart__container form button[type="button"] {
+.products-cart__container form button[type="submit"] {
   display: block;
   width: 100%;
   background-color: var(--orange);
@@ -232,7 +232,7 @@ body {
     width: 40%;
   }
 
-  .products-cart__container form button[type="button"] {
+  .products-cart__container form button[type="submit"] {
     width: 40%;
   }
 }
@@ -303,7 +303,7 @@ body {
     text-align: initial;
   }
 
-  .products-cart__container form button[type="button"]:hover {
+  .products-cart__container form button[type="submit"]:hover {
     cursor: pointer;
     background-color: var(--red);
   }

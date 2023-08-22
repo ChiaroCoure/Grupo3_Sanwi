@@ -6,121 +6,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/products-cart.css">
   <%- include('../partials/head.ejs') %>
-  <title>Mi carrito de compras</title>
+    <title>Mi carrito de compras</title>
 </head>
 
 <body>
-  <header>
-    <div class="home-caja-suprema">
-        <div class="home-caja1">
-            <img src="img/logo.png" alt="logo en proceso">
-            <div class="home-caja2">
-                <h1>SANWI</h1>
-                <p>Los mejores sandwiches del pueblo</p>
-            </div>
-        </div>
-        <div class="home-menu-hamburguesa-no-tan-hamburguesa">
-            <i class="fas fa-th-list"></i>
-        </div>
-        <div class="home-caja3">
-            <div class="home-form">
-                <form action="/" method="post">
-                    <i class="fas fa-search"></i>
-                    <input type="search" placeholder="Lomitos, Hamburguesas, Milanesas, etc.." name="buscador" id="buscador">
-                </form>
-            </div>
-        </div>
-    </div>
-    <nav>
-        <ul>
-            <li>
-                <a href="/">Inicio</a>
-            </li>
-            <li>
-                <a href="product-detail">Productos</a>
-            </li>
-            <li>
-                <a href="login">Iniciar Sesión</a>
-            </li>
-            <li>
-                <a href="register">Registro</a>
-            </li>
-        </ul>
-        <div class="home-carrito">
-            <i class="fas fa-shopping-cart"></i>
-            <i class="fas fa-sort-down"></i>
-        </div>
-    </nav>
-</header>
-  <main class="products-cart__container">
-    <h1 class="products-cart__title">Carrito de compra</h1>
-    <a href="#" class="products-cart__link">Seguir comprando</a>
-    <form>
-      <table class="products-cart__table">
-        <thead>
-          <tr>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Precio</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% cart.forEach(item => { %>
+
+  <%- include('../partials/header.ejs') %>
+
+    <main class="products-cart__container">
+      <h1 class="products-cart__title">Carrito de compra</h1>
+      <a href="#" class="products-cart__link">Seguir comprando</a>
+      <form method="get" action="/billing">
+        <table class="products-cart__table">
+          <thead>
             <tr>
-              <td class="products-cart__product">
-                <a href="#" class="products-cart__product-detail-image">
-                  <img class="products-cart__thumbnail-image" src="/img/<%= item.image %>"
-                    alt="tostado de jamón y queso">
-                </a>
-                <div class="products-cart__product-container">
-                  <a href="#" class="products-cart__product-detail-name">
-                    <p class="products-cart__product-name"><%= item.name %></p>
-                  </a>
-                  <p class="products-cart__product-description">Guarnición: <%= item.garnish %></p>
-                  <button class="products-cart__product-remove">Quitar</button>
-                </div>
-              </td>
-              <td>
-                <input type="number" name="quantity" max="20" min="1" value="1" id="quantity">
-              </td>
-              <td>
-                <span>$<%= item.price %></span>
-                <div>
-                  <label for="quantity">Cantidad</label>
-                  <input type="number" name="quantity" max="20" min="1" value="1" id="quantity">
-                </div>
-              </td>
-              <td>$<%= item.price %></td>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+              <th>Total</th>
             </tr>
-          <%})%>
-        </tbody>
-      </table>
-      <div>
+          </thead>
+          <tbody>
+            <% cart.forEach(item=> { %>
+              <tr>
+                <td class="products-cart__product">
+                  <a href="#" class="products-cart__product-detail-image">
+                    <img class="products-cart__thumbnail-image" src="/img/<%= item.image %>"
+                      alt="tostado de jamón y queso">
+                  </a>
+                  <div class="products-cart__product-container">
+                    <a href="#" class="products-cart__product-detail-name">
+                      <p class="products-cart__product-name">
+                        <%= item.name %>
+                      </p>
+                    </a>
+                    <p class="products-cart__product-description">Guarnición: <%= item.garnish %>
+                    </p>
+                    <button class="products-cart__product-remove">Quitar</button>
+                  </div>
+                </td>
+                <td>
+                  <input type="number" name="quantity" max="20" min="1" value="1" id="quantity">
+                </td>
+                <td>
+                  <span>$<%= item.price %></span>
+                  <div>
+                    <label for="quantity">Cantidad</label>
+                    <input type="number" name="quantity" max="20" min="1" value="1" id="quantity">
+                  </div>
+                </td>
+                <td>$<%= item.price %>
+                </td>
+              </tr>
+              <%})%>
+          </tbody>
+        </table>
         <div>
-          <label class="products-cart__date-of-delivery-or-takeout" for="date-of-delivery/takeout">¿Fecha de
-            delivery/takeout?</label>
-          <span class="products-cart__datepicker-toggle">
-            <span class="products-cart__datepicker-toggle-button"></span>
-            <input type="date" min="2023-07-26">
-          </span>
+          <div>
+            <label class="products-cart__date-of-delivery-or-takeout" for="date-of-delivery/takeout">¿Fecha de
+              delivery/takeout?</label>
+            <span class="products-cart__datepicker-toggle">
+              <span class="products-cart__datepicker-toggle-button"></span>
+              <input type="date" min="2023-07-26">
+            </span>
+          </div>
+          <div>
+            <label for="note" class="products-cart__note">¿Querés agregar una nota a tu pedido? ¿Querés enviar un
+              mensaje
+              de regalo?</label>
+            <textarea name="note" id="note" rows="3"></textarea>
+          </div>
         </div>
-        <div>
-          <label for="note" class="products-cart__note">¿Querés agregar una nota a tu pedido? ¿Querés enviar un mensaje
-            de regalo?</label>
-          <textarea name="note" id="note" rows="3"></textarea>
+        <div class="products-cart__subtotal">
+          <p>Subtotal</p>
+          <span>$7.100 ARS</span>
         </div>
-      </div>
-      <div class="products-cart__subtotal">
-        <p>Subtotal</p>
-        <span>$7.100 ARS</span>
-      </div>
-      <p>Impuestos incluidos. <a href="#">Revisá acá los gastos de envío</a> que se agregarán en la pantalla de pagos.
-      </p>
-      <button type="button">Continuar</button>
-    </form>
-  </main>
-  <%- include('../partials/footer.ejs') %>
+        <p>Impuestos incluidos. <a href="#">Revisá acá los gastos de envío</a> que se agregarán en la pantalla de pagos.
+        </p>
+        <button type="submit">Continuar</button>
+      </form>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+
 </body>
 
 </html>
