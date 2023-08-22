@@ -5,53 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/form.css" />
+    <%- include('./partials/head.ejs') %>
     <title>Document</title>
 </head>
 
 <body>
-    <header>
-        <div class="home-caja-suprema">
-            <div class="home-caja1">
-                <img src="img/logo.png" alt="logo en proceso">
-                <div class="home-caja2">
-                    <h1>SANWI</h1>
-                    <p>Los mejores sandwiches del pueblo</p>
-                </div>
-            </div>
-            <div class="home-menu-hamburguesa-no-tan-hamburguesa">
-                <i class="fas fa-th-list"></i>
-            </div>
-            <div class="home-caja3">
-                <div class="home-form">
-                    <form action="/" method="post">
-                        <i class="fas fa-search"></i>
-                        <input type="search" placeholder="Lomitos, Hamburguesas, Milanesas, etc.." name="buscador"
-                            id="buscador">
-                    </form>
-                </div>
-            </div>
-        </div>
-        <nav>
-            <ul>
-                <li>
-                    <a href="/">Inicio</a>
-                </li>
-                <li>
-                    <a href="product-detail">Productos</a>
-                </li>
-                <li>
-                    <a href="login">Iniciar Sesión</a>
-                </li>
-                <li>
-                    <a href="register">Registro</a>
-                </li>
-            </ul>
-            <div class="home-carrito">
-                <i class="fas fa-shopping-cart"></i>
-                <i class="fas fa-sort-down"></i>
-            </div>
-        </nav>
-    </header>
+    <%- include('./partials/header.ejs') %>
     <main>
         <h1>DATOS DE FACTURACIÓN</h1>
         <h3>Se utilizarán estos datos para enviar tu pedido</h3>
@@ -94,9 +53,7 @@
 
         </div>
     </main>
-    <footer>
-        <p>Copyright © 2023-2023 Sanwi</p>
-    </footer>
+    <%- include('./partials/footer.ejs') %>
 </body>
 
 </html>
