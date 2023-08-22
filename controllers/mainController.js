@@ -1,4 +1,6 @@
-const { cart } = require("../data/cart");
+const products=require('../dataBase/products')
+
+const { cart } = require("../dataBase/cart");
 
 const mainController = {
   home: (req, res) => {
@@ -14,7 +16,8 @@ const mainController = {
     res.render('billing');
   },
   productDetail: (req, res) => {
-    res.render('products/product-detail');
+    const productSearch = products.find((product)=> product.id === req.params.id)
+    res.render('products/product-detail',{data: products, search:productSearch});
   },
   productsCart: (req, res) => {
     res.render('products/products-cart', { cart });

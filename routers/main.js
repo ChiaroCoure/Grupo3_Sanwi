@@ -10,7 +10,7 @@ router.get('/register', mainController.register)
 
 router.get('/billing', mainController.billing)
 
-router.get('/product-detail', mainController.productDetail)
+router.get('/product-detail/:id', mainController.productDetail)
 
 router.get('/products-cart', mainController.productsCart)
 
