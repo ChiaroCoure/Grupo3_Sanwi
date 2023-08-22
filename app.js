@@ -38,3 +38,10 @@ app.get('/product-detail', (req, res) => {
 app.get('/products-cart', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/products-cart.html'))
 })
+
+app.get('/load-sandwich', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/load-sandwich.html'))
+})
+app.post('/load-sandwich',  (req,  res) =>{
+    res.redirect('/');
+})
