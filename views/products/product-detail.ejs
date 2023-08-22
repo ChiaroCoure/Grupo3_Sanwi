@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="/css/product-detail.css">
+  <link rel="stylesheet" href="/css/product-detail.css">  
   <%- include('../partials/head.ejs') %>
   <title>Detalle del sandwich</title>
 </head>
@@ -15,13 +15,13 @@
   <main>
     <section class="product-detail">
       <div class="product-detail__images">
-        <img class="product-detail__default-image" src="/img/tostado-de-jamon-y-queso.avif" alt="tostado de jamón y queso">
+        <img class="product-detail__default-image" src="/img/tostado-de-jamon-y-queso.jpg" alt="tostado de jamón y queso">
         <div class="product-detail__thumbnail-images">
-          <img class="product-detail__thumbnail-image" src="/img/tostado-de-jamon-y-queso.avif"
+          <img class="product-detail__thumbnail-image" src="/img/tostado-de-jamon-y-queso.jpg"
             alt="tostado de jamón y queso">
-          <img class="product-detail__thumbnail-image" src="/img/tostado-de-jamon-y-queso.avif"
+          <img class="product-detail__thumbnail-image" src="/img/tostado-de-jamon-y-queso.jpg"
             alt="tostado de jamón y queso">
-          <img class="product-detail__thumbnail-image" src="/img/tostado-de-jamon-y-queso.avif"
+          <img class="product-detail__thumbnail-image" src="/img/tostado-de-jamon-y-queso.jpg"
             alt="tostado de jamón y queso">
         </div>
       </div>
@@ -56,13 +56,7 @@
             <p class="products__price">$<%= product.price %></p>
             <button class="product-detail__add-to-cart">Agregar al carrito</button>
           </div>
-        <%  }) %>
-        <!--  <div class="product">
-          <img src="/img/sandwich-de-jamon-crudo-y-burrata.webp" alt="sandwich de jamón crudo y burrata">
-          <p class="products__name">Sandwich de jamón crudo y burrata</p>
-          <p class="products__price">$1.450</p>
-          <button class="product-detail__add-to-cart">Agregar al carrito</button>
-        </div> -->
+        <%  }) %>        
       </div>
     </section>
   </main>
