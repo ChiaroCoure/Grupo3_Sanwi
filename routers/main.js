@@ -10,12 +10,6 @@ router.get('/register', mainController.register)
 
 router.get('/billing', mainController.billing)
 
-router.get('/product-detail/:id', mainController.productDetail)
+router.post(['/register', '/billing', '/login'], mainController.redirect)
 
-router.get('/products-cart', mainController.productsCart)
-
-router.get('/load-sandwich', mainController.loadSandwich)
-
-router.post(['/register', '/billing', '/login', '/load-sandwich'], mainController.redirect)
-
-module.exports = { router }
+module.exports = router
