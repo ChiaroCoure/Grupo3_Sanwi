@@ -19,21 +19,21 @@
     <main>
       <section class="product-detail">
         <div class="product-detail__images">
-          <img class="product-detail__default-image" src="/img/<%= search.img %>"
+          <img class="product-detail__default-image" src="/img/<%= productSearch?.img %>"
             alt="tostado de jamón y queso">
           <div class="product-detail__thumbnail-images">
-            <img class="product-detail__thumbnail-image" src="/img/<%= search.img %>"
+            <img class="product-detail__thumbnail-image" src="/img/<%= productSearch?.img %>"
               alt="tostado de jamón y queso">
-            <img class="product-detail__thumbnail-image" src="/img/<%= search.img %>"
+            <img class="product-detail__thumbnail-image" src="/img/<%= productSearch?.img %>"
               alt="tostado de jamón y queso">
-            <img class="product-detail__thumbnail-image" src="/img/<%= search.img %>"
+            <img class="product-detail__thumbnail-image" src="/img/<%= productSearch?.img %>"
               alt="tostado de jamón y queso">
           </div>
         </div>
         <div class="product-detail__description">
-          <h1> <%= search?.name %> </h1>
-          <p> <%= search?.description %> </p>
-          <p> $ <%= search?.price %> </p>
+          <h1> <%= productSearch?.name %> </h1>
+          <p> <%= productSearch?.description %> </p>
+          <p> $ <%= productSearch?.price %> </p>
           <p>Impuestos incluidos. <a href="#" class="ancor">Revisá acá los gastos de envío</a> que se agregarán en la pantalla de
             pagos.
           </p>
@@ -43,10 +43,16 @@
               <img class="product-detail__icon" src="/img/icons/pen-to-square.svg" alt="pen to square">
               <span>Editar</span>
             </button>
-            <button class="product-detail__btn-delete">
-              <img class="product-detail__icon" src="/img/icons/trash.svg" alt="pen to square">
-              <span>Eliminar</span>
-            </button>
+            <form 
+              class="product-detail__form-delete"
+							action="/products/delete/<%= productSearch?.id %>?_method=DELETE" 
+							method="POST" 							
+						>
+              <button class="product-detail__btn-delete" type="submit">
+                <img class="product-detail__icon" src="/img/icons/trash.svg" alt="pen to square">
+                <span>Eliminar</span>
+              </button>
+          </form>
           </div>
           <div class="product-detail__btn-container">
             <button class="product-detail__social-media-btn">
@@ -64,8 +70,8 @@
       <section class="products">
         <h2 class="products__title">Quizá te gustaría agregar...</h2>
         <div class="products__container">
-          <% data.forEach((product)=>{ %>
-            <%if(product.id !== search?.id){ %>
+          <% products.forEach((product)=>{ %>
+            <%if(product.id !== productSearch?.id){ %>
               <div class="product">
                 <img class="product_image" src="/img/<%= product.img %>" alt="<%= product.name %>">
                 <p class="product__name">

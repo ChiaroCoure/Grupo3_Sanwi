@@ -237,6 +237,10 @@ button {
     font-size: 24px;
   }
 
+  .product-detail__form-delete {
+    width: 100%;
+  }
+
   .product-detail__btn-actions {
     display: flex;
     gap: 16px;
@@ -245,5 +249,12 @@ button {
   .product-detail__btn-edit,
   .product-detail__btn-delete {  
     cursor: pointer;
+    transition: transform 0.2s;
+    will-change: transform;
+  }
+
+  .product-detail__btn-edit:hover,
+  .product-detail__btn-delete:hover {  
+    transform: scale(1.05);
   }
 }
