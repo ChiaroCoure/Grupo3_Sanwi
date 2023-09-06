@@ -1,3 +1,8 @@
-a{
-    color: black;
+.list-tarjeta a{
+    display: flex;
+    margin: 20px 10%;
+    height: 370px;
+}
+.list-tarjeta img{
+    height: 90%;
 }
