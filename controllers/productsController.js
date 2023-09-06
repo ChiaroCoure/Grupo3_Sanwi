@@ -25,6 +25,30 @@ const productsController = {
     res.render('products', { products: parsedProducts })
 
   },
+  productEdit: (req, res) => {
+    const { id } = req.params;
+
+    const productSearch = products.find((product) => product.id === id);
+
+    res.render('products/product-edit-form', { product: productSearch });
+  
+  },
+  productUpdate: (req, res) => {
+    const { id } = req.params;
+    const { body } = req;
+
+    const indexProduct = products.findIndex((product) => product.id === id);
+
+    products[indexProduct] = {
+      id: products[indexProduct].id,
+      ...body
+    }
+
+    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+
+    res.render('products');
+  
+  },
   productsCart: (req, res) => {
     res.render('products/products-cart', { cart });
   },

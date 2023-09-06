@@ -4,6 +4,9 @@ const router = express.Router();
 
 router.get('/detail/:id', productsController.productDetail)
 
+router.get('/edit/:id', productsController.productEdit)
+router.put('/edit/:id', productsController.productUpdate)
+
 router.delete('/delete/:id', productsController.deleteProduct)
 
 router.get('/products-cart', productsController.productsCart)

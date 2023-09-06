@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/load-sandwich.css">
+  <%- include('../partials/head.ejs') %>
+    <title>Formulario de edición</title>
+</head>
+
+<body>
+  <%- include('../partials/header.ejs') %>
+
+    <div class="load-container">
+      <form action="/products/edit/<%= product.id %>?_method=PUT" method="post" class="load-form">
+        <div class="load-input-container">
+          <label for="image" class="load-label">Imagen del Sandwich (png, jpg, jpeg):</label>
+          <input type="file" id="image" name="image" accept="image/png, image/jpeg" class="load-input">
+        </div>
+        <div class="load-input-container">
+          <label for="name" class="load-label">Nombre del Sandwich:</label>
+          <input 
+            type="text" id="name" name="name" class="load-input" placeholder="Ej: Sandwich de Pollo"
+            value="<%= product.name %>"
+          >
+        </div>
+        <div class="load-input-container">
+          <label for="type" class="load-label">Tipo de Sandwich:</label>
+          <select id="type" name="type" class="load-input">
+            <option value="lomito">Lomito</option>
+            <option value="milanesa">Milanesa</option>
+            <option value="hamburguesa">Hamburguesa</option>
+            <option value="sandwich de miga">Sandwich de Miga</option>
+            <option value="otros">Otros</option>
+          </select>
+        </div>
+        <div class="load-input-container">
+          <label for="price" class="load-label">Precio del Sandwich:</label>
+          <input 
+            type="number" id="price" name="price" min="300" max="9000" class="load-input" placeholder="Ej: 5"
+            value="<%= product.price %>"
+          >
+        </div>
+        <div class="load-input-container">
+          <label for="description" class="load-label">Descripción del Sandwich:</label>
+          <textarea id="description" name="description" rows="4" class="load-textarea"
+            placeholder="Ej: Un delicioso sandwich de pollo con vegetales y aderezos"
+            value="<%= product.description %>"
+            >
+          </textarea>
+        </div>
+        <button type="submit" class="load-submit-cargar">Guardar Sandwich</button>
+      </form>
+    </div>
+
+    <%- include('../partials/footer.ejs') %>
+</html>

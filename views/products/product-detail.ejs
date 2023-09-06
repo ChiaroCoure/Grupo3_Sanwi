@@ -38,11 +38,11 @@
             pagos.
           </p>
           <button class="product-detail__add-to-cart">Agregar al carrito</button>
-          <div class="product-detail__btn-actions">
-            <button class="product-detail__btn-edit">
+          <div class="product-detail__actions">
+            <a class="product-detail__ancor-edit" href="/products/edit/<%= productSearch.id %>" >
               <img class="product-detail__icon" src="/img/icons/pen-to-square.svg" alt="pen to square">
               <span>Editar</span>
-            </button>
+            </a>
             <form 
               class="product-detail__form-delete"
 							action="/products/delete/<%= productSearch?.id %>?_method=DELETE" 

@@ -93,7 +93,7 @@ button {
   cursor: pointer;  
 }
 
-.product-detail__btn-edit,
+.product-detail__ancor-edit,
 .product-detail__btn-delete {  
   margin-top: 16px;
   display: flex;
@@ -105,9 +105,17 @@ button {
   font-weight: 700;
 }
 
-.product-detail__btn-edit span,
+.product-detail__ancor-edit span,
 .product-detail__btn-delete span {
   font-size: 14px;
+}
+
+.product-detail__ancor-edit span{
+  color: var(--black);  
+}
+
+.product-detail__ancor-edit {
+  border: 1px solid var(--gray);
 }
 
 .product-detail__btn-delete {
@@ -241,19 +249,19 @@ button {
     width: 100%;
   }
 
-  .product-detail__btn-actions {
+  .product-detail__actions {
     display: flex;
     gap: 16px;
   }
   
-  .product-detail__btn-edit,
+  .product-detail__ancor-edit,
   .product-detail__btn-delete {  
     cursor: pointer;
     transition: transform 0.2s;
     will-change: transform;
   }
 
-  .product-detail__btn-edit:hover,
+  .product-detail__ancor-edit:hover,
   .product-detail__btn-delete:hover {  
     transform: scale(1.05);
   }

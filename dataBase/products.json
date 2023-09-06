@@ -8,10 +8,11 @@
   },
   {
     "id": "2",
+    "image": "",
     "name": "Sándwich de pollo grillado",
-    "description": "Pan de semillas de masa madre, pollo grillado, gruyère, panceta crispy, cebolla caramelizada, palta pisada, tomate perita, lechuga morada hidropónica y alioli de jalapeños.Con papas fritas o mix de verdes hidropónicos.",
-    "price": 5500,
-    "img": "sandwich-de-pollo-grillado.jpg"
+    "type": "lomito",
+    "price": "5500",
+    "description": "          "
   },
   {
     "id": "3",
