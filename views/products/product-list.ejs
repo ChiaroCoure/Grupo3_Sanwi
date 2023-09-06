@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/product-list.css"> 
+    <%- include('../partials/head.ejs') %>
+        <title>Document</title>
+</head>
+
+<body>
+    <%- include('../partials/header.ejs') %>
+        <main>
+            <% ofertas.forEach((prod)=> { %>
+                <img src="img/<%=prod.img%>" alt="<%=prod.name%>">
+                <% }) %>
+                    <% productos.forEach((prod)=> {%>
+                        <div class="list-tarjeta">
+                            <a href="<% prod.id %>">
+                                <img src="img/<%=prod.img%>" alt="">
+                                <div class="list-text-container">
+                                    <h3>
+                                        <%= prod.name %>
+                                    </h3>
+                                    <p>
+                                        <%= prod.price %>
+                                    </p>
+                                    <p>
+                                        <%= prod.description %>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <% }) %>
+        </main>
+        <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>
