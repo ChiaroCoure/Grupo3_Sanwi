@@ -1,71 +1,88 @@
 <!DOCTYPE html>
 <html lang="es">
-  
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="/css/product-detail.css">  
+  <link rel="stylesheet" href="/css/product-detail.css">
   <%- include('../partials/head.ejs') %>
-  <title>Detalle del sandwich</title>
+    <title>Detalle del sandwich</title>
 </head>
 
 <body>
 
   <%- include('../partials/header.ejs') %>
 
-  <main>
-    <section class="product-detail">
-      <div class="product-detail__images">
-        <img class="product-detail__default-image" src="/img/tostado-de-jamon-y-queso.jpg" alt="tostado de jamón y queso">
-        <div class="product-detail__thumbnail-images">
-          <img class="product-detail__thumbnail-image" src="/img/tostado-de-jamon-y-queso.jpg"
+    <main>
+      <section class="product-detail">
+        <div class="product-detail__images">
+          <img class="product-detail__default-image" src="/img/<%= search.img %>"
             alt="tostado de jamón y queso">
-          <img class="product-detail__thumbnail-image" src="/img/tostado-de-jamon-y-queso.jpg"
-            alt="tostado de jamón y queso">
-          <img class="product-detail__thumbnail-image" src="/img/tostado-de-jamon-y-queso.jpg"
-            alt="tostado de jamón y queso">
-        </div>
-      </div>
-      <div class="product-detail__description">
-        <h1> <%= search?.name %></h1>
-        <p>Pan de semillas de masa madre, jamón cocido Las Dinas, queso gruyère y aceite de oliva Zuelo Orgánico.</p>
-        <p><%= search?.description %></p>
-        <p> $ <%= search?.price  %></p>
-        <p>Impuestos incluidos. <a href="#">Revisá acá los gastos de envío</a> que se agregarán en la pantalla de pagos.
-        </p>
-        <button class="product-detail__add-to-cart">Agregar al carrito</button>
-        <div class="product-detail__btn-container">
-          <button class="product-detail__social-media-btn">
-            <img class="product-detail__icon" src="/img/icons/square-facebook.svg" alt="facebook">
-            Compartir
-          </button>
-          <button class="product-detail__social-media-btn">
-            <img class="product-detail__icon" src="/img/icons/square-x-twitter.svg" alt="x twitter">
-            Tuitear
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <section class="products">
-      <h2 class="products__title">Quizá te gustaría agregar...</h2>
-      <div class="products__container">
-        <% data.forEach((product)=>{  %>
-          <div class="product">
-            <img src="/img/<%= product.img %>" alt="<%= product.name %>">
-            <p class="products__name"><%= product.name %></p>
-            <p class="products__price">$<%= product.price %></p>
-            <button class="product-detail__add-to-cart">Agregar al carrito</button>
+          <div class="product-detail__thumbnail-images">
+            <img class="product-detail__thumbnail-image" src="/img/<%= search.img %>"
+              alt="tostado de jamón y queso">
+            <img class="product-detail__thumbnail-image" src="/img/<%= search.img %>"
+              alt="tostado de jamón y queso">
+            <img class="product-detail__thumbnail-image" src="/img/<%= search.img %>"
+              alt="tostado de jamón y queso">
           </div>
-        <%  }) %>        
-      </div>
-    </section>
-  </main>
+        </div>
+        <div class="product-detail__description">
+          <h1> <%= search?.name %> </h1>
+          <p> <%= search?.description %> </p>
+          <p> $ <%= search?.price %> </p>
+          <p>Impuestos incluidos. <a href="#" class="ancor">Revisá acá los gastos de envío</a> que se agregarán en la pantalla de
+            pagos.
+          </p>
+          <button class="product-detail__add-to-cart">Agregar al carrito</button>
+          <div class="product-detail__btn-actions">
+            <button class="product-detail__btn-edit">
+              <img class="product-detail__icon" src="/img/icons/pen-to-square.svg" alt="pen to square">
+              <span>Editar</span>
+            </button>
+            <button class="product-detail__btn-delete">
+              <img class="product-detail__icon" src="/img/icons/trash.svg" alt="pen to square">
+              <span>Eliminar</span>
+            </button>
+          </div>
+          <div class="product-detail__btn-container">
+            <button class="product-detail__social-media-btn">
+              <img class="product-detail__icon" src="/img/icons/square-facebook.svg" alt="facebook">
+              Compartir
+            </button>
+            <button class="product-detail__social-media-btn">
+              <img class="product-detail__icon" src="/img/icons/square-x-twitter.svg" alt="x twitter">
+              Tuitear
+            </button>
+          </div>
+        </div>
+      </section>
 
-  <%- include('../partials/footer.ejs') %>
+      <section class="products">
+        <h2 class="products__title">Quizá te gustaría agregar...</h2>
+        <div class="products__container">
+          <% data.forEach((product)=>{ %>
+            <%if(product.id !== search?.id){ %>
+              <div class="product">
+                <img class="product_image" src="/img/<%= product.img %>" alt="<%= product.name %>">
+                <p class="product__name">
+                  <%= product.name %>
+                </p>
+                <p class="product__price">$<%= product.price %>
+                </p>
+                <button class="product-detail__add-to-cart">Agregar al carrito</button>
+              </div>
+            <%}%>
+          <% }) %>
+        </div>
+      </section>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
 
 </body>
+
 </html>
