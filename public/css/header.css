@@ -7,6 +7,10 @@
     font-family: Cocogoose;
     src: url("/font/Cocogoose Pro-trial.ttf");
 }
+@font-face {
+    font-family: Akira;
+    src: url("/font/Akira Expanded Demo.otf");
+}
 
 * {
     padding: 0;
