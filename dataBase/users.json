@@ -1,7 +1,7 @@
 [
     {
         "id": "1",
-        "username": "Karen",        
+        "username": "Karen",
         "email": "karenperez@gmail.com",
         "password": "1234A",
         "role": "usuario",
@@ -22,5 +22,12 @@
         "password": "1234C",
         "role": "usuario",
         "image": "user3.png"
+    },
+    {
+        "id": "1694089766305",
+        "username": "alumno",
+        "email": "prueba@gmail.com",
+        "password": "12345",
+        "image": "perfile-1694089766294.png"
     }
 ]
