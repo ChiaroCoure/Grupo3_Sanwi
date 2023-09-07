@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "username": "Karen",        
+        "email": "karenperez@gmail.com",
+        "password": "1234A",
+        "role": "usuario",
+        "image": "user1.png"
+    },
+    {
+        "id": "2",
+        "username": "Federico",
+        "email": "federicoperez@gmail.com",
+        "password": "1234B",
+        "role": "usuario",
+        "image": "user2.png"
+    },
+    {
+        "id": "3",
+        "username": "Oscar",
+        "email": "oscarperez@gmail.com",
+        "password": "1234C",
+        "role": "usuario",
+        "image": "user3.png"
+    }
+]
