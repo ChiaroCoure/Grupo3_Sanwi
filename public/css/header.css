@@ -7,6 +7,10 @@
     font-family: Cocogoose;
     src: url("/font/Cocogoose Pro-trial.ttf");
 }
+@font-face {
+    font-family: Akira;
+    src: url("/font/Akira Expanded Demo.otf");
+}
 
 * {
     padding: 0;
@@ -109,7 +113,7 @@ nav ul li:hover{
     background-color: #e77c39;
 }
 
-a{
+nav a{
     text-decoration: none;
     color: #fff;
 }
