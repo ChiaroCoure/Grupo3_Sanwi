@@ -1,0 +1,33 @@
+[
+    {
+        "id": "1",
+        "username": "Karen",
+        "email": "karenperez@gmail.com",
+        "password": "1234A",
+        "role": "usuario",
+        "image": "user1.png"
+    },
+    {
+        "id": "2",
+        "username": "Federico",
+        "email": "federicoperez@gmail.com",
+        "password": "1234B",
+        "role": "usuario",
+        "image": "user2.png"
+    },
+    {
+        "id": "3",
+        "username": "Oscar",
+        "email": "oscarperez@gmail.com",
+        "password": "1234C",
+        "role": "usuario",
+        "image": "user3.png"
+    },
+    {
+        "id": "1694089766305",
+        "username": "alumno",
+        "email": "prueba@gmail.com",
+        "password": "12345",
+        "image": "perfile-1694089766294.png"
+    }
+]

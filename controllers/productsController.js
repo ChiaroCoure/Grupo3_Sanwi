@@ -49,6 +49,14 @@ const productsController = {
     res.render('products');
   
   },
+  productList: (req, res) => {
+    const product = products;
+    const discounProduct = products.filter((product) => product.discount>0)
+    res.render('products/product-list', {
+      productos : product,
+      ofertas : discounProduct
+    });
+  },
   productsCart: (req, res) => {
     res.render('products/products-cart', { cart });
   },
