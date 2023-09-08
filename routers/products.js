@@ -8,7 +8,7 @@ router.get('/products-cart', productsController.productsCart)
 
 router.get('/load-sandwich', productsController.loadSandwich)
 
-router.get('/product-list', mainController.productList)
+router.get('/product-list', productController.productList)
 
 router.post(['/load-sandwich'], productsController.redirect)
 
