@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { cart } = require("../dataBase/cart");
-const products = require("../dataBase/products");
+const products = require("../dataBase/products.json");
 
 const productsFilePath = path.join(__dirname, '..', 'dataBase', 'products.json');
 
@@ -22,7 +21,12 @@ const productsController = {
 
     const parsedProducts = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-    res.render('products', { products: parsedProducts })
+    const productsWithDiscount = parsedProducts.filter((product) => product.discount > 0)
+
+    res.render('products/product-list', {
+      products: parsedProducts,
+      offers: productsWithDiscount  
+    })
 
   },
   productEdit: (req, res) => {
@@ -35,36 +39,43 @@ const productsController = {
   },
   productUpdate: (req, res) => {
     const { id } = req.params;
-    const { body } = req;
+    const { body: { name, price, description} } = req;
 
     const indexProduct = products.findIndex((product) => product.id === id);
 
     products[indexProduct] = {
-      id: products[indexProduct].id,
-      ...body
+      ...products[indexProduct],
+      name,
+      price,
+      description    
     }
 
     fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
 
-    res.render('products');
+    const parsedProducts = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+    const productsWithDiscount = parsedProducts.filter((product) => product.discount > 0)
+
+    res.render('products/product-list', {
+      products: parsedProducts,
+      offers: productsWithDiscount  
+    })
   
   },
   productList: (req, res) => {
-    const product = products;
-    const discounProduct = products.filter((product) => product.discount>0)
+
+    const productsWithDiscount = products.filter((product) => product.discount > 0)
+
     res.render('products/product-list', {
-      productos : product,
-      ofertas : discounProduct
+      products,
+      offers : productsWithDiscount
     });
-  },
-  productsCart: (req, res) => {
-    res.render('products/products-cart', { cart });
   },
   redirect: (req, res) => {
     res.redirect('/');
   },
   loadSandwich: (req, res) => {
-    res.render('load-sandwich');
+    res.render('products/product-create-form');
   }
 }
 

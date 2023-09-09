@@ -1,50 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/product-list.css"> 
-    <%- include('../partials/head.ejs') %>
-        <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/product-list.css">
+  <%- include('../partials/head.ejs') %>
+    <title>Sandwichs</title>
 </head>
 
 <body>
-    <%- include('../partials/header.ejs') %>
-        <main>
-            <div class="list-ofertas">
-                <h2>OFERTAS DEL DIA</h2>
-                <div class="list-tarjetas-container">
-                    <% ofertas.forEach((prod)=> { %>
-                        <div class="list-img-container">
-                            <div class="list-capa-oscura"></div>
-                            <img src="img/<%=prod.img%>" alt="<%=prod.name%>">
-                        </div>
-                    <% }) %>
-                </div>
+  <%- include('../partials/header.ejs') %>
+    <main>
+      <div class="list-ofertas">
+        <h2>OFERTAS DEL DIA</h2>
+        <div class="list-tarjetas-container">
+          <% offers.forEach((prod)=> { %>
+            <div class="list-img-container">
+              <div class="list-capa-oscura"></div>
+              <img src="img/<%=prod.img%>" alt="<%=prod.name%>">
             </div>
-            <div class="list-products">
-                <% productos.forEach((prod)=> {%>
-                    <div class="list-tarjeta">
-                        <a href="<% prod.id %>">
-                            <img src="img/<%=prod.img%>" alt="">
-                            <div class="list-text-container">
-                                <h3>
-                                    <%= prod.name %>
-                                </h3>
-                                <p class="list-price">
-                                    <%= prod.price %>
-                                </p>
-                                <p>
-                                    <%= prod.description %>
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                    <% }) %>
-            </div>
-        </main>
-        <%- include('../partials/footer.ejs') %>
+            <% }) %>
+        </div>
+      </div>
+      <div class="list-products">
+        <% products.forEach((prod)=> {%>
+          <div class="list-tarjeta">
+            <a href="/products/detail/<%= prod.id %>">
+              <img src="img/<%=prod.img%>" alt="">
+              <div class="list-text-container">
+                <h3>
+                  <%= prod.name %>
+                </h3>
+                <p class="list-price">
+                  Precio: $ <%= prod.price %>
+                </p>
+                <p>
+                  Descripción: <%= prod.description %>
+                </p>
+              </div>
+            </a>
+          </div>
+          <% }) %>
+      </div>
+    </main>
+    <%- include('../partials/footer.ejs') %>
 </body>
 
 </html>

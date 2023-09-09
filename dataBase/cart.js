@@ -15,4 +15,4 @@ const cart = [
   }
 ]
 
-module.exports = { cart }
+module.exports = cart

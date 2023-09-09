@@ -38,17 +38,15 @@
         <div class="load-input-container">
           <label for="price" class="load-label">Precio del Sandwich:</label>
           <input 
-            type="number" id="price" name="price" min="300" max="9000" class="load-input" placeholder="Ej: 5"
+            type="number" id="price" name="price" class="load-input" placeholder="Ej: 5"
             value="<%= product.price %>"
           >
         </div>
         <div class="load-input-container">
           <label for="description" class="load-label">Descripción del Sandwich:</label>
-          <textarea id="description" name="description" rows="4" class="load-textarea"
-            placeholder="Ej: Un delicioso sandwich de pollo con vegetales y aderezos"
-            value="<%= product.description %>"
-            >
-          </textarea>
+          <textarea id="description" name="description" rows="4" class="load-textarea"          
+            placeholder="Ej: Un delicioso sandwich de pollo con vegetales y aderezos"            
+            ><%= product.description %></textarea>
         </div>
         <button type="submit" class="load-submit-cargar">Guardar Sandwich</button>
       </form>
