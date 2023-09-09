@@ -39,3 +39,23 @@ Fue un sprint con desafíos y logros tanto como personales y grupales . A contin
 **Qué se debería dejar de hacer:**
 
 1. **No esperar nada de nadie**: Distribuimos mal los tiempos, esperamos a que los demás aparecieran.
+
+## Tercer Sprint
+
+**Lo que se hizo bien:**
+
+1. **Cumplimiento de plazos**: Cumplimos con la entrega en tiempo y forma, nomenclatura y organización de archivos cumplida de acuerdo a lo establecido en el equipo.
+
+2. **Mejoramos la organización**: Nos autogestionamos respecto a las asignación de tareas del tablero.
+
+**Lo que se hizo mal:**
+
+1. **Pocas reuniones**: Solo nos reunimos 3 veces en este sprint.
+
+**Qué se debería empezar a hacer:**
+
+1. **Aumentar la recurrencia de reuniones**: Creemos que podemos mejorar si nos mantenemos mas comunicados.
+
+**Qué se debería dejar de hacer:**
+
+1. **Ser demasiado optimistas**: Creemos que subestimamos la dificultad del sprint.
