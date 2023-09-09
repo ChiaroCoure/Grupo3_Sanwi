@@ -100,22 +100,25 @@ nav ul{
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-}
-
-nav ul li{
+    gap: 16px;
+    align-items: center;
+  }
+  
+  nav ul li{
     font-weight: 500;
-    margin: 0px 7px;
-    padding: 15px 7px;
-    border-radius: 6px;
-}
-
-nav ul li:hover{
+  }
+  
+  nav ul li a:hover{
     background-color: #e77c39;
-}
-
-nav a{
+  }
+  
+  nav a{
     text-decoration: none;
     color: #fff;
+    padding: 15px 7px;
+    display: block;
+    border-radius: 6px;
+    margin: 0;
 }
 
 .home-carrito{

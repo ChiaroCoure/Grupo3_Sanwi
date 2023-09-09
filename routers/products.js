@@ -1,14 +1,18 @@
 const express = require('express');
-const { productsController } = require('../controllers/productsController');
 const router = express.Router();
+const { productsController } = require('../controllers/productsController');
 
-router.get('/product-detail/:id', productsController.productDetail)
+router.get('/', productsController.productList)
 
-router.get('/products-cart', productsController.productsCart)
+router.get('/detail/:id', productsController.productDetail)
 
-router.get('/load-sandwich', productsController.loadSandwich)
+router.get('/edit/:id', productsController.productEdit)
 
-router.get('/product-list', productsController.productList)
+router.put('/edit/:id', productsController.productUpdate)
+
+router.delete('/delete/:id', productsController.deleteProduct)
+
+router.get('/create', productsController.loadSandwich)
 
 router.post(['/load-sandwich'], productsController.redirect)
 

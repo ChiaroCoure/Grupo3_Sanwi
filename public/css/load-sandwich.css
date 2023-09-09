@@ -37,10 +37,12 @@ body{
     border: none;
     border-radius: 14px;
     outline: none;
+    background-color: #efefef;
 }
 
 .load-input-container select{
     border-radius: 14px;
+    margin-top: 8px;
 }
 
 .load-textarea {
@@ -48,6 +50,8 @@ body{
     width: 100%;
     border: none;
     border-radius: 14px;
+    background-color: #efefef;
+    margin-top: 8px;
 }
 
 .load-submit-cargar {
