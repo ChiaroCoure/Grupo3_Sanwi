@@ -76,6 +76,26 @@ const productsController = {
   },
   loadSandwich: (req, res) => {
     res.render('products/product-create-form');
+  },
+  createProduct: (req, res) => {
+    const newProduct = {
+      id:`${Date.now()}`,
+      name: req.body.name,
+      type: req.body.type,
+      description: req.body.description,
+      price: req.body.price,
+      img: req.file?.filename
+    };
+    products.push(newProduct);
+    fs.writeFileSync(productsFilePath, JSON.stringify(products));
+    res.redirect('/');
+  },
+  searchProduct: (req, res) => {
+    const { search } = req.query
+    const productSearch = products.filter((product) => product.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
+    res.render('products/results', {
+      products: productSearch
+    })
   }
 }
 

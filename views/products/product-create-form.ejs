@@ -10,7 +10,7 @@
 <body>
     <%- include('../partials/header.ejs') %>
     <div class="load-container">
-        <form action="/products" method="post" class="load-form">
+        <form action='/products/create' method="post" class="load-form" enctype="multipart/form-data">
             <div class="load-input-container">
                 <label for="image" class="load-label">Imagen del Sandwich (png, jpg, jpeg):</label>
                 <input type="file" id="image" name="image" accept="image/png, image/jpeg" class="load-input">
