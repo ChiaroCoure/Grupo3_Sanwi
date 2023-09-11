@@ -1,0 +1,83 @@
+@font-face {
+    font-family: Tommy;
+    src: url("/font/Tommy.otf");
+}
+
+.list-ofertas{
+    text-align: center;
+}
+
+.list-ofertas h2{
+    font-family: Tommy;
+    font-size: 25px;
+    margin: 20px;
+}
+
+.list-tarjetas-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10%;
+    padding:30px 0px;
+    border-bottom: 1px solid rgb(57, 57, 57);
+    border-top: 1px solid rgb(57, 57, 57);
+}
+
+.list-img-container{
+    width: 32%; /* Establece el ancho deseado del contenedor */
+    height: 150px; /* Establece la altura deseada del contenedor */
+    overflow: hidden; /* Recorta el contenido que excede el contenedor */
+    display: flex; /* Utiliza flexbox para centrar la imagen */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    background-color: black;
+}
+.list-img-container img{
+    width: 100%; /* Ajusta el ancho de la imagen al ancho del contenedor */
+    height: auto; /* Mantiene la proporción de aspecto de la imagen */
+    opacity: 0.6;
+}
+
+.list-products{
+    margin: 30px 10%;
+}
+
+.list-tarjeta{
+    background-color: rgb(220, 220, 220);
+}
+
+.list-tarjeta a{
+    display: flex;
+    margin: 20px 0;
+    height: 250px;
+    text-decoration: none;
+}
+.list-tarjeta img{
+    height: 100%;
+}
+
+.list-text-container{
+    margin: 5px 20px;
+    color: black;
+}
+
+.list-text-container h3{
+    font-family: Tommy;
+    font-size: 25px;
+}
+
+.list-price{
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.list-text-container p{
+    font-style: italic;
+    font-weight: 300;
+}
+
+.list-sign-container h2{
+    font-size: 27px;
+    margin: 50px 30px 10px;
+    font-family: Roboto;
+    font-weight: 900;
+}

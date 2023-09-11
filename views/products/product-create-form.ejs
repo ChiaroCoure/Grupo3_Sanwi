@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/load-sandwich.css">
-    <%- include('./partials/head.ejs') %>
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/load-sandwich.css">
+    <%- include('../partials/head.ejs') %>
+    <title>Formulario de creación</title>
 </head>
 <body>
-    <%- include('./partials/header.ejs') %>
+    <%- include('../partials/header.ejs') %>
     <div class="load-container">
-        <form action="/load-sandwich" method="post" class="load-form">
+        <form action='/products/create' method="post" class="load-form" enctype="multipart/form-data">
             <div class="load-input-container">
                 <label for="image" class="load-label">Imagen del Sandwich (png, jpg, jpeg):</label>
-                <input type="file" id="image" name="image" accept="image/png, image/jpeg" class="load-input" required>
+                <input type="file" id="image" name="image" accept="image/png, image/jpeg" class="load-input">
             </div>
             <div class="load-input-container">
                 <label for="name" class="load-label">Nombre del Sandwich:</label>
-                <input type="text" id="name" name="name" class="load-input" required placeholder="Ej: Sandwich de Pollo">
+                <input type="text" id="name" name="name" class="load-input" placeholder="Ej: Sandwich de Pollo">
             </div>
             <div class="load-input-container">
                 <label for="type" class="load-label">Tipo de Sandwich:</label>
-                <select id="type" name="type" class="load-input" required>
+                <select id="type" name="type" class="load-input">
                     <option value="lomito">Lomito</option>
                     <option value="milanesa">Milanesa</option>
                     <option value="hamburguesa">Hamburguesa</option>
@@ -31,14 +31,14 @@
             </div>
             <div class="load-input-container">
                 <label for="price" class="load-label">Precio del Sandwich:</label>
-                <input type="number" id="price" name="price" step="1" class="load-input" required placeholder="Ej: 5">
+                <input type="number" id="price" name="price" step="1" class="load-input" placeholder="Ej: 5">
             </div>
             <div class="load-input-container">
                 <label for="description" class="load-label">Descripción del Sandwich:</label>
-                <textarea id="description" name="description" rows="4" class="load-textarea" required placeholder="Ej: Un delicioso sandwich de pollo con vegetales y aderezos"></textarea>
+                <textarea id="description" name="description" rows="4" class="load-textarea" placeholder="Ej: Un delicioso sandwich de pollo con vegetales y aderezos"></textarea>
             </div>
             <button type="submit" class="load-submit-cargar">Subir Sandwich</button>
         </form>
     </div>
-    <%- include('./partials/footer.ejs') %>
+    <%- include('../partials/footer.ejs') %>
 </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/product-list.css">
+    <%- include('../partials/head.ejs') %>
+        <title>Sandwichs</title>
+</head>
+
+<body>
+    <%- include('../partials/header.ejs') %>
+        <main>
+                <div class="list-sign-container">
+                    <% if(products.length>0){%>
+                        <h2>SE ENCONTRARON <%= products.length %> RESULTADOS</h2>
+                    <% }else{%>
+                        <h2>NO SE ENCONTRARON RESULTADOS</h2> 
+                    <% } %>
+                </div>
+            <div class="list-products">
+                <% products.forEach((prod)=> {%>
+                    <div class="list-tarjeta">
+                        <a href="/products/detail/<%= prod.id %>">
+                            <img src="/img/<%=prod.img%>" alt="<%= prod.name %>">
+                            <div class="list-text-container">
+                                <h3>
+                                    <%= prod.name %>
+                                </h3>
+                                <p class="list-price">
+                                    Precio: $ <%= prod.price %>
+                                </p>
+                                <p>
+                                    Descripción: <%= prod.description %>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <% }) %>
+            </div>
+        </main>
+        <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>
