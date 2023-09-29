@@ -1,14 +1,69 @@
-const data= require('../dataBase/users.json');//pareseado si uso el require
+const data = require('../dataBase/users.json')
+const { body, validationResult } = require('express-validator')
+const  { compareSync } = require('bcryptjs')
 
-const validateUser=(req, res, next)=>{
-    //validar lo que se trae por quary
-    const user = req.query.user;
-    const searchUser=data.find(userData => userData.username===user);
-    if(searchUser){
-        next()
-    }else{
-        res.send('Usuario no registrado')
-    }    
+const loginValidations = [
+  body('email').notEmpty().withMessage('Debes ingresar un correo electrónico').bail()
+  .isEmail().withMessage('Debes ingresar un formato de correo válido'),
+  body('password').notEmpty().withMessage('Debes ingresar una contraseña'),
+]
+
+const errorsType = {
+  404: 'Usuario no encontrado, por favor registrate.',
+  401: 'Correo electrónico o contraseña incorrecta',
 }
 
-module.exports =validateUser;
+const validateUser = (req, res, next) => {  
+  const { body } = req;
+  const { email, password, rememberme } = req.body;
+
+  console.log({body});
+
+  const errors = validationResult(req)
+
+  if (!errors.isEmpty()) {
+    return res.render('users/login', {
+      errors: errors.mapped(),
+      old: body,
+      error: undefined
+    })
+  }
+
+  const user = data.find(userData => userData.email === email);
+
+  if(!user) {
+    return res.render('users/login', {
+      error: {
+        msg: errorsType[404]
+      }
+    })
+  }
+
+  // const isMatch = compareSync(password, user.password)
+
+  // if(!isMatch) {
+  //   return res.render('users/login', {
+  //     error: {
+  //       msg: errorsType[401]
+  //     }
+  //   })
+  
+  // }
+  
+  
+  delete user.password;
+  
+  req.session.user = user;
+  
+  if(rememberme) {
+    res.cookie('rememberme', user.email, { maxAge: 1000 * 60 * 60 * 24 * 1 })  
+  }
+
+  next();
+
+}
+
+module.exports = {
+  loginValidations,
+  validateUser
+};

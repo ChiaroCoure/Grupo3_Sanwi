@@ -2,19 +2,21 @@ const fs = require('fs');
 const path = require('path');
 
 const usersFilePath = path.join(__dirname, '../dataBase/users.json');
-//leer el archivo
-/* const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); */
+
 const users = require('../dataBase/users.json');
 
 const userController={
-  login: (req, res) => {
-    res.render('users/login');    
+  formLogin: (req, res) => {
+    const user = req.session.user;
+    res.render('users/login', { user, error: undefined });
   },
-  render:(req,res)=>{
-    res.send('Bienvenido!');
+  login:(req, res) => {    
+    res.redirect('/');
   },
   register: (req, res) => {
-    res.render('users/register');
+    const user = req.session.user;
+
+    res.render('users/register', { user });
   },
   store:(req, res)=>{
     //multer

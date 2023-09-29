@@ -20,28 +20,37 @@
     </div>
   </div>
   <nav>
-    <ul>
-      <li>
-        <a href="/">Inicio</a>
-      </li>
-      <li>
-        <a href="/products">Productos</a>
-      </li>
-      <li>
-        <a href="/users/login">Iniciar Sesión</a>
-      </li>
-      <li>
-        <a href="/users/register">Registro</a>
-      </li>
-      <li>
-        <a href="/products/create">Subir Sandwich</a>
-      </li>
-    </ul>
-    <div class="home-carrito">
-      <a href="/cart">
-        <i class="fas fa-shopping-cart"></i>
-        <i class="fas fa-sort-down"></i>
-      </a>
-    </div>
+    <% if( user ){ %>
+      <div class="home__user">
+        <img class="home__user-img" src="/img/users/<%= user.image %>" alt="foto de perfil de  <%= user.username %>">
+        <p class="home__username">
+          <%= user.username %>
+        </p>
+      </div>
+    <% } %>
+
+        <ul>
+          <li>
+            <a href="/">Inicio</a>
+          </li>
+          <% if( !user ){ %>
+            <li>
+              <a href="/users/login">Iniciar Sesión</a>
+            </li>
+            <li>
+              <a href="/users/register">Registro</a>
+            </li>
+          <% } %>
+          <li>
+            <a href="/products">Productos</a>
+          </li>
+          <li>
+            <a href="/cart">Mi carrito</a>
+          </li>
+          <li>
+            <a href="/products/create">Subir Sandwich</a>
+          </li>
+        </ul>
+
   </nav>
 </header>
