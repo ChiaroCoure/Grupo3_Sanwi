@@ -24,10 +24,10 @@
         "image": "user3.png"
     },
     {
-        "id": "1694089766305",
+        "id": "1696108632586",
         "username": "alumno",
-        "email": "prueba@gmail.com",
-        "password": "12345",
-        "image": "perfile-1694089766294.png"
+        "email": "mincnsi@gmail.com",
+        "password": "$2a$10$TfXQ7SVEQCB4dPcr7yOy3O0ktY5lwUYY5bC9psNpYfQM5sPpQdoFS",
+        "image": "user-default.png"
     }
 ]
