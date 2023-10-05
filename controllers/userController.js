@@ -19,8 +19,7 @@ const userController={
     res.render('users/register', { user, error: undefined, errores: undefined });
   },
   store: (req, res) => {
-    //multer
-    console.log('imagen del form', req.body);
+    const user = req.session.user;
 
     const newUser = {
       id: `${Date.now()}`,
@@ -29,19 +28,21 @@ const userController={
       password: hashSync(req.body.password, 10),
       image: req.file?.filename || "user-default.png"
     }
-    const correo=users.find(value=>value.email==newUser.email);
-    const name=users.find(value=>value.username==newUser.username);
 
-    console.log('valores*************+++',correo)
+    const correo = users.find(value=>value.email === newUser.email);
 
-    if (correo){
-      res.render('users/register', { errores:'El nombre de usuario o email ya se encuentran registrados', error:undefined, old:req.body} )
-      console.log('El usuario-----------------')
-    }else{ 
+    const usuario = users.find(value=>value.username === newUser.username);
+
+    if (correo || usuario) {
+      res.render('users/register', { 
+        errores: 'El nombre de usuario o email ya se encuentran registrados',
+        error: undefined,
+        old: req.body,
+        user,
+      })
+    } else { 
       users.push(newUser);
-  
       fs.writeFileSync(usersFilePath, JSON.stringify(users));
-      /* res.json(users) */
       res.redirect('/');
     }
 

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/form.css" />
     <%- include('../partials/head.ejs') %>
-    <title>Document</title>
+    <title>Registro de usuario</title>
   </head>
   <body>
     <%- include('../partials/header.ejs') %>
@@ -81,20 +81,7 @@
                   </i>
               </div>
            <% } %>
-            </div>
-            <!-- <div>
-              <label for="image" >Agregar imagen</label>
-					    <input type="file" id="image" name="image"
-              value="<%= (locals.old && old.image) ? old.image : ' ' %>"
-              />
-              <% if (locals.errors && errors.image){%>
-                <div>
-                    <i>
-                        <%= errors.image.msg %>
-                    </i>
-                </div>
-             <% } %>
-            </div> -->
+            </div>            
 
 					<label for="image" >Agregar imagen</label>
 					<input type="file" id="image" name="image">
@@ -102,7 +89,7 @@
         </div>
 
         <div class="register__terms">
-          <input type="radio" name="estudio" id="termino" value="Acepto terminos y condiciones" required />
+          <input type="checkbox" name="estudio" id="termino" value="Acepto terminos y condiciones" required />
           <label for="termino" >Acepto terminos y condiciones</label>
         </div>
         <br>
