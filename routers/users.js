@@ -6,6 +6,7 @@ const userController= require('../controllers/userController');
 
 const { loginValidations, validateUser } = require('../middlewares/validateUser');
 const { arrRegister, validateRegister }=require('../middlewares/validateRegister');
+const { userRoute, nonUserRoute } = require('../middlewares/userRoute');
 
 const storage = multer.diskStorage({
     destination:(req, file, cb)=>{
@@ -21,7 +22,7 @@ const storage = multer.diskStorage({
 
 const upload=multer({ storage })
 
-router.get('/login', userController.formLogin)
+router.get('/login', nonUserRoute, userController.formLogin);
 router.post('/login', loginValidations, validateUser, userController.login)
 
 router.get('/register', userController.register)
