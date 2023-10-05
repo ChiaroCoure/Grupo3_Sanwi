@@ -1,175 +1,191 @@
 @font-face {
-    font-family: Family Rainbow;
-    src: url("/font/Family Rainbow.otf");
+  font-family: Family Rainbow;
+  src: url("/font/Family Rainbow.otf");
 }
 
 @font-face {
-    font-family: Cocogoose;
-    src: url("/font/Cocogoose Pro-trial.ttf");
+  font-family: Cocogoose;
+  src: url("/font/Cocogoose Pro-trial.ttf");
 }
+
 @font-face {
-    font-family: Akira;
-    src: url("/font/Akira Expanded Demo.otf");
+  font-family: Akira;
+  src: url("/font/Akira Expanded Demo.otf");
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
 }
 
-header{
-    background-color: #CD3333;
-    color: black;
+header {
+  background-color: #CD3333;
+  color: black;
 }
 
-.home-menu-hamburguesa-no-tan-hamburguesa{
+.home-menu-hamburguesa-no-tan-hamburguesa {
+  display: none;
+}
+
+.home-caja-suprema {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-caja1 {
+  display: flex;
+  align-items: center;
+  margin-left: 80px;
+}
+
+.home-caja1 img {
+  width: 200px;
+  margin: 10px 0px;
+}
+
+.home-caja2 {
+  margin-left: 10px;
+  position: relative;
+}
+
+.home-caja2 h1 {
+  font-size: 80px;
+  font-family: Cocogoose;
+
+}
+
+.home-caja2 p {
+  position: absolute;
+  width: 300px;
+  top: 80px;
+  color: #fff;
+  font-size: 30px;
+  font-family: Family Rainbow;
+  margin-left: 30px;
+}
+
+.home-caja3 {
+  margin: auto 90px;
+}
+
+.home-form {
+  position: relative;
+  margin: 20px 0;
+}
+
+.home-form input {
+  border: none;
+  outline: none;
+  padding: 10px 10px 10px 40px;
+  border-radius: 20px;
+  width: 350px;
+}
+
+.home-form i {
+  position: absolute;
+  left: 10px;
+  top: 11px
+}
+
+nav {
+  border-top: 1px solid #3d1212;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 120px;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 16px;
+  align-items: center;
+}
+
+nav ul li {
+  font-weight: 500;
+}
+
+nav ul li a:hover {
+  background-color: #e77c39;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  padding: 15px 7px;
+  display: block;
+  border-radius: 6px;
+  margin: 0;
+}
+
+.home__user {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.home__username {
+  color: white;
+  font-weight: 700;
+}
+
+.home__user-img {
+  width: 50px;
+  height: 50px;
+}
+
+
+@media screen and (max-width: 800px) {
+
+  .home-caja1 {
+    margin: 15px 0;
+    padding-left: 10px;
+  }
+
+  .home-caja1 h1 {
+    color: #fff;
+    margin-top: 10px;
+    font-size: 35px;
+  }
+
+  .home-caja1 img {
+    margin: 0px;
+    width: 80px;
+  }
+
+  .home-caja2 {
+    margin-bottom: 10px;
+  }
+
+  .home-caja2 p {
     display: none;
-}
-
-.home-caja-suprema{
-    display: flex;
-    justify-content: space-between;
-}
-
-.home-caja1{
-    display: flex;
-    align-items: center;
-    margin-left: 80px;
-}
-
-.home-caja1 img{
-    width: 200px;
-    margin: 10px 0px;
-}
-
-.home-caja2{
-    margin-left: 10px;
-    position: relative;
-}
-
-.home-caja2 h1{
-    font-size: 80px;
-    font-family: Cocogoose;
-    
-}
-
-.home-caja2 p{
-    position: absolute;
-    width: 300px;
-    top: 80px;
-    color: #fff;
-    font-size: 30px;
-    font-family: Family Rainbow;
-    margin-left: 30px;
-}
-
-.home-caja3{
-    margin: auto 90px;
-}
-
-.home-form{
-    position: relative;
-    margin: 20px 0;
-}
-
-.home-form input{
-    border: none;
-    outline: none;
-    padding: 10px 10px 10px 40px;
-    border-radius: 20px;
-    width: 350px;
-}
-
-.home-form i{
-    position: absolute;
-    left: 10px;
-    top: 11px
-}
-
-nav{
-    border-top: 1px solid #3d1212;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 120px;
-}
-
-nav ul{
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    gap: 16px;
-    align-items: center;
   }
-  
-  nav ul li{
-    font-weight: 500;
+
+  .home-carrito {
+    display: none;
   }
-  
-  nav ul li a:hover{
-    background-color: #e77c39;
+
+  .home-caja3 {
+    display: none;
   }
-  
-  nav a{
-    text-decoration: none;
-    color: #fff;
-    padding: 15px 7px;
+
+  .home-menu-hamburguesa-no-tan-hamburguesa {
     display: block;
-    border-radius: 6px;
-    margin: 0;
-}
+    margin: auto 30px;
+  }
 
-.home-carrito{
-    padding: 7px 7px;
-}
+  .home-menu-hamburguesa-no-tan-hamburguesa i {
+    font-size: 27px;
+    color: white;
+  }
 
-.home-carrito i{
-    font-size: 30px;
-}
-
-@media screen and (max-width: 800px){
-
-    .home-caja1{
-        margin: 15px 0;
-        padding-left: 10px;
-    }
-    .home-caja1 h1{
-        color: #fff;
-        margin-top: 10px;
-        font-size: 35px;
-    }
-    .home-caja1 img{
-        margin: 0px;
-        width: 80px;
-    }
-    .home-caja2{
-        margin-bottom: 10px;
-    }
-    .home-caja2 p{
-        display: none;
-    }
-    .home-carrito{
-        display: none;
-    }
-
-    .home-caja3{
-        display: none;
-    }
-
-    .home-menu-hamburguesa-no-tan-hamburguesa{
-        display: block;
-        margin: auto 30px;
-    }
-
-    .home-menu-hamburguesa-no-tan-hamburguesa i{
-        font-size: 27px;
-        color: white;
-    }
-
-    nav{
-        display: none;
-    }
+  nav {
+    display: none;
+  }
 
 }

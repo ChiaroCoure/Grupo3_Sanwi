@@ -1,0 +1,131 @@
+header {
+  margin-bottom: 20px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  /* background-color: #FEEAA1; */
+  color: #03264C;
+  font-size: 16px;
+}
+
+.login__title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 32px;
+  margin-top: 32px;
+}
+
+.login__form {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
+}
+
+.login__field-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.login__field-container input {
+  padding: 8px;
+  border-radius: 8px;
+  outline: none;
+}
+
+.login__errors {
+  color: #CD3333;
+  margin-bottom: 16px;
+  margin-top: -8px;
+}
+
+.login__remember-password{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.login__button {
+  padding: 8px 16px;
+  background-color: #F57423;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.login__button:hover {
+  background-color: #CD3333;
+  border-radius: 10px;
+  box-shadow: 13px 17px 14px -9px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 13px 17px 14px -9px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 13px 17px 14px -9px rgba(0, 0, 0, 0.75);
+}
+
+.login__button:hover {
+  background-color: #CD3333;
+  border-radius: 10px;
+  box-shadow: 13px 17px 14px -9px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 13px 17px 14px -9px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 13px 17px 14px -9px rgba(0, 0, 0, 0.75);
+}
+
+.login__popup {
+  background-color: #CD3333;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 90%;
+  display: flex;
+}
+
+.login__close-msg-btn {  
+  align-self: flex-start;
+  border: none;
+  background-color: transparent;  
+  cursor: pointer;
+}
+
+.login__close-img {
+  width: 20px;
+}
+
+.login__popup-msg {
+  color: white;
+  text-align: center;
+}
+
+@media screen and (min-width: 767px) {
+  .login__form {
+    width: 60%;    
+    margin-bottom: 32px;
+  }
+
+  .login__popup {  
+    width: 50%;    
+    justify-content: space-between;
+  }
+  
+}
+
+@media screen and (min-width: 1024px) {
+  .login__form {
+    width: 30%;    
+    margin-bottom: 32px;
+  }
+
+  .login__popup {  
+    width: 30%;    
+    justify-content: space-between;
+    margin-left: 32px;
+    margin-right: initial;
+  }
+}

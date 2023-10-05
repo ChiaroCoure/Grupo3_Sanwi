@@ -2,13 +2,16 @@ const cart = require('../dataBase/cart');
 
 const mainController = {
   home: (req, res) => {
-    res.render('home');
+    const user = req.session.user;
+    res.render('home', { user });
   },
   billing: (req, res) => {
-    res.render('billing');
+    const user = req.session.user;
+    res.render('billing', { user });
   },
   cart: (req, res) => {
-    res.render('products/products-cart', { cart });
+    const user = req.session.user;
+    res.render('products/products-cart', { cart, user });
   }
 }
 

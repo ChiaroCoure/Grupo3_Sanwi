@@ -21,6 +21,9 @@ h3{
     text-align: center;
 }
 /* -------------registro-------------- */
+.errores{
+    color: red;
+}
 
 .register__form{
     display: flex;

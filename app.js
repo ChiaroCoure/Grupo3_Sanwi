@@ -1,24 +1,30 @@
 const express = require('express');
-const app = express();
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const methodOverride =  require('method-override');
 const path = require('path');
 const mainRouter = require('./routers/main');
 const productsRouter = require('./routers/products');
 const usersRouter = require('./routers/users');
-const methodOverride =  require('method-override');
-const port = 3000;
+const rememberMe = require('./middlewares/rememberMe');
 
-// ************ Middlewares - (don't touch) ************
-app.use(express.static(path.join(__dirname, './public')));   // Necesario para los archivos estáticos en el folder /public
-app.use(express.urlencoded({ extended: false }));
-/* app.use(logger('dev')); */
+const port = 3000;
+const app = express();
+
+app.use(express.static(path.join(__dirname, './public')));   
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-/* app.use(cookieParser()); */
-/* app.use(methodOverride('_method')); */
+app.use(methodOverride('_method'));
+app.use(session({
+  secret: 'sanwi cat',
+  resave: false,
+  saveUninitialized: true,
+}))
+app.use(cookieParser());
+app.use(rememberMe);
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
-
-app.use(methodOverride('_method'));
 
 app.use('/', mainRouter);
 app.use('/users', usersRouter);

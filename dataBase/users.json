@@ -24,10 +24,51 @@
         "image": "user3.png"
     },
     {
-        "id": "1694089766305",
+        "id": "1696108632586",
         "username": "alumno",
         "email": "prueba@gmail.com",
         "password": "12345",
-        "image": "perfile-1694089766294.png"
+        "image": "user1.png"
+    },
+    {
+        "id": "1696507585230",
+        "username": "pepep",
+        "email": "pepe@gmail.com",
+        "image": "user-default.png"
+    },
+    {
+        "id": "1696507748367",
+        "username": "carlos",
+        "email": "melconian@gmail.com",
+        "password": "$2a$10$vgLlTM3SFa1fqr5F5SJZsO0A.0lgWxOdoaCIpuecTC7fbW1LgqtJi",
+        "image": "user-default.png"
+    },
+    {
+        "id": "1696508121964",
+        "username": "carlos123",
+        "email": "carlos123@gmail.com",
+        "password": "$2a$10$kOPmCFigJSKhVOKnfAln7etGCw9qWF4LDhluQLSG5RJRFsiQRl9NW",
+        "image": "user-default.png"
+    },
+    {
+        "id": "1696508208694",
+        "username": "carlos1234",
+        "email": "carlos1234@gmail.com",
+        "password": "$2a$10$d5hOygA27PWlklTFYRnyBu0Lx72FYR..9qfD0fXTAPiqGIvlBrJ.u",
+        "image": "user-default.png"
+    },
+    {
+        "id": "1696508266416",
+        "username": "gabaktech11",
+        "email": "prueba11@gmail.com",
+        "password": "$2a$10$MBefkX4YVUOhVGCJ2IB6.uwfjtve.FJSKb7votwCKmnnv8o7ZJp0a",
+        "image": "user-default.png"
+    },
+    {
+        "id": "1696519995945",
+        "username": "Marta",
+        "email": "martamarta@gmail.com",
+        "password": "$2a$10$zbgYYloBiDnlw6lJZit7Wefgy6H98lUaFjwySfaF0P3CUtJlj.xwi",
+        "image": "user-default.png"
     }
 ]
