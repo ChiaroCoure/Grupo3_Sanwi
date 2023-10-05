@@ -25,6 +25,6 @@ router.get('/login', userController.formLogin)
 router.post('/login', loginValidations, validateUser, userController.login)
 
 router.get('/register', userController.register)
-router.post('/register', upload.single('image'), userController.store);  
+router.post('/register', upload.single('image'), arrRegister, validateRegister, userController.store);  
 
 module.exports=router;
