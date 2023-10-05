@@ -17,12 +17,11 @@ const validateUser = (req, res, next) => {
   const { body } = req;
   const { email, password, rememberme } = req.body;
 
-  console.log({body});
-
   const errors = validationResult(req)
 
   if (!errors.isEmpty()) {
-    return res.render('users/login', {
+    return res.render('users/login', {   
+      user: undefined,   
       errors: errors.mapped(),
       old: body,
       error: undefined
@@ -33,26 +32,27 @@ const validateUser = (req, res, next) => {
 
   if(!user) {
     return res.render('users/login', {
+      user: undefined,
       error: {
         msg: errorsType[404]
       }
     })
   }
 
-  // const isMatch = compareSync(password, user.password)
+  console.log({user});
 
-  // if(!isMatch) {
-  //   return res.render('users/login', {
-  //     error: {
-  //       msg: errorsType[401]
-  //     }
-  //   })
+  const isMatch = compareSync(password, user.password)
+
+  if(!isMatch) {
+    return res.render('users/login', {
+      user: undefined,
+      error: {
+        msg: errorsType[401]
+      }
+    })
   
-  // }
-  
-  
-  delete user.password;
-  
+  }
+      
   req.session.user = user;
   
   if(rememberme) {
