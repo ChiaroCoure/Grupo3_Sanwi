@@ -17,43 +17,31 @@ const validateUser = (req, res, next) => {
   const { body } = req;
   const { email, password, rememberme } = req.body;
 
-  const errors = validationResult(req)
+  const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
     return res.render('users/login', {   
-      user: undefined,   
       errors: errors.mapped(),
-      old: body,
-      error: undefined
+      old: body
     })
   }
 
   const user = data.find(userData => userData.email === email);
 
   if(!user) {
-    return res.render('users/login', {
-      user: undefined,
-      error: {
-        msg: errorsType[404]
-      }
-    })
+    res.locals.loginError = { msg: errorsType[404] };
+    return res.render('users/login')
   }
-
-  console.log({user});
 
   const isMatch = compareSync(password, user.password)
 
   if(!isMatch) {
-    return res.render('users/login', {
-      user: undefined,
-      error: {
-        msg: errorsType[401]
-      }
-    })
-  
+    res.locals.loginError = { msg: errorsType[401] };
+    return res.render('users/login')
   }
       
   req.session.user = user;
+  res.locals.user = user;
   
   if(rememberme) {
     res.cookie('rememberme', user.email, { maxAge: 1000 * 60 * 60 * 24 * 1 })  

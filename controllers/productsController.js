@@ -6,43 +6,31 @@ const productsFilePath = path.join(__dirname, '..', 'dataBase', 'products.json')
 
 const productsController = {
   productDetail: (req, res) => {
-    const user = req.session.user;
     const { id } = req.params;
 
     const productSearch = products.find((product) => product.id === id);
 
-    res.render('products/product-detail', { user, products, productSearch });
+    res.render('products/product-detail', { products, productSearch });
   },
-  deleteProduct: (req, res) => {
-    const user = req.session.user;
+  deleteProduct: (req, res) => {    
     const { id } = req.params;
 
     const filteredProducts = products.filter((product) => product.id !== id);
 
     fs.writeFileSync(productsFilePath, JSON.stringify(filteredProducts, null, 2));
 
-    const parsedProducts = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-    const productsWithDiscount = parsedProducts.filter((product) => product.discount > 0)
-
-    res.render('products/product-list', {
-      user,
-      products: parsedProducts,
-      offers: productsWithDiscount  
-    })
+    res.redirect('/products');
 
   },
   productEdit: (req, res) => {
-    const user = req.session.user;
     const { id } = req.params;
 
     const productSearch = products.find((product) => product.id === id);
 
-    res.render('products/product-edit-form', { user, product: productSearch });
+    res.render('products/product-edit-form', { product: productSearch });
   
   },
   productUpdate: (req, res) => {
-    const user = req.session.user;
     const { id } = req.params;
     const { body: { name, price, description} } = req;
 
@@ -55,25 +43,15 @@ const productsController = {
       description    
     }
 
-    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));    
 
-    const parsedProducts = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-    const productsWithDiscount = parsedProducts.filter((product) => product.discount > 0)
-
-    res.render('products/product-list', {
-      user,
-      products: parsedProducts,
-      offers: productsWithDiscount  
-    })
+    res.redirect('/products');
   
   },
   productList: (req, res) => {
-    const user = req.session.user;
     const productsWithDiscount = products.filter((product) => product.discount > 0)
 
     res.render('products/product-list', {
-      user,
       products,
       offers : productsWithDiscount
     });
@@ -82,8 +60,7 @@ const productsController = {
     res.redirect('/');
   },
   loadSandwich: (req, res) => {
-    const user = req.session.user;
-    res.render('products/product-create-form', { user } );
+    res.render('products/product-create-form');
   },
   createProduct: (req, res) => {
     const newProduct = {
@@ -99,11 +76,11 @@ const productsController = {
     res.redirect('/');
   },
   searchProduct: (req, res) => {
-    const user = req.session.user;
     const { search } = req.query
+
     const productSearch = products.filter((product) => product.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
+    
     res.render('products/results', {
-      user,
       products: productSearch
     })
   }
