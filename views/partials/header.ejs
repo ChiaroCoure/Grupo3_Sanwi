@@ -20,11 +20,11 @@
     </div>
   </div>
   <nav>
-    <% if( user ){ %>
+    <% if( locals.user ) { %>
       <div class="home__user">
         <img class="home__user-img" src="/img/users/<%= user.image %>" alt="foto de perfil de  <%= user.username %>">
         <p class="home__username">
-          <%= user.username %>
+          <%= locals.user.username %>
         </p>
       </div>
     <% } %>
@@ -32,8 +32,8 @@
         <ul>
           <li>
             <a href="/">Inicio</a>
-          </li>
-          <% if( !user ){ %>
+          </li> 
+          <% if( !locals.user ) { %>
             <li>
               <a href="/users/login">Iniciar Sesión</a>
             </li>

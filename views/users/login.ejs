@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/css/login.css" />
-  <%- include('../partials/head.ejs') %>
-    <title>Inicio de sesión</title>
-</head>
+<%- include('../partials/head.ejs', { cssSheets: ["login"], title: "Inicio de sesión" }) %>
 
 <body>
   <%- include('../partials/header.ejs') %>
@@ -54,10 +48,10 @@
         <button class="login__button" type="submit">Iniciar sesion</button>
       </form>
     </main>
-    <% if( error !== undefined){ %>
-      <div class="login__popup">       
+    <% if( error !== undefined ){ %>
+      <div id="popup" class="login__popup">       
         <p class="login__popup-msg"><%= error?.msg %></p>
-        <button class="login__close-msg-btn">
+        <button id="close-btn" class="login__close-msg-btn">
           <img src="/img/icons/x-mark.svg" alt="close" class="login__close-img">
         </button>
       </div>
@@ -65,6 +59,7 @@
     <footer>
       <%- include('../partials/footer.ejs') %>
     </footer>
+    <script src="/js/login.js"></script>
 </body>
 
 </html>

@@ -6,7 +6,7 @@ const userController= require('../controllers/userController');
 
 const { loginValidations, validateUser } = require('../middlewares/validateUser');
 const { arrRegister, validateRegister }=require('../middlewares/validateRegister');
-const { userRoute, nonUserRoute } = require('../middlewares/userRoute');
+const { nonUserRoute } = require('../middlewares/userRoute');
 
 const storage = multer.diskStorage({
     destination:(req, file, cb)=>{
