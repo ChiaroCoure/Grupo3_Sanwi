@@ -48,9 +48,9 @@
         <button class="login__button" type="submit">Iniciar sesion</button>
       </form>
     </main>
-    <% if( error !== undefined ){ %>
+    <% if( locals.loginError ){ %>
       <div id="popup" class="login__popup">       
-        <p class="login__popup-msg"><%= error?.msg %></p>
+        <p class="login__popup-msg"><%= loginError.msg %></p>
         <button id="close-btn" class="login__close-msg-btn">
           <img src="/img/icons/x-mark.svg" alt="close" class="login__close-img">
         </button>
