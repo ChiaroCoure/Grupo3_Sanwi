@@ -30,11 +30,8 @@ const userController = {
     const correo=users.find(value=>value.email==newUser.email);
     const name=users.find(value=>value.username==newUser.username);
 
-    console.log('valores*************+++',correo)
-
-    if (correo){
+    if (correo || name){
       res.render('users/register', { errores:'El nombre de usuario o email ya se encuentran registrados', error:undefined, old:req.body} )
-      console.log('El usuario-----------------')
     }else{ 
       users.push(newUser);
   
