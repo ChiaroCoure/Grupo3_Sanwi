@@ -4,7 +4,7 @@ const mainController = {
   home: (req, res) => {
     res.render('home');
   },
-  billing: (req, res) => {
+  billing: (req, res) => {        
     res.render('billing');
   },
   cart: (req, res) => {

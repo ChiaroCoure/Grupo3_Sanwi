@@ -59,3 +59,21 @@ Fue un sprint con desafíos y logros tanto como personales y grupales . A contin
 **Qué se debería dejar de hacer:**
 
 1. **Ser demasiado optimistas**: Creemos que subestimamos la dificultad del sprint.
+
+## Cuarto Sprint
+
+**Lo que se hizo bien:**
+
+1. **Organización**: Repartimos adecuadamente las tareas.
+
+**Lo que se hizo mal:**
+
+1. **Pocas reuniones**: Solo nos reunimos 1 vez en este sprint.
+
+**Qué se debería empezar a hacer:**
+
+1. **Aumentar la recurrencia de reuniones**: Creemos que podemos mejorar si nos mantenemos mas comunicados.
+
+**Qué se debería dejar de hacer:**
+
+1. **Ser demasiado optimistas**: Creemos que subestimamos la dificultad del sprint al igual que en el sprint anterior.

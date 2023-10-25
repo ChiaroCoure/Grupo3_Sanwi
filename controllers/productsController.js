@@ -12,21 +12,14 @@ const productsController = {
 
     res.render('products/product-detail', { products, productSearch });
   },
-  deleteProduct: (req, res) => {
+  deleteProduct: (req, res) => {    
     const { id } = req.params;
 
     const filteredProducts = products.filter((product) => product.id !== id);
 
     fs.writeFileSync(productsFilePath, JSON.stringify(filteredProducts, null, 2));
 
-    const parsedProducts = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-    const productsWithDiscount = parsedProducts.filter((product) => product.discount > 0)
-
-    res.render('products/product-list', {
-      products: parsedProducts,
-      offers: productsWithDiscount  
-    })
+    res.redirect('/products');
 
   },
   productEdit: (req, res) => {
@@ -50,20 +43,12 @@ const productsController = {
       description    
     }
 
-    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));    
 
-    const parsedProducts = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-    const productsWithDiscount = parsedProducts.filter((product) => product.discount > 0)
-
-    res.render('products/product-list', {
-      products: parsedProducts,
-      offers: productsWithDiscount  
-    })
+    res.redirect('/products');
   
   },
   productList: (req, res) => {
-
     const productsWithDiscount = products.filter((product) => product.discount > 0)
 
     res.render('products/product-list', {
@@ -92,7 +77,9 @@ const productsController = {
   },
   searchProduct: (req, res) => {
     const { search } = req.query
+
     const productSearch = products.filter((product) => product.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
+    
     res.render('products/results', {
       products: productSearch
     })

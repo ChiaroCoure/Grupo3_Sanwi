@@ -1,9 +1,13 @@
-const express=require('express');
-const router=express.Router();
+const express = require('express');
 const multer = require('multer');
 const path = require('path');
+const router = express.Router();
+const userController= require('../controllers/userController');
 
-//*********MULTER */
+const { loginValidations, validateUser } = require('../middlewares/validateUser');
+const { arrRegister, validateRegister }=require('../middlewares/validateRegister');
+const { nonUserRoute } = require('../middlewares/userRoute');
+
 const storage = multer.diskStorage({
     destination:(req, file, cb)=>{
         const pathImage= path.join(__dirname, '..','public','img','users');
@@ -15,17 +19,11 @@ const storage = multer.diskStorage({
         cb(null, fileNewName);
     }
 })
-const upload=multer({storage})
 
-//coontrollers
-const userController= require('../controllers/userController')
+const upload=multer({ storage })
 
-//middlewares
-const validateUser = require('../middlewares/validateUser');
-const {arrRegister, validateRegister}=require('../middlewares/validateRegister')
-
-router.get('/login', userController.login)
-router.post('/login', validateUser, userController.render)
+router.get('/login', nonUserRoute, userController.formLogin);
+router.post('/login', loginValidations, validateUser, userController.login)
 
 router.get('/register', userController.register)
 router.post('/register', upload.single('image'), arrRegister, validateRegister, userController.store);  
