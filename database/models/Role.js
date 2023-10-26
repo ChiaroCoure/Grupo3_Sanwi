@@ -5,7 +5,7 @@
  */
 
 module.exports = (sequelize, dataTypes) => {
-  let alias = 'Rol';
+  let alias = 'Role';
   let cols = {
     id: {
       type: dataTypes.INTEGER(10).UNSIGNED,

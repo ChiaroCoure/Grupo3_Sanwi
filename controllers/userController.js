@@ -4,40 +4,42 @@ const { hashSync } = require('bcryptjs');
 const usersFilePath = path.join(__dirname, '../dataBase/users.json');
 const users = require('../dataBase/users.json');
 
+const db = require('../dataBase/models')
+const sequelize = db.sequelize;
+
 const userController={
-  formLogin: (req, res) => {
+  login: (req, res) => {
     res.render('users/login', { error: undefined });
   },
-  login:(req, res) => {    
-    res.redirect('/');
+  perfil:(req, res) =>{
+      res.render('users/perfil')
   },
+  logout:(req, res) => {  
+     req.session.user=undefined
+     res.redirect('/')
+  }, 
   register: (req, res) => {
     res.render('users/register', { error: undefined, errores: undefined });
   },
   store: (req, res) => {
-    const newUser = {
-      id: `${Date.now()}`,
-      username: req.body.username,
-      email: req.body.email,
-      password: hashSync(req.body.password, 10),
-      image: req.file?.filename || "user-default.png"
-    }
+    console.log('---------', req.user)
+    db.User.create(req.user)
+    .then((results)=>{
+      const correo = users.find(value=>value.email === results.email);
 
-    const correo = users.find(value=>value.email === newUser.email);
+      const usuario = users.find(value=>value.username === results.username);
 
-    const usuario = users.find(value=>value.username === newUser.username);
-
-    if (correo || usuario) {
-      res.render('users/register', { 
-        errores: 'El nombre de usuario o email ya se encuentran registrados',
-        error: undefined,
-        old: req.body,
-      })
-    } else { 
-      users.push(newUser);
-      fs.writeFileSync(usersFilePath, JSON.stringify(users));
-      res.redirect('/');
-    }
+      if (correo || usuario) {
+        res.render('users/register', { 
+          errores: 'El nombre de usuario o email ya se encuentran registrados',
+          error: undefined,
+          old: req.body,
+        })
+      } else { 
+        res.redirect('/users/login');
+      } 
+      
+    })   
 
   }
 }

@@ -24,7 +24,8 @@
       <div class="home__user">
         <img class="home__user-img" src="/img/users/<%= user.image %>" alt="foto de perfil de  <%= user.username %>">
         <p class="home__username">
-          <%= locals.user.username %>
+          <a href="/users/perfil"><%= locals.user.username %></a>
+          
         </p>
       </div>
     <% } %>
@@ -40,6 +41,9 @@
             <li>
               <a href="/users/register">Registro</a>
             </li>
+            <!-- <li>
+              <a href="/users/perfil">Ver perfil</a>
+            </li> -->
           <% } %>
           <li>
             <a href="/products">Productos</a>
