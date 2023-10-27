@@ -7,7 +7,7 @@
   <%- include('../partials/header.ejs') %>
 
     <div class="load-container">
-      <form action="/users/perfile-edit/<%= locals.user.id %>" method="post">
+      <form action="/users/perfile-edit/<%= user.id %>" method="post">
         <div class="load-input-container">
             <label for="user" >Nombre de usuario</label>
               <input type="text" name="username" id="user" placeholder="Nombre"
