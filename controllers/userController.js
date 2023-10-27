@@ -11,8 +11,8 @@ const userController={
   login: (req, res) => {
     res.render('users/login', { error: undefined });
   },
-  perfil:(req, res) =>{
-      res.render('users/perfil')
+  perfile:(req, res) =>{
+      res.render('users/perfile')
   },
   logout:(req, res) => {  
      req.session.user=undefined
@@ -23,12 +23,13 @@ const userController={
   },
   store: (req, res) => {
     console.log('---------', req.user)
-    db.User.create(req.user)
+    db.User.findAll()
     .then((results)=>{
-      const correo = users.find(value=>value.email === results.email);
+      console.log('---------datos----------', results)
+      const correo = results.find(value=>value.dataValues.email === req.user.email);
+      const usuario = results.find(value=>value.dataValues.username === req.user.username);
 
-      const usuario = users.find(value=>value.username === results.username);
-
+      console.log('---------------correoyusuairo', correo, usuario);
       if (correo || usuario) {
         res.render('users/register', { 
           errores: 'El nombre de usuario o email ya se encuentran registrados',
@@ -36,11 +37,23 @@ const userController={
           old: req.body,
         })
       } else { 
+        db.User.create(req.user)
         res.redirect('/users/login');
       } 
       
     })   
 
-  }
+  },
+  edit: async function(req, res) {
+    const user=await db.User.findByPk(req.params.id)
+    console.log('valores-------',user)
+        res.render('users/perfile-edit', {user})
+    //res.render('users/perfile-edit')
+  },
+  update: async function (req,res) {
+    // TODO
+    await db.User.update(req.body, {where: {id:req.params.id}})
+    res.redirect('/users/perfile')
+},
 }
 module.exports = userController;

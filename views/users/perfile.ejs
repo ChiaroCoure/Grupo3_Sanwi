@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs', { cssSheets: ["login","form"], title: "Inicio de sesión" }) %>
+
+<body>
+  <%- include('../partials/header.ejs') %>
+    <main>
+      <h1>Bienvenido <%= locals.user.username %></h1>
+
+                
+            <div class="register__button">
+                <a href="/users/perfile-edit/<%= locals.user.id %>">
+                    <button class="login__button">Editar</button>
+                </a>
+                <form action="/users/logout" method="post" >
+                  <button class="login__button" type="submit">Cerrar sesion</button>                
+                </form>
+                
+            </div>
+        
+        
+      
+    </main>
+    <footer>
+      <%- include('../partials/footer.ejs') %>
+    </footer>
+    
+</body>
+
+</html>

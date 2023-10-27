@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs', { cssSheets: ["load-sandwich", "form", "login"], title: "Formulario de edición" }) %>
+
+<body>
+  <%- include('../partials/header.ejs') %>
+
+    <div class="load-container">
+      <form action="/users/perfile-edit/<%= locals.user.id %>" method="post">
+        <div class="load-input-container">
+            <label for="user" >Nombre de usuario</label>
+              <input type="text" name="username" id="user" placeholder="Nombre"
+                      value="<%= user.username %>"
+              />
+        </div>
+        <div class="load-input-container">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Email" 
+                    value="<%= user.email %>"
+            />
+        </div>
+        <!-- <div class="load-input-container">
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" id="password" placeholder="Contraseña" 
+                    value="<%= user.password %>"
+             />
+        </div> -->
+        <div class="load-input-container">
+            <label for="image" >Agregar imagen</label>
+            <input type="file" id="image" name="image" value="<%= user.image %>">
+        </div>
+        <div class="register__button" >
+            <a href="/users/perfile"><button type="reset">Cancelar</button></a>
+            <button  type="submit">Guardar</button>
+          </div>
+      </form>
+    </div>
+
+    <%- include('../partials/footer.ejs') %>
+</html>
