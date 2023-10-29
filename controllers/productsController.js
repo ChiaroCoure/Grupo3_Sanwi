@@ -36,7 +36,7 @@ const productsController = {
       })
 
   },
-  
+
   productEdit: (req, res) => {
     const { id } = req.params;
 
@@ -54,23 +54,19 @@ const productsController = {
 
   productUpdate: (req, res) => {
     const { id } = req.params;
-    const { body: { name, price, description} } = req;
+    const { name, price, description } = req.body;
 
-    const indexProduct = products.findIndex((product) => product.id === id);
-
-    products[indexProduct] = {
-      ...products[indexProduct],
-      name,
-      price,
-      description    
-    }
-
-    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));    
-
-    res.redirect('/products');
-  
+    Product.update(
+      { name, price, description },
+      {
+        where: { id },
+      }
+    )
+      .then(() => {
+        res.redirect('/products');
+      });
   },
-
+  
   productList: (req, res) => {
     Product.findAll()
       .then((products) => {
