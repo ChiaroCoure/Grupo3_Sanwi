@@ -3,15 +3,22 @@ const path = require('path');
 const products = require("../dataBase/products.json");
 
 const productsFilePath = path.join(__dirname, '..', 'dataBase', 'products.json');
+const db = require('../dataBase/models')
+const { Product, Category, User } = db;
+const sequelize = db.sequelize;
 
 const productsController = {
   productDetail: (req, res) => {
     const { id } = req.params;
 
-    const productSearch = products.find((product) => product.id === id);
+    Product.findByPk(id)
+      .then((product) => {
+        if (product) {
+          res.render('products/product-detail', { product });
+        } else {
+          res.status(404).send('Producto no encontrado');
+        }
 
-    res.render('products/product-detail', { products, productSearch });
-  },
   deleteProduct: (req, res) => {    
     const { id } = req.params;
 
