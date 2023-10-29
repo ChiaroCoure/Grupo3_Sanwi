@@ -18,7 +18,8 @@ const productsController = {
         } else {
           res.status(404).send('Producto no encontrado');
         }
-
+  },
+  
   deleteProduct: (req, res) => {    
     const { id } = req.params;
 
