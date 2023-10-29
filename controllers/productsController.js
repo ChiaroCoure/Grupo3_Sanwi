@@ -17,17 +17,23 @@ const productsController = {
           res.render('products/product-detail', { product });
         } else {
           res.status(404).send('Producto no encontrado');
-        }
+        }})
   },
   
   deleteProduct: (req, res) => {    
     const { id } = req.params;
 
-    const filteredProducts = products.filter((product) => product.id !== id);
-
-    fs.writeFileSync(productsFilePath, JSON.stringify(filteredProducts, null, 2));
-
-    res.redirect('/products');
+    Product.findByPk(id)
+      .then((product) => {
+        if (product) {
+          return product.destroy();
+        } else {
+          res.status(404).send('Producto no encontrado');
+        }
+      })
+      .then(() => {
+        res.redirect('/products');
+      })
 
   },
   productEdit: (req, res) => {
@@ -57,12 +63,14 @@ const productsController = {
   
   },
   productList: (req, res) => {
-    const productsWithDiscount = products.filter((product) => product.discount > 0)
-
-    res.render('products/product-list', {
-      products,
-      offers : productsWithDiscount
-    });
+    Product.findAll()
+      .then((products) => {
+        const productsWithDiscount = products.filter((product) => product.discount > 0);
+        res.render('products/product-list', {
+          products,
+          offers: productsWithDiscount
+        });
+      })
   },
   redirect: (req, res) => {
     res.redirect('/');
@@ -84,13 +92,20 @@ const productsController = {
     res.redirect('/');
   },
   searchProduct: (req, res) => {
-    const { search } = req.query
+    const { search } = req.query;
 
-    const productSearch = products.filter((product) => product.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
-    
-    res.render('products/results', {
-      products: productSearch
+    Product.findAll({
+      where: {
+        name: {
+          [db.Sequelize.Op.iLike]: `%${search}%`
+        }
+      }
     })
+      .then((products) => {
+        res.render('products/results', {
+          products: products
+        });
+      })
   }
 }
 
