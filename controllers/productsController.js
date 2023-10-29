@@ -39,9 +39,15 @@ const productsController = {
   productEdit: (req, res) => {
     const { id } = req.params;
 
-    const productSearch = products.find((product) => product.id === id);
-
-    res.render('products/product-edit-form', { product: productSearch });
+    Product.findByPk(id)
+      .then((product) => {
+        if (product) {
+          res.render('products/product-edit-form', { product });
+        } else {
+          // Manejar el caso en que no se encuentra el producto
+          res.redirect('/products');
+        }
+      })
   
   },
   productUpdate: (req, res) => {
