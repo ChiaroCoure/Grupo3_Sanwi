@@ -36,6 +36,7 @@ const productsController = {
       })
 
   },
+  
   productEdit: (req, res) => {
     const { id } = req.params;
 
@@ -50,6 +51,7 @@ const productsController = {
       })
   
   },
+
   productUpdate: (req, res) => {
     const { id } = req.params;
     const { body: { name, price, description} } = req;
@@ -68,6 +70,7 @@ const productsController = {
     res.redirect('/products');
   
   },
+
   productList: (req, res) => {
     Product.findAll()
       .then((products) => {
@@ -78,25 +81,30 @@ const productsController = {
         });
       })
   },
+
   redirect: (req, res) => {
     res.redirect('/');
   },
+
   loadSandwich: (req, res) => {
     res.render('products/product-create-form');
   },
+
   createProduct: (req, res) => {
-    const newProduct = {
-      id:`${Date.now()}`,
-      name: req.body.name,
-      type: req.body.type,
-      description: req.body.description,
-      price: req.body.price,
-      img: req.file?.filename
-    };
-    products.push(newProduct);
-    fs.writeFileSync(productsFilePath, JSON.stringify(products));
-    res.redirect('/');
+    const { name, type, description, price } = req.body;
+
+    Product.create({
+      name,
+      type,
+      description,
+      price,
+      img: req.file?.filename,
+    })
+      .then(() => {
+        res.redirect('/products');
+      })
   },
+
   searchProduct: (req, res) => {
     const { search } = req.query;
 
