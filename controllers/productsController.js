@@ -3,86 +3,128 @@ const path = require('path');
 const products = require("../dataBase/products.json");
 
 const productsFilePath = path.join(__dirname, '..', 'dataBase', 'products.json');
+const db = require('../dataBase/models')
+const { Product, Category, User } = db;
+const sequelize = db.sequelize;
 
 const productsController = {
   productDetail: (req, res) => {
     const { id } = req.params;
 
-    const productSearch = products.find((product) => product.id === id);
+    
 
-    res.render('products/product-detail', { products, productSearch });
+    Product.findByPk(id)
+      .then((product) => {
+        if (product) {
+          Product.findAll({
+
+          })
+            .then((products) => {
+              res.render('products/product-detail', { productSearch: product, products });
+            })
+        } else {
+          res.status(404).send('Producto no encontrado');
+        }})
   },
+  
   deleteProduct: (req, res) => {    
     const { id } = req.params;
 
-    const filteredProducts = products.filter((product) => product.id !== id);
-
-    fs.writeFileSync(productsFilePath, JSON.stringify(filteredProducts, null, 2));
-
-    res.redirect('/products');
+    Product.findByPk(id)
+      .then((product) => {
+        if (product) {
+          return product.destroy();
+        } else {
+          res.status(404).send('Producto no encontrado');
+        }
+      })
+      .then(() => {
+        res.redirect('/products');
+      })
 
   },
+
   productEdit: (req, res) => {
     const { id } = req.params;
 
-    const productSearch = products.find((product) => product.id === id);
-
-    res.render('products/product-edit-form', { product: productSearch });
+    Product.findByPk(id)
+      .then((product) => {
+        if (product) {
+          res.render('products/product-edit-form', { product });
+        } else {
+          // Manejar el caso en que no se encuentra el producto
+          res.redirect('/products');
+        }
+      })
   
   },
+
   productUpdate: (req, res) => {
     const { id } = req.params;
-    const { body: { name, price, description} } = req;
+    const { name, price, description } = req.body;
 
-    const indexProduct = products.findIndex((product) => product.id === id);
-
-    products[indexProduct] = {
-      ...products[indexProduct],
-      name,
-      price,
-      description    
-    }
-
-    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));    
-
-    res.redirect('/products');
+    Product.update(
+      { name, price, description },
+      {
+        where: { id },
+      }
+    )
+      .then(() => {
+        res.redirect('/products');
+      });
+  },
   
-  },
   productList: (req, res) => {
-    const productsWithDiscount = products.filter((product) => product.discount > 0)
-
-    res.render('products/product-list', {
-      products,
-      offers : productsWithDiscount
-    });
+    Product.findAll()
+      .then((products) => {
+        const productsWithDiscount = products.filter((product) => product.discount > 0);
+        res.render('products/product-list', {
+          products,
+          offers: productsWithDiscount
+        });
+      })
   },
+
   redirect: (req, res) => {
     res.redirect('/');
   },
+
   loadSandwich: (req, res) => {
     res.render('products/product-create-form');
   },
-  createProduct: (req, res) => {
-    const newProduct = {
-      id:`${Date.now()}`,
-      name: req.body.name,
-      type: req.body.type,
-      description: req.body.description,
-      price: req.body.price,
-      img: req.file?.filename
-    };
-    products.push(newProduct);
-    fs.writeFileSync(productsFilePath, JSON.stringify(products));
-    res.redirect('/');
-  },
-  searchProduct: (req, res) => {
-    const { search } = req.query
 
-    const productSearch = products.filter((product) => product.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
-    
-    res.render('products/results', {
-      products: productSearch
+  createProduct: (req, res) => {
+    const { name, type, description, price, stock, discount } = req.body;
+    console.log(req.file?.filename)
+    Product.create({
+      name,
+      type,
+      description,
+      price,
+      stock,
+      discount,
+      image: req.file?.filename,
     })
+      .then(() => {
+        res.redirect('/products');
+      })
+  },
+
+  searchProduct: (req, res) => {
+    const { search } = req.query;
+    console.log(search)
+    Product.findAll({
+      where: {
+        name: {
+          [db.Sequelize.Op.like]: `%${search}%`
+        }
+      }
+    })
+      .then((products) => {
+        res.render('products/results', {
+          products: products
+        });
+      })
   }
 }
 

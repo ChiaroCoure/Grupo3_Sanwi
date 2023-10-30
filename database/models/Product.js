@@ -33,6 +33,10 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.DECIMAL(10, 2),
       allowNull: false
     },
+    image: {
+      type: dataTypes.STRING(255),
+      allowNull: false
+    }
   };
 
   let config = {
@@ -44,7 +48,7 @@ module.exports = (sequelize, dataTypes) => {
 
   Product.associate = (models) => {
     Product.belongsTo(models.Category, {
-      foreignKey: 'category_id', // La clave foránea en la tabla "products" que se asocia con "categories"
+      foreignKey: 'categories_id', // La clave foránea en la tabla "products" que se asocia con "categories"
       as: 'category', // Alias para la relación
     });
   };
