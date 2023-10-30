@@ -11,19 +11,17 @@ const productsController = {
   productDetail: (req, res) => {
     const { id } = req.params;
 
-    Product.findAll({
-
-    })
-      .then((products) => {
-        res.render('products/results', {
-          products: products
-        });
-      })
+    
 
     Product.findByPk(id)
       .then((product) => {
         if (product) {
-          res.render('products/product-detail', { productSearch: product });
+          Product.findAll({
+
+          })
+            .then((products) => {
+              res.render('products/product-detail', { productSearch: product, products });
+            })
         } else {
           res.status(404).send('Producto no encontrado');
         }})
