@@ -40,6 +40,7 @@ const userController={
   },
   edit: async function(req, res) {
     const user=await db.User.findByPk(req.params.id)
+    const user=await db.User.findByPk(req.params.id || res.locals.user.id)
         res.render('users/profile-edit', {user})
   },
   update: async function (req,res) {
