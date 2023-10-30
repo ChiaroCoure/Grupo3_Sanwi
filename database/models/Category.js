@@ -28,7 +28,7 @@ module.exports = (sequelize, dataTypes) => {
 
   Category.associate = (models) => {
     Category.hasMany(models.Product, {
-      foreignKey: 'category_id', // La clave foránea en la tabla "products" que se asocia con "categories"
+      foreignKey: 'categories_id', // La clave foránea en la tabla "products" que se asocia con "categories"
       as: 'products', // Alias para la relación
     });
   };

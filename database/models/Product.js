@@ -44,7 +44,7 @@ module.exports = (sequelize, dataTypes) => {
 
   Product.associate = (models) => {
     Product.belongsTo(models.Category, {
-      foreignKey: 'category_id', // La clave foránea en la tabla "products" que se asocia con "categories"
+      foreignKey: 'categories_id', // La clave foránea en la tabla "products" que se asocia con "categories"
       as: 'category', // Alias para la relación
     });
   };

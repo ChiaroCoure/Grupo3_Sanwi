@@ -11,10 +11,19 @@ const productsController = {
   productDetail: (req, res) => {
     const { id } = req.params;
 
+    Product.findAll({
+
+    })
+      .then((products) => {
+        res.render('products/results', {
+          products: products
+        });
+      })
+
     Product.findByPk(id)
       .then((product) => {
         if (product) {
-          res.render('products/product-detail', { product });
+          res.render('products/product-detail', { productSearch: product });
         } else {
           res.status(404).send('Producto no encontrado');
         }})
@@ -87,14 +96,16 @@ const productsController = {
   },
 
   createProduct: (req, res) => {
-    const { name, type, description, price } = req.body;
+    const { name, type, description, price, stock, discount } = req.body;
 
     Product.create({
       name,
       type,
       description,
       price,
-      img: req.file?.filename,
+      stock,
+      discount,
+      image: req.file?.filename,
     })
       .then(() => {
         res.redirect('/products');
@@ -103,11 +114,11 @@ const productsController = {
 
   searchProduct: (req, res) => {
     const { search } = req.query;
-
+    console.log(search)
     Product.findAll({
       where: {
         name: {
-          [db.Sequelize.Op.iLike]: `%${search}%`
+          [db.Sequelize.Op.like]: `%${search}%`
         }
       }
     })
