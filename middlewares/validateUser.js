@@ -1,6 +1,9 @@
-const data = require('../dataBase/users.json')
-const { body, validationResult } = require('express-validator')
+const data = require('../dataBase/models')
+const { body, validationResult, Result } = require('express-validator')
 const  { compareSync } = require('bcryptjs')
+
+const sequelize = data.sequelize;
+const {Op}=require("sequelize");
 
 const loginValidations = [
   body('email').notEmpty().withMessage('Debes ingresar un correo electrónico').bail()
@@ -13,53 +16,49 @@ const errorsType = {
   401: 'Correo electrónico o contraseña incorrecta',
 }
 
-const validateUser = (req, res, next) => {  
+const validateUser = (req, res, next) => { 
+  data.User.findAll({
+    where:{
+      email:{
+          [Op.eq]:req.body.email
+      }
+  }
+  })
+  .then(results =>{
   const { body } = req;
-  const { email, password, rememberme } = req.body;
+  const { password, rememberme } = req.body;
 
-  const errors = validationResult(req)
-
+  const errors = validationResult(req);
+  
   if (!errors.isEmpty()) {
     return res.render('users/login', {   
-      user: undefined,   
       errors: errors.mapped(),
-      old: body,
-      error: undefined
+      old: body
     })
   }
-
-  const user = data.find(userData => userData.email === email);
-
-  if(!user) {
-    return res.render('users/login', {
-      user: undefined,
-      error: {
-        msg: errorsType[404]
-      }
-    })
-  }
-
-  console.log({user});
-
-  const isMatch = compareSync(password, user.password)
-
-  if(!isMatch) {
-    return res.render('users/login', {
-      user: undefined,
-      error: {
-        msg: errorsType[401]
-      }
-    })
+ 
+  if(results.length === 0) {
+    res.locals.loginError = { msg: errorsType[404] };
+    return res.render('users/login')
+  }else{
+  const user = results[0]?.dataValues;
+  const isMatch = compareSync(password, user?.password)
   
+  if(!isMatch) {
+    res.locals.loginError = { msg: errorsType[401] };
+    return res.render('users/login')
   }
       
   req.session.user = user;
+  res.locals.user = user;
   
   if(rememberme) {
     res.cookie('rememberme', user.email, { maxAge: 1000 * 60 * 60 * 24 * 1 })  
-  }
-
+  } 
   next();
+}
+  }) 
+  
 
 }
 

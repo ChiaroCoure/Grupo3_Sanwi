@@ -37,11 +37,8 @@ Para ajustar nuestra oferta a la audiencia objetivo, implementaremos las siguien
 ## Breve descripción de los integrantes del equipo
 
 - Gabriel Alejandro Mamani: Adorador de gatos.
-- Ezequiel Alejandro Garcia: Me gusta la lectura y obras de fantasía, cuando entro en confianza tiendo a hablar demasiado, también escucho música casi todo el tiempo.
 - Carolina de los Angeles Cortez: Me gusta el diseño, también los gatos.
-- Nahir Nazarena Vargas: Me gusta salir a caminar, ir al gimnasio y escuchar música.
 - Micaela Zerpa: Estudiante con ganas de aprender y también me gustan los gatos.
-- Ojeda Kevin: Soy estudiante y emprendedor, me gusta la economia, el mate y hacer deportes.
 
 ## Sitios referentes
 
@@ -64,3 +61,7 @@ Para ajustar nuestra oferta a la audiencia objetivo, implementaremos las siguien
 ## Enlace al tablero de trabajo
 
 [Tablero - Trello](https://trello.com/b/sKstrtGd/proyecto-integrador)
+
+## Diagrama de entidad relación
+
+![Diagrama de entidad relación](sanwi_der.png)

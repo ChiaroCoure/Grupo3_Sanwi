@@ -77,3 +77,20 @@ Fue un sprint con desafíos y logros tanto como personales y grupales . A contin
 **Qué se debería dejar de hacer:**
 
 1. **Ser demasiado optimistas**: Creemos que subestimamos la dificultad del sprint al igual que en el sprint anterior.
+
+## Quinto Sprint
+
+**Lo que se hizo bien:**
+
+1. **Apoyo entre el equipo**: Se apoyo y resolvió las dudas entre los compañeros.
+
+2. **Organización**: Se repartió y se respetó las tareas de cada miembro. 
+
+**Que se debería empezar a hacer:** 
+
+1. **Aumentar la recurrencia de reuniones por voz**: Aunque la comunicación se mantiene activa no se puede decir lo mismo de llamadas ya sea por Discord o WhatsApp, ya que el poder hablar con otros compañeros puede aumentar significativamente la comunicación. 
+
+**Qué se debería dejar de hacer:**
+
+1. **Subestimar el sprint**: No tomamos la suficiente conciencia respecto a la dificultades del sprint, debido a esta confianza excesiva terminamos un poco apretados. 
+

@@ -1,51 +1,52 @@
 const fs = require('fs');
 const path = require('path');
-const { hashSync} = require('bcryptjs');
+const { hashSync } = require('bcryptjs');
 const usersFilePath = path.join(__dirname, '../dataBase/users.json');
 
-const users = require('../dataBase/users.json');
+const db = require('../dataBase/models')
+const sequelize = db.sequelize;
 
 const userController={
-  formLogin: (req, res) => {
-    const user = req.session.user;
-    res.render('users/login', { user, error: undefined });
+  login: (req, res) => {
+    res.render('users/login', { error: undefined });
   },
-  login:(req, res) => {    
-    res.redirect('/');
+  profile:(req, res) =>{
+      res.render('users/profile')
   },
+  logout:(req, res) => {  
+     req.session.user=undefined
+     res.redirect('/')
+  }, 
   register: (req, res) => {
-    const user = req.session.user;
-
-    res.render('users/register', { user, error: undefined, errores: undefined });
+    res.render('users/register', { error: undefined, errores: undefined });
   },
   store: (req, res) => {
-    const user = req.session.user;
+    db.User.findAll()
+    .then((results)=>{
+      const correo = results.find(value=>value.dataValues.email === req.user.email);
+      const usuario = results.find(value=>value.dataValues.username === req.user.username);
+      if (correo || usuario) {
+        res.render('users/register', { 
+          errores: 'El nombre de usuario o email ya se encuentran registrados',
+          error: undefined,
+          old: req.body,
+        })
+      } else { 
+        db.User.create(req.user)
+        res.redirect('/users/login');
+      } 
+    })   
 
-    const newUser = {
-      id: `${Date.now()}`,
-      username: req.body.username,
-      email: req.body.email,
-      password: hashSync(req.body.password, 10),
-      image: req.file?.filename || "user-default.png"
-    }
-
-    const correo = users.find(value=>value.email === newUser.email);
-
-    const usuario = users.find(value=>value.username === newUser.username);
-
-    if (correo || usuario) {
-      res.render('users/register', { 
-        errores: 'El nombre de usuario o email ya se encuentran registrados',
-        error: undefined,
-        old: req.body,
-        user,
-      })
-    } else { 
-      users.push(newUser);
-      fs.writeFileSync(usersFilePath, JSON.stringify(users));
-      res.redirect('/');
-    }
-
-  }
+  },
+  edit: async function(req, res) {
+    const user=await db.User.findByPk(req.params.id || res.locals.user.id)
+        res.render('users/profile-edit', {user})
+  },
+  update: async function (req,res) {
+    await db.User.update({...req.body, image: req.file?.filename}, {where: {id:req.params.id}})
+    req.session.user = {...req.session.user,...req.body}
+    res.locals.user = {...res.locals.user,...req.body}
+    res.redirect('/users/profile')
+},
 }
 module.exports = userController;

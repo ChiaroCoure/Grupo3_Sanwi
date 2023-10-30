@@ -17,8 +17,13 @@ const validateRegister=(req, res, next)=>{
             const hashing= hashSync(req.body.password, 10);
 
             if (compareSync(req.body.passwordRepeat, hashing)){
+                req.user={
+                    ...req.body,
+                    password: hashing,
+                    image: req.file?.filename || "user-default.png"
+                }
                 next()
-            }else{
+            }else{ 
                 res.render('users/register',{                  
                     errors: errors.mapped(),
                     error:'Las contraseñas no soy iguales',                 

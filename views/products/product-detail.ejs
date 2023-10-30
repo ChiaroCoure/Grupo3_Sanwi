@@ -1,16 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="/css/product-detail.css">
-  <%- include('../partials/head.ejs') %>
-    <title>Detalle del sandwich</title>
-</head>
+<%- include('../partials/head.ejs', { cssSheets: ["product-detail"], title: "Detalle del sandwich" }) %>
 
 <body>
 
@@ -19,14 +10,14 @@
     <main>
       <section class="product-detail">
         <div class="product-detail__images">
-          <img class="product-detail__default-image" src="/img/<%= productSearch?.img %>"
+          <img class="product-detail__default-image" src="/img/<%= productSearch?.image %>"
             alt="tostado de jamón y queso">
           <div class="product-detail__thumbnail-images">
-            <img class="product-detail__thumbnail-image" src="/img/<%= productSearch?.img %>"
+            <img class="product-detail__thumbnail-image" src="/img/<%= productSearch?.image %>"
               alt="tostado de jamón y queso">
-            <img class="product-detail__thumbnail-image" src="/img/<%= productSearch?.img %>"
+            <img class="product-detail__thumbnail-image" src="/img/<%= productSearch?.image %>"
               alt="tostado de jamón y queso">
-            <img class="product-detail__thumbnail-image" src="/img/<%= productSearch?.img %>"
+            <img class="product-detail__thumbnail-image" src="/img/<%= productSearch?.image %>"
               alt="tostado de jamón y queso">
           </div>
         </div>
@@ -73,7 +64,7 @@
           <% products.forEach((product)=>{ %>
             <%if(product.id !== productSearch?.id){ %>
               <div class="product">
-                <img class="product_image" src="/img/<%= product.img %>" alt="<%= product.name %>">
+                <img class="product_image" src="/img/<%= product.image %>" alt="<%= product.name %>">
                 <p class="product__name">
                   <%= product.name %>
                 </p>

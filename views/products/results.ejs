@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/product-list.css">
-    <%- include('../partials/head.ejs') %>
-        <title>Sandwichs</title>
-</head>
+<%- include('../partials/head.ejs', { cssSheets: ["product-list"], title: "Resultado de búsqueda" }) %>
 
 <body>
     <%- include('../partials/header.ejs') %>
@@ -23,7 +17,7 @@
                 <% products.forEach((prod)=> {%>
                     <div class="list-tarjeta">
                         <a href="/products/detail/<%= prod.id %>">
-                            <img src="/img/<%=prod.img%>" alt="<%= prod.name %>">
+                            <img src="/img/<%=prod.image%>" alt="<%= prod.name %>">
                             <div class="list-text-container">
                                 <h3>
                                     <%= prod.name %>
