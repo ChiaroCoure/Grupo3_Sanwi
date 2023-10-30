@@ -39,12 +39,13 @@ const userController={
 
   },
   edit: async function(req, res) {
-    const user=await db.User.findByPk(req.params.id)
     const user=await db.User.findByPk(req.params.id || res.locals.user.id)
         res.render('users/profile-edit', {user})
   },
   update: async function (req,res) {
-    await db.User.update(req.body, {where: {id:req.params.id}})
+    await db.User.update({...req.body, image: req.file?.filename}, {where: {id:req.params.id}})
+    req.session.user = {...req.session.user,...req.body}
+    res.locals.user = {...res.locals.user,...req.body}
     res.redirect('/users/profile')
 },
 }
