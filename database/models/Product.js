@@ -33,6 +33,10 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.DECIMAL(10, 2),
       allowNull: false
     },
+    image: {
+      type: dataTypes.STRING(255),
+      allowNull: false
+    }
   };
 
   let config = {

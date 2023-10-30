@@ -95,7 +95,7 @@ const productsController = {
 
   createProduct: (req, res) => {
     const { name, type, description, price, stock, discount } = req.body;
-
+    console.log(req.file?.filename)
     Product.create({
       name,
       type,
