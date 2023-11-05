@@ -4,6 +4,7 @@ CREATE TABLE `users` (
    `email` VARCHAR(255),
    `password` VARCHAR(255),
    `username` VARCHAR(255),
+   `image` VARCHAR(255),
    PRIMARY KEY (`id`)
 );
 
@@ -21,6 +22,7 @@ CREATE TABLE `products` (
    `description` VARCHAR(255),
    `stock` INT,
    `discount` DECIMAL,
+   `image` VARCHAR(255),
    PRIMARY KEY (`id`)
 );
 
