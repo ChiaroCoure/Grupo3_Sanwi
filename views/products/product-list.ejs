@@ -3,42 +3,42 @@
 
 <%- include('../partials/head.ejs', { cssSheets: ["product-list"], title: "Sandwiches" }) %>
 
-<body>
-  <%- include('../partials/header.ejs') %>
-    <main>
-      <div class="list-ofertas">
-        <h2>OFERTAS DEL DIA</h2>
-        <div class="list-tarjetas-container">
-          <% offers.forEach((prod)=> { %>
-            <div class="list-img-container">
-              <div class="list-capa-oscura"></div>
-              <img src="/img/<%=prod.image%>" alt="<%=prod.name%>">
+  <body>
+    <%- include('../partials/header.ejs') %>
+      <main>
+        <div class="list-ofertas">
+          <h2>OFERTAS DEL DIA</h2>
+          <div class="list-tarjetas-container">
+            <% offers.forEach((prod)=> { %>
+              <div class="list-img-container">
+                <div class="list-capa-oscura"></div>
+                <img src="/img/products/<%=prod.image%>" alt="<%=prod.name%>">
+              </div>
+              <% }) %>
+          </div>
+        </div>
+        <div class="list-products">
+          <% products.forEach((prod)=> {%>
+            <div class="list-tarjeta">
+              <a href="/products/detail/<%= prod.id %>">
+                <img src="/img/products/<%=prod.image%>" alt="<%= prod.name %>">
+                <div class="list-text-container">
+                  <h3>
+                    <%= prod.name %>
+                  </h3>
+                  <p class="list-price">
+                    Precio: $ <%= prod.price %>
+                  </p>
+                  <p>
+                    Descripción: <%= prod.description %>
+                  </p>
+                </div>
+              </a>
             </div>
             <% }) %>
         </div>
-      </div>
-      <div class="list-products">
-        <% products.forEach((prod)=> {%>
-          <div class="list-tarjeta">
-            <a href="/products/detail/<%= prod.id %>">
-              <img src="/img/<%=prod.image%>" alt="<%= prod.name %>">
-              <div class="list-text-container">
-                <h3>
-                  <%= prod.name %>
-                </h3>
-                <p class="list-price">
-                  Precio: $ <%= prod.price %>
-                </p>
-                <p>
-                  Descripción: <%= prod.description %>
-                </p>
-              </div>
-            </a>
-          </div>
-          <% }) %>
-      </div>
-    </main>
-    <%- include('../partials/footer.ejs') %>
-</body>
+      </main>
+      <%- include('../partials/footer.ejs') %>
+  </body>
 
 </html>

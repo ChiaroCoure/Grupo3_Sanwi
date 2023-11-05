@@ -5,31 +5,57 @@ const path = require('path');
 const { productsController } = require('../controllers/productsController');
 
 const productStorage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        const pathImage= path.join(__dirname, '..','public','img');
-        cb(null, pathImage);
-    },
-    filename: (req, file, cb) => {
-        const fileNewName= "sandwich" + Date.now() + path.extname(file.originalname);
-        cb(null, fileNewName);
-    }
+  destination: (req, file, cb) => {
+    const pathImage = path.join(__dirname, '..', 'public', 'img/products');
+    cb(null, pathImage);
+  },
+  filename: (req, file, cb) => {
+    const fileNewName = "sandwich" + Date.now() + path.extname(file.originalname);
+    cb(null, fileNewName);
+  }
 });
-const upload=multer({ storage: productStorage })
 
-router.get('/', productsController.productList)
+const upload = multer({ storage: productStorage });
 
-router.get('/detail/:id', productsController.productDetail)
+router.get(
+  '/',
+  productsController.productList
+);
 
-router.get('/edit/:id', productsController.productEdit)
+router.get(
+  '/detail/:id',
+  productsController.productDetail
+);
 
-router.put('/edit/:id', productsController.productUpdate)
+router.get(
+  '/edit/:id',
+  productsController.productEdit
+);
 
-router.delete('/delete/:id', productsController.deleteProduct)
+router.put(
+  '/edit/:id',
+  productsController.productUpdate
+);
 
-router.get('/create', productsController.loadSandwich)
+router.delete(
+  '/delete/:id',
+  productsController.deleteProduct
+);
 
-router.post('/create', upload.single('image'), productsController.createProduct)
+router.get(
+  '/create',
+  productsController.loadSandwich
+);
 
-router.get('/result', productsController.searchProduct)
+router.post(
+  '/create',
+  upload.single('image'),
+  productsController.createProduct
+);
+
+router.get(
+  '/result',
+  productsController.searchProduct
+);
 
 module.exports = router

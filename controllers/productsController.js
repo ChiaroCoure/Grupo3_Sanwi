@@ -1,33 +1,24 @@
-const fs = require('fs');
-const path = require('path');
-const products = require("../dataBase/products.json");
-
-const productsFilePath = path.join(__dirname, '..', 'dataBase', 'products.json');
-const db = require('../dataBase/models')
-const { Product, Category, User } = db;
-const sequelize = db.sequelize;
+const db = require('../dataBase/models');
+const { Product, Category } = db;
 
 const productsController = {
   productDetail: (req, res) => {
     const { id } = req.params;
 
-    
-
     Product.findByPk(id)
       .then((product) => {
         if (product) {
-          Product.findAll({
-
-          })
+          Product.findAll()
             .then((products) => {
               res.render('products/product-detail', { productSearch: product, products });
             })
         } else {
           res.status(404).send('Producto no encontrado');
-        }})
+        }
+      })
   },
-  
-  deleteProduct: (req, res) => {    
+
+  deleteProduct: (req, res) => {
     const { id } = req.params;
 
     Product.findByPk(id)
@@ -56,7 +47,7 @@ const productsController = {
           res.redirect('/products');
         }
       })
-  
+
   },
 
   productUpdate: (req, res) => {
@@ -73,7 +64,7 @@ const productsController = {
         res.redirect('/products');
       });
   },
-  
+
   productList: (req, res) => {
     Product.findAll()
       .then((products) => {
@@ -90,15 +81,18 @@ const productsController = {
   },
 
   loadSandwich: (req, res) => {
-    res.render('products/product-create-form');
+    Category.findAll()
+      .then((categories) => {
+        res.render('products/product-create-form', { categories });
+      })
   },
 
   createProduct: (req, res) => {
-    const { name, type, description, price, stock, discount } = req.body;
-    console.log(req.file?.filename)
+    const { name, category, description, price, stock, discount } = req.body;
+
     Product.create({
       name,
-      type,
+      categories_id: category,
       description,
       price,
       stock,
@@ -112,7 +106,7 @@ const productsController = {
 
   searchProduct: (req, res) => {
     const { search } = req.query;
-    console.log(search)
+
     Product.findAll({
       where: {
         name: {

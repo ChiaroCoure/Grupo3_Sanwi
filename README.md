@@ -40,6 +40,12 @@ Para ajustar nuestra oferta a la audiencia objetivo, implementaremos las siguien
 - Carolina de los Angeles Cortez: Me gusta el diseño, también los gatos.
 - Micaela Zerpa: Estudiante con ganas de aprender y también me gustan los gatos.
 
+## Instrucciones
+
+- Importar el script sql que está en el directorio `mysql` a la base de datos.
+
+- El correo electronico del usuario administrador es `admin@gmail.com` y la contraseñas es `123ok`.
+
 ## Sitios referentes
 
 - [Nuria](https://www.nuria.com.ar/producto/triples-rucula-y-queso)

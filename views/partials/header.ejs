@@ -24,16 +24,18 @@
       <div class="home__user">
         <img class="home__user-img" src="/img/users/<%= user.image %>" alt="foto de perfil de  <%= user.username %>">
         <p class="home__username">
-          <a href="/users/profile"><%= locals.user.username %></a>
-          
+          <a href="/users/profile">
+            <%= locals.user.username %>
+          </a>
+
         </p>
       </div>
-    <% } %>
+      <% } %>
 
         <ul>
           <li>
             <a href="/">Inicio</a>
-          </li> 
+          </li>
           <% if( !locals.user ) { %>
             <li>
               <a href="/users/login">Iniciar Sesión</a>
@@ -41,19 +43,18 @@
             <li>
               <a href="/users/register">Registro</a>
             </li>
-            <!-- <li>
-              <a href="/users/perfil">Ver perfil</a>
-            </li> -->
-          <% } %>
-          <li>
-            <a href="/products">Productos</a>
-          </li>
-          <li>
-            <a href="/cart">Mi carrito</a>
-          </li>
-          <li>
-            <a href="/products/create">Subir Sandwich</a>
-          </li>
+            <% } %>
+              <li>
+                <a href="/products">Productos</a>
+              </li>
+              <li>
+                <a href="/cart">Mi carrito</a>
+              </li>
+              <% if( locals.user?.role_id===1 ) { %>
+                <li>
+                  <a href="/products/create">Subir Sandwich</a>
+                </li>
+                <% } %>
         </ul>
 
   </nav>
