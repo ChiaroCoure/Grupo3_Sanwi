@@ -83,7 +83,6 @@ const productsController = {
   loadSandwich: (req, res) => {
     Category.findAll()
       .then((categories) => {
-        console.log('categories ', categories)
         res.render('products/product-create-form', { categories });
       })
   },

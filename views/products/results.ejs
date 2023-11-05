@@ -3,38 +3,38 @@
 
 <%- include('../partials/head.ejs', { cssSheets: ["product-list"], title: "Resultado de búsqueda" }) %>
 
-<body>
+  <body>
     <%- include('../partials/header.ejs') %>
-        <main>
-                <div class="list-sign-container">
-                    <% if(products.length>0){%>
-                        <h2>SE ENCONTRARON <%= products.length %> RESULTADOS</h2>
-                    <% }else{%>
-                        <h2>NO SE ENCONTRARON RESULTADOS</h2> 
-                    <% } %>
+      <main>
+        <div class="list-sign-container">
+          <% if(products.length>0){%>
+            <h2>SE ENCONTRARON <%= products.length %> RESULTADOS</h2>
+            <% }else{%>
+              <h2>NO SE ENCONTRARON RESULTADOS</h2>
+              <% } %>
+        </div>
+        <div class="list-products">
+          <% products.forEach((prod)=> {%>
+            <div class="list-tarjeta">
+              <a href="/products/detail/<%= prod.id %>">
+                <img src="/img/products/<%=prod.image%>" alt="<%= prod.name %>">
+                <div class="list-text-container">
+                  <h3>
+                    <%= prod.name %>
+                  </h3>
+                  <p class="list-price">
+                    Precio: $ <%= prod.price %>
+                  </p>
+                  <p>
+                    Descripción: <%= prod.description %>
+                  </p>
                 </div>
-            <div class="list-products">
-                <% products.forEach((prod)=> {%>
-                    <div class="list-tarjeta">
-                        <a href="/products/detail/<%= prod.id %>">
-                            <img src="/img/<%=prod.image%>" alt="<%= prod.name %>">
-                            <div class="list-text-container">
-                                <h3>
-                                    <%= prod.name %>
-                                </h3>
-                                <p class="list-price">
-                                    Precio: $ <%= prod.price %>
-                                </p>
-                                <p>
-                                    Descripción: <%= prod.description %>
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                    <% }) %>
+              </a>
             </div>
-        </main>
-        <%- include('../partials/footer.ejs') %>
-</body>
+            <% }) %>
+        </div>
+      </main>
+      <%- include('../partials/footer.ejs') %>
+  </body>
 
 </html>
