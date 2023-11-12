@@ -19,7 +19,7 @@
       </div>
     </div>
   </div>
-  <nav>
+  <nav id="menu">
     <% if( locals.user ) { %>
       <div class="home__user">
         <img class="home__user-img" src="/img/users/<%= user.image %>" alt="foto de perfil de  <%= user.username %>">
@@ -27,7 +27,6 @@
           <a href="/users/profile">
             <%= locals.user.username %>
           </a>
-
         </p>
       </div>
       <% } %>
