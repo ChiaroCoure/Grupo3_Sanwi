@@ -1,8 +1,9 @@
 window.addEventListener('load', function(){
   const storedCart = this.localStorage.getItem('cart')
   const $tbody = document.querySelector('.products-cart__table tbody')
+  const $form = document.querySelector('#products-cart__form')
 
-  if(storedCart){
+  if(storedCart && storedCart !== '[]' ){
     const parsedCart = JSON.parse(storedCart)
     parsedCart.forEach(product => {
       const { id, name, imagePath, price } = product
@@ -48,9 +49,9 @@ window.addEventListener('load', function(){
         const id = $a.getAttribute('href').split('/').pop()
         const filteredCart = parsedCart.filter(product => product.id !== id)
         
-        window.localStorage.setItem('cart', JSON.stringify(filteredCart))
-        
-        $tr.remove()
+        window.localStorage.setItem('cart', JSON.stringify(filteredCart))        
+        $tr.remove()        
+        location.reload()
       })
     })
 
@@ -81,6 +82,8 @@ window.addEventListener('load', function(){
 
       })
     })
+  } else if (!storedCart || storedCart === '[]') {
+    $form.style.display = 'none'
   }
   
 })
