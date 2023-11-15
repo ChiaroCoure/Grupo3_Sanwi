@@ -26,13 +26,16 @@
 
             <div class="login__field-container">
               <label for="password">Contraseña</label>
-              <input 
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Contraseña" 
-                value="<%= ( locals.old && old.password ) ? old.password : '' %>"
-              />
+              <div class="login__password-container"> 
+                <input 
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="Contraseña" 
+                  value="<%= ( locals.old && old.password ) ? old.password : '' %>"
+                />
+                <img src="/img/icons/eye.svg" alt="eye" class="login__eye" id="toggle-password">
+              </div>
             </div>
 
             <% if( locals.errors && errors.password ){ %>
@@ -60,6 +63,7 @@
       <%- include('../partials/footer.ejs') %>
     </footer>
     <script src="/js/login.js"></script>
+    <script src="/js/util.js"></script>
 </body>
 
 </html>

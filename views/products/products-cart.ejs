@@ -9,8 +9,8 @@
 
     <main class="products-cart__container">
       <h1 class="products-cart__title">Carrito de compra</h1>
-      <a href="#" class="products-cart__link">Seguir comprando</a>
-      <form method="get" action="/billing">
+      <a href="/products" class="products-cart__link">Seguir comprando</a>
+      <form method="get" action="/billing" id="products-cart__form">
         <table class="products-cart__table">
           <thead>
             <tr>
@@ -20,39 +20,7 @@
               <th>Total</th>
             </tr>
           </thead>
-          <tbody>
-            <% cart.forEach(item=> { %>
-              <tr>
-                <td class="products-cart__product">
-                  <a href="#" class="products-cart__product-detail-image">
-                    <img class="products-cart__thumbnail-image" src="/img/<%= item.image %>"
-                      alt="tostado de jamón y queso">
-                  </a>
-                  <div class="products-cart__product-container">
-                    <a href="#" class="products-cart__product-detail-name">
-                      <p class="products-cart__product-name">
-                        <%= item.name %>
-                      </p>
-                    </a>
-                    <p class="products-cart__product-description">Guarnición: <%= item.garnish %>
-                    </p>
-                    <button class="products-cart__product-remove">Quitar</button>
-                  </div>
-                </td>
-                <td>
-                  <input type="number" name="quantity" max="20" min="1" value="1" id="quantity">
-                </td>
-                <td>
-                  <span>$<%= item.price %></span>
-                  <div>
-                    <label for="quantity">Cantidad</label>
-                    <input type="number" name="quantity" max="20" min="1" value="1" id="quantity">
-                  </div>
-                </td>
-                <td>$<%= item.price %>
-                </td>
-              </tr>
-              <%})%>
+          <tbody>            
           </tbody>
         </table>
         <div>
@@ -82,6 +50,7 @@
     </main>
 
     <%- include('../partials/footer.ejs') %>
+    <script src="/js/cart.js"></script>
 
 </body>
 

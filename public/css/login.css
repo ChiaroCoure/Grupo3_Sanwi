@@ -34,12 +34,26 @@ body {
   margin-bottom: 16px;
 }
 
+.login__password-container {
+  position: relative;
+}
+
 .login__field-container input {
   padding: 8px;
   border-radius: 8px;
   outline: none;
   background-color: #efefef;
   border: none;
+  width: 100%;
+}
+
+.login__eye {
+  width: 20px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
 }
 
 .login__errors {
@@ -102,6 +116,7 @@ body {
 
 .login__close-img {
   width: 20px;
+
 }
 
 .login__popup-msg {

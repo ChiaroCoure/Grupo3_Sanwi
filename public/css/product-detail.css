@@ -46,7 +46,7 @@ img {
   width: 80px;
 }
 
-.product-detail__description h1 {
+.product-detail__description .product-detail__title {
   font-size: 32px;
   color: var(--light-black);
   margin-bottom: 16px;
@@ -228,7 +228,7 @@ button {
     align-self: flex-start;
   }
 
-  .product-detail__description h1 {
+  .product-detail__description .product-detail__title {
     margin-bottom: 32px;
   }
 
