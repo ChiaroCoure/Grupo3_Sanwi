@@ -84,6 +84,21 @@ h3{
     -moz-box-shadow: 13px 17px 14px -9px rgba(0,0,0,0.75);
 }
 
+.is-valid {
+    border: 2px #198754;
+}
+
+.is-invalid {
+    border: 2px solid red;
+}
+
+.alert-warning{
+    color:red;
+    background-color: #F8D7DA;
+    text-align: center;
+    border-radius: 10px;
+}
+
 @media screen and (max-width: 767px){
     .register__form{
         flex-direction: column;
