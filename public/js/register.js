@@ -16,7 +16,7 @@ window.addEventListener("load", () => {
         let emailError = document.querySelector("#emailError");
         let passwordError = document.querySelector("#passwordError");
         let passwordRepeatError = document.querySelector("#passwordRepeatError");
-        console.log('----------------', userError);
+        
         // --------- user ------------
         if (user.value == "") {
             userError.innerHTML = "Debe ingresar un nombre de usuario";
@@ -26,8 +26,8 @@ window.addEventListener("load", () => {
         } else if (user.value.length < 2) {
             userError.innerHTML = "El campo usuario debe tener al menos 2 caracteres";
             errors.push("El campo no puede estar vacío, el usuario debe tener mas de 2 caracteres");
-            user.classList.add("is-valid");
-            user.classList.remove("is-invalid");
+            user.classList.remove("is-valid");
+            user.classList.add("is-invalid");
         } else {
             userError.innerHTML = "";
             user.classList.add("is-valid");
@@ -59,13 +59,13 @@ window.addEventListener("load", () => {
         } else if (password.value.length < 8) {
             passwordError.innerHTML = "El campo contraseña debe tener al menos 8 caracteres";
             errors.push("El campo no puede estar vacío");
-            password.classList.remove("is-valid");
-            password.classList.add("is-invalid");
+            email.classList.add("is-invalid");
+            email.classList.remove("is-valid");
         } else if (password.value.length > 15) {
             passwordError.innerHTML = "El campo contraseña no debe tener mas de 15 caracteres";
             errors.push("El campo no puede estar vacío");
-            password.classList.remove("is-valid");
-            password.classList.add("is-invalid");
+            email.classList.add("is-invalid");
+            email.classList.remove("is-valid");
         }else
         {
             passwordError.innerHTML = "";
@@ -89,8 +89,7 @@ window.addEventListener("load", () => {
         if (errors.length > 0) {
             /* El submitEvent de submit está declarado en la linea 6 */
             submitEvent.preventDefault();
-            let ulErrors = document.querySelector(".errores");
-            ulErrors.classList.add("alert-warning");
+            let ulErrors = document.querySelectorAll(".errores");
             ulErrors.innerHTML = "";
         } else {
             console.log('fin de validación');

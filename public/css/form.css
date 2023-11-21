@@ -41,7 +41,6 @@ h3{
     margin: 8px 0;
     box-sizing: border-box;
     border-radius: 10px;
-    border: none;
     
 }
 .register__terms{
@@ -85,19 +84,13 @@ h3{
 }
 
 .is-valid {
-    border: 2px #198754;
+    border: #198754;
 }
 
 .is-invalid {
-    border: 2px solid red;
+    border: solid red;
 }
 
-.alert-warning{
-    color:red;
-    background-color: #F8D7DA;
-    text-align: center;
-    border-radius: 10px;
-}
 .register__eye {
     width: 20px;
     display: block;
