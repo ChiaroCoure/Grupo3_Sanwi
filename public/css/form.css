@@ -98,7 +98,15 @@ h3{
     text-align: center;
     border-radius: 10px;
 }
-
+.register__eye {
+    width: 20px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);    
+    visibility: hidden;
+}
 @media screen and (max-width: 767px){
     .register__form{
         flex-direction: column;

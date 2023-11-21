@@ -13,7 +13,7 @@
           <div class="register__fields">
             <div class="user">
               <label for="user">Nombre de usuario</label>
-              <input type="text" name="username" id="user" placeholder="Nombre"
+              <input type="text" name="user" id="user" placeholder="Nombre"
                       value="<%= (locals.old && old.username) ? old.username : '' %>"
               />
               <% if (locals.errors && errors.username){%>
@@ -31,6 +31,7 @@
               <input type="email" name="email" id="email" placeholder="Email" 
                       value="<%= (locals.old && old.email) ? old.email: '' %>"
               />
+              
               <% if (locals.errors && errors.email){%>
                 <div class="errores">
                     <i>
@@ -45,6 +46,7 @@
                     </i>
                 </div>
              <% } %>
+             
             </div>
             <div class="errores" id="emailError"></div>
             <div class="password">
@@ -52,6 +54,7 @@
               <input type="password" name="password" id="password" placeholder="Contraseña" 
                       value="<%= (locals.old && old.password) ? old.password : '' %>"
                />
+               <img src="/img/icons/eye.svg" alt="eye" class="register__eye" id="toggle-password">
               <% if (locals.errors && errors.password){%>
                 <div class="errores">
                     <i>
@@ -66,6 +69,7 @@
               <input type="password" name="passwordRepeat" id="passwordRepeat" placeholder="Confirmar Contraseña"
                 value="<%= (locals.old && old.passwordRepeat) ? old.passwordRepeat : '' %>"                     
                />
+               <img src="/img/icons/eye.svg" alt="eye" class="register__eye" id="toggle-password">
               <% if (locals.errors && errors.passwordRepeat){%>
                 <div class="errores">
                     <i>
@@ -102,5 +106,6 @@
     </main>
     <%- include('../partials/footer.ejs') %>
     <script src="/js/register.js"></script>
+    <script src="/js/util.js"></script>
   </body>
 </html>

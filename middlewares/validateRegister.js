@@ -4,7 +4,7 @@ const { hashSync } = require('bcryptjs');
 const arrRegister = [
   body('username').notEmpty().withMessage('Debe ingresar un nombre de usuario'),
   body('email').notEmpty().withMessage('Debe ingresar tu email').bail().isEmail().withMessage('Debes ingresar un formato de email válido. Ejemplo: nombre@gmail.com'),
-  body('password').notEmpty().withMessage('Debe ingresar tu contraseña').isLength({ min: 5, max: 8 }).withMessage('Debe ingresar una cantidad min de 5 y un max de 8 caracteres'),
+  body('password').notEmpty().withMessage('Debe ingresar tu contraseña').isLength({ min: 8, max: 12 }).withMessage('Debe ingresar una cantidad min de 8 y un max de 15 caracteres'),
   body('passwordRepeat').notEmpty().withMessage('Debes repetir tu contraseña')
 ];
 

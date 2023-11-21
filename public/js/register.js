@@ -2,10 +2,12 @@ window.addEventListener("load", () => {
 
     let form = document.querySelector(".form");
     form.user.focus();
+    console.log('validación');
 
     form.addEventListener("submit", (submitEvent) => {
         let errors = [];
-        let user = document.querySelector("#username");
+        console.log('validación dentro');
+        let user = document.querySelector("#user");
         let email = document.querySelector("#email");
         let password = document.querySelector("#password");
         let passwordRepeat = document.querySelector("#passwordRepeat");
@@ -14,13 +16,18 @@ window.addEventListener("load", () => {
         let emailError = document.querySelector("#emailError");
         let passwordError = document.querySelector("#passwordError");
         let passwordRepeatError = document.querySelector("#passwordRepeatError");
-
+        console.log('----------------', userError);
         // --------- user ------------
         if (user.value == "") {
             userError.innerHTML = "Debe ingresar un nombre de usuario";
-            errors.push("El campo no puede estar vacío");
+            errors.push("El campo no puede estar vacío, debe ingresar usuario");
             user.classList.remove("is-valid");
             user.classList.add("is-invalid");
+        } else if (user.value.length < 2) {
+            userError.innerHTML = "El campo usuario debe tener al menos 2 caracteres";
+            errors.push("El campo no puede estar vacío, el usuario debe tener mas de 2 caracteres");
+            user.classList.add("is-valid");
+            user.classList.remove("is-invalid");
         } else {
             userError.innerHTML = "";
             user.classList.add("is-valid");
@@ -43,18 +50,19 @@ window.addEventListener("load", () => {
         };
 
         // --------- password ------------
-        if (password.value == "") {
-            passwordError.innerHTML = "Debe ingresar una contraseña";
+        let regexp_password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]/;
+        if (!regexp_password.test(password.value)){
+            passwordError.innerHTML = "Debe ingresar una contraseña que deberá tener letras mayúsculas, minúsculas, un número y un carácter especial";
+            errors.push("El campo no puede estar vacío");
+            email.classList.add("is-invalid");
+            email.classList.remove("is-valid");
+        } else if (password.value.length < 8) {
+            passwordError.innerHTML = "El campo contraseña debe tener al menos 8 caracteres";
             errors.push("El campo no puede estar vacío");
             password.classList.remove("is-valid");
             password.classList.add("is-invalid");
-        } else if (password.value.length < 5) {
-            passwordError.innerHTML = "El campo contraseña debe tener al menos 5 caracteres";
-            errors.push("El campo no puede estar vacío");
-            password.classList.remove("is-valid");
-            password.classList.add("is-invalid");
-        } else if (password.value.length > 8) {
-            passwordError.innerHTML = "El campo contraseña no debe tener mas de 8 caracteres";
+        } else if (password.value.length > 15) {
+            passwordError.innerHTML = "El campo contraseña no debe tener mas de 15 caracteres";
             errors.push("El campo no puede estar vacío");
             password.classList.remove("is-valid");
             password.classList.add("is-invalid");
@@ -77,7 +85,7 @@ window.addEventListener("load", () => {
             passwordRepeat.classList.add("is-valid");
             passwordRepeat.classList.remove("is-invalid");
         };
-        console.log(errors)
+        console.log(errors);
         if (errors.length > 0) {
             /* El submitEvent de submit está declarado en la linea 6 */
             submitEvent.preventDefault();
@@ -85,7 +93,8 @@ window.addEventListener("load", () => {
             ulErrors.classList.add("alert-warning");
             ulErrors.innerHTML = "";
         } else {
-            //alert("La validación fue exitosa")
+            console.log('fin de validación');
+            alert("La validación fue exitosa");
             form.submit();
         }
     });
