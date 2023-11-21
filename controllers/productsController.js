@@ -37,11 +37,14 @@ const productsController = {
 
   productEdit: (req, res) => {
     const { id } = req.params;
-
+   
     Product.findByPk(id)
       .then((product) => {
         if (product) {
-          res.render('products/product-edit-form', { product });
+          Category.findAll()
+          .then((categories) => {
+            res.render('products/product-edit-form', { product, categories });
+          })
         } else {
           // Manejar el caso en que no se encuentra el producto
           res.redirect('/products');
@@ -52,10 +55,12 @@ const productsController = {
 
   productUpdate: (req, res) => {
     const { id } = req.params;
-    const { name, price, description } = req.body;
-
     Product.update(
-      { name, price, description },
+      { 
+        ...req.body,
+        image: req.file?.filename,
+        categories_id: req.body.category,
+      },
       {
         where: { id },
       }

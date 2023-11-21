@@ -34,6 +34,7 @@ router.get(
 
 router.put(
   '/edit/:id',
+  upload.single('image'),
   productsController.productUpdate
 );
 
