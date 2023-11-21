@@ -40,12 +40,12 @@ window.addEventListener("load", () => {
         if (!regEmail.test(email.value)) {
             emailError.innerHTML = "Debe ingresar un email válido";
             errors.push("El campo no puede estar vacío");
-            email.classList.add("is-invalid");
             email.classList.remove("is-valid");
+            email.classList.add("is-invalid");
         } else {
             emailError.innerHTML = "";
-            email.classList.add("is-valid");
             email.classList.remove("is-invalid");
+            email.classList.add("is-valid");
             form.password.focus();
         };
 

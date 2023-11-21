@@ -41,7 +41,7 @@ h3{
     margin: 8px 0;
     box-sizing: border-box;
     border-radius: 10px;
-    
+    border: none;
 }
 .register__terms{
     display: flex;
@@ -84,11 +84,11 @@ h3{
 }
 
 .is-valid {
-    border: #198754;
+    border: solid #56d69a;
 }
 
 .is-invalid {
-    border: solid red;
+    border: solid rgb(224, 79, 79);
 }
 
 .register__eye {
