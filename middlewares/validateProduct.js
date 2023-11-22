@@ -39,7 +39,10 @@ const validateProduct = [
     }).withMessage('Solo se permiten archivos JPG, JPEG, PNG o GIF.'),
     (req, res, next) => {
         const errors = validationResult(req);
+
         if (!errors.isEmpty()) {
+
+            const errorMessages = {};
             errors.array().forEach(error => {
                 switch (error.param) {
                     case 'name':

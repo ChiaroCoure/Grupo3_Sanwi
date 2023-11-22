@@ -13,7 +13,8 @@
           </div>
           <div class="load-input-container">
             <label for="name" class="load-label">Nombre del Sandwich:</label>
-            <input type="text" id="name" name="name" class="load-input" required pattern=".{5,}" placeholder="Debe tener al menos 5 caracteres">
+            <input type="text" id="name" name="name" class="load-input" 
+            required pattern=".{5,}" placeholder="Debe tener al menos 5 caracteres">
           </div>
           <div class="load-input-container">
             <label for="category" class="load-label">Tipo de Sandwich:</label>
@@ -39,8 +40,8 @@
           </div>
           <div class="load-input-container">
             <label for="description" class="load-label">Descripción del Sandwich:</label>
-            <textarea id="description" name="description" rows="4" class="load-textarea" required minlength="20"
-            title="Debe tener al menos 20 caracteres"
+            <textarea id="description" name="description" rows="4" class="load-textarea" required
+            pattern=".{20,}" title="Debe tener al menos 20 caracteres"
             placeholder="Debe tener al menos 20 caracteres"></textarea>
           </div>
           <button type="submit" class="load-submit-cargar">Subir Sandwich</button>
