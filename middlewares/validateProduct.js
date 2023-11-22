@@ -36,13 +36,27 @@ const validateProduct = [
         }
 
         return true;
-    }),
+    }).withMessage('Solo se permiten archivos JPG, JPEG, PNG o GIF.'),
     (req, res, next) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
+            errors.array().forEach(error => {
+                switch (error.param) {
+                    case 'name':
+                        errorMessages.name = error.msg;
+                        break;
+                    case 'description':
+                        errorMessages.description = error.msg;
+                        break;
+                    case 'image':
+                        errorMessages.image = error.msg;
+                        break;
+                }
+            });
+    
             return Category.findAll()
             .then((categories) => {
-                res.render('products/product-create-form', { categories , errors: errors.array()});
+                res.render('products/product-create-form', { categories , errorMessages});
             })
         }
         else
