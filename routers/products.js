@@ -4,18 +4,8 @@ const multer = require('multer');
 const path = require('path');
 const { productsController } = require('../controllers/productsController');
 
-const productStorage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const pathImage = path.join(__dirname, '..', 'public', 'img/products');
-    cb(null, pathImage);
-  },
-  filename: (req, file, cb) => {
-    const fileNewName = "sandwich" + Date.now() + path.extname(file.originalname);
-    cb(null, fileNewName);
-  }
-});
+const { validateProduct, upload } = require('../middlewares/validateProduct')
 
-const upload = multer({ storage: productStorage });
 
 router.get(
   '/',
@@ -34,6 +24,7 @@ router.get(
 
 router.put(
   '/edit/:id',
+  upload.single('image'),
   productsController.productUpdate
 );
 
@@ -49,7 +40,8 @@ router.get(
 
 router.post(
   '/create',
-  upload.single('image'),
+  upload.single('image'), 
+  validateProduct,
   productsController.createProduct
 );
 

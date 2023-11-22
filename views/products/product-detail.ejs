@@ -14,19 +14,19 @@
               alt="tostado de jamón y queso">
           </div>
           <div class="product-detail__description">
-            <h1>
+            <h2 class="product-detail__title">
               <%= productSearch?.name %>
-            </h1>
+            </h2>
             <p>
               <%= productSearch?.description %>
             </p>
-            <p> $ <%= productSearch?.price %>
+            <p class="product-detail__price"> $ <%= productSearch?.price %>
             </p>
             <p>Impuestos incluidos. <a href="#" class="ancor">Revisá acá los gastos de envío</a> que se agregarán en la
               pantalla de
               pagos.
             </p>
-            <button class="product-detail__add-to-cart">Agregar al carrito</button>
+            <button class="product-detail__add-to-cart" id="add-to-cart-main-btn">Agregar al carrito</button>
             <% if( locals.user?.role_id===1 ) { %>
               <div class="product-detail__actions">
                 <a class="product-detail__ancor-edit" href="/products/edit/<%= productSearch.id %>">
@@ -76,7 +76,7 @@
       </main>
 
       <%- include('../partials/footer.ejs') %>
-
+      <script src="/js/productToCart.js"></script>
   </body>
 
 </html>

@@ -7,7 +7,11 @@
   <%- include('../partials/header.ejs') %>
 
     <div class="load-container">
-      <form action="/products/edit/<%= product.id %>?_method=PUT" method="post" class="load-form">
+      <form action="/products/edit/<%= product.id %>?_method=PUT" method="post" class="load-form" enctype="multipart/form-data">
+        <% if (product.image) { %>
+          <p>Imagen actual: <%= product.image %></p>
+          <img src="/img/products/<%= product.image %>" alt="Imagen actual" id="imagenProductoPreview" style="max-width: 200px; max-height: 200px; display: block; margin: auto;">
+        <% } %>
         <div class="load-input-container">
           <label for="image" class="load-label">Imagen del Sandwich (png, jpg, jpeg):</label>
           <input type="file" id="image" name="image" accept="image/png, image/jpeg" class="load-input">
@@ -20,13 +24,13 @@
           >
         </div>
         <div class="load-input-container">
-          <label for="type" class="load-label">Tipo de Sandwich:</label>
-          <select id="type" name="type" class="load-input">
-            <option value="lomito">Lomito</option>
-            <option value="milanesa">Milanesa</option>
-            <option value="hamburguesa">Hamburguesa</option>
-            <option value="sandwich de miga">Sandwich de Miga</option>
-            <option value="otros">Otros</option>
+          <label for="category" class="load-label">Tipo de Sandwich:</label>
+          <select id="category" name="category" class="load-input" selected="<%= product.categories_id %>">
+            <% categories.forEach(item=> { %>
+              <option value="<%= item.id %>" >
+                <%= item.name %>
+              </option>
+              <% }) %>
           </select>
         </div>
         <div class="load-input-container">
@@ -37,6 +41,14 @@
           >
         </div>
         <div class="load-input-container">
+          <label for="stock" class="load-label">Stock</label>
+          <input type="number" id="stock" name="stock" step="1" class="load-input" placeholder="Ej: 10" value="<%= product.stock %>">
+        </div>
+        <div class="load-input-container">
+          <label for="stock" class="load-label">Descuento</label>
+          <input type="number" id="discount" name="discount" step="1" class="load-input" placeholder="Ej: 5" value="<%= product.discount %>">
+        </div>
+        <div class="load-input-container">
           <label for="description" class="load-label">Descripción del Sandwich:</label>
           <textarea id="description" name="description" rows="4" class="load-textarea"          
             placeholder="Ej: Un delicioso sandwich de pollo con vegetales y aderezos"            
@@ -45,6 +57,6 @@
         <button type="submit" class="load-submit-cargar">Guardar Sandwich</button>
       </form>
     </div>
-
     <%- include('../partials/footer.ejs') %>
+    <script src="/js/product-edit-validations.js"></script>
 </html>

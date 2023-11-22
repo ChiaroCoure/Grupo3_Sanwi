@@ -42,7 +42,6 @@ h3{
     box-sizing: border-box;
     border-radius: 10px;
     border: none;
-    
 }
 .register__terms{
     display: flex;
@@ -84,6 +83,23 @@ h3{
     -moz-box-shadow: 13px 17px 14px -9px rgba(0,0,0,0.75);
 }
 
+.is-valid {
+    border: solid #56d69a;
+}
+
+.is-invalid {
+    border: solid rgb(224, 79, 79);
+}
+
+.register__eye {
+    width: 20px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);    
+    visibility: hidden;
+}
 @media screen and (max-width: 767px){
     .register__form{
         flex-direction: column;

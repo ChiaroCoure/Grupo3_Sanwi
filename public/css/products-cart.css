@@ -43,6 +43,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   border-bottom: 1px solid var(--light-black);
+  text-decoration: none;
 }
 
 .products-cart__table {
@@ -190,6 +191,7 @@ body {
   color: var(--black);
   font-size: 12px;
   border-bottom: 1px solid var(--light-black);
+  text-decoration: none;
 }
 
 .products-cart__container form button[type="submit"] {
