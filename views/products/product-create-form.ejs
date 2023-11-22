@@ -39,9 +39,9 @@
           </div>
           <div class="load-input-container">
             <label for="description" class="load-label">Descripción del Sandwich:</label>
-            <textarea id="description" name="description" rows="4" class="load-textarea"
-              required pattern=".{20,}"
-              placeholder="Debe tener al menos 20 caracteres"></textarea>
+            <textarea id="description" name="description" rows="4" class="load-textarea" required minlength="20"
+            title="Debe tener al menos 20 caracteres"
+            placeholder="Debe tener al menos 20 caracteres"></textarea>
           </div>
           <button type="submit" class="load-submit-cargar">Subir Sandwich</button>
         </form>
