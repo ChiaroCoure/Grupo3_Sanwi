@@ -19,6 +19,8 @@ const userController = {
   },
   store: (req, res) => {
 
+    console.log({user: req.user});
+
     db.User.findAll()
       .then(results => {
         const email = results.find(value => value.dataValues.email === req.user.email);

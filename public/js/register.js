@@ -1,12 +1,10 @@
 window.addEventListener("load", () => {
 
-    let form = document.querySelector(".form");
+    let form = document.querySelector(".register__form");
     form.user.focus();
-    console.log('validación');
 
     form.addEventListener("submit", (submitEvent) => {
         let errors = [];
-        console.log('validación dentro');
         let user = document.querySelector("#user");
         let email = document.querySelector("#email");
         let password = document.querySelector("#password");
@@ -54,18 +52,18 @@ window.addEventListener("load", () => {
         if (!regexp_password.test(password.value)){
             passwordError.innerHTML = "Debe ingresar una contraseña que deberá tener letras mayúsculas, minúsculas, un número y un carácter especial";
             errors.push("El campo no puede estar vacío");
-            email.classList.add("is-invalid");
-            email.classList.remove("is-valid");
+            password.classList.add("is-invalid");
+            password.classList.remove("is-valid");
         } else if (password.value.length < 8) {
             passwordError.innerHTML = "El campo contraseña debe tener al menos 8 caracteres";
             errors.push("El campo no puede estar vacío");
-            email.classList.add("is-invalid");
-            email.classList.remove("is-valid");
+            password.classList.add("is-invalid");
+            password.classList.remove("is-valid");
         } else if (password.value.length > 15) {
             passwordError.innerHTML = "El campo contraseña no debe tener mas de 15 caracteres";
             errors.push("El campo no puede estar vacío");
-            email.classList.add("is-invalid");
-            email.classList.remove("is-valid");
+            password.classList.add("is-invalid");
+            password.classList.remove("is-valid");
         }else
         {
             passwordError.innerHTML = "";
@@ -80,21 +78,20 @@ window.addEventListener("load", () => {
             errors.push("El campo no puede estar vacío");
             passwordRepeat.classList.remove("is-valid");
             passwordRepeat.classList.add("is-invalid");
+        } 
+        else if (passwordRepeat.value != password.value) {
+            passwordRepeatError.innerHTML = "Las contraseñas no son iguales";
+            errors.push("El campo no puede estar vacío");
+            passwordRepeat.classList.remove("is-valid");
+            passwordRepeat.classList.add("is-invalid");
         } else {
             passwordRepeatError.innerHTML = "";
             passwordRepeat.classList.add("is-valid");
             passwordRepeat.classList.remove("is-invalid");
         };
-        console.log(errors);
-        if (errors.length > 0) {
-            /* El submitEvent de submit está declarado en la linea 6 */
-            submitEvent.preventDefault();
-            let ulErrors = document.querySelectorAll(".errores");
-            ulErrors.innerHTML = "";
-        } else {
-            console.log('fin de validación');
-            alert("La validación fue exitosa");
-            form.submit();
-        }
+
+        if(errors.length > 0) {
+          submitEvent.preventDefault();
+        }      
     });
 })

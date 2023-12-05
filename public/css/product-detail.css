@@ -19,6 +19,7 @@ main {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 }
 
 img {
@@ -158,6 +159,10 @@ button {
   margin-bottom: 32px;
 }
 
+.product__id {
+  display: none;
+}
+
 .product_image {
   margin-bottom: 16px;
 }
@@ -172,6 +177,31 @@ button {
   color: var(--light-black);
   font-weight: 700;
   margin-bottom: 16px;
+}
+
+.product__popup {
+  width: fit-content;
+  padding: 16px;
+  border-radius: 8px;
+  position: fixed;
+  z-index: 999;
+  bottom: 32px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.product__popup-img {
+  display: block;
+  width: 24px;  
+}
+
+.product__popup-success {
+  background-color: #4BB543;
+}
+
+.product__popup-info {
+  background-color: #0275d8;
 }
 
 @media (min-width: 769px) {

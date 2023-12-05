@@ -27,7 +27,7 @@
               pagos.
             </p>
             <button class="product-detail__add-to-cart" id="add-to-cart-main-btn">Agregar al carrito</button>
-            <% if( locals.user?.role_id===1 ) { %>
+            <% if( locals.user?.role_id === 1 ) { %>
               <div class="product-detail__actions">
                 <a class="product-detail__ancor-edit" href="/products/edit/<%= productSearch.id %>">
                   <img class="product-detail__icon" src="/img/icons/pen-to-square.svg" alt="pen to square">
@@ -58,9 +58,10 @@
         <section class="products">
           <h2 class="products__title">Quizá te gustaría agregar...</h2>
           <div class="products__container">
-            <% products.forEach((product)=>{ %>
-              <%if(product.id !==productSearch?.id){ %>
+            <% products.forEach((product)=> { %>
+              <%if(product.id !== productSearch?.id){ %>
                 <div class="product">
+                  <span class="product__id"> <%= product.id %> </span>
                   <img class="product_image" src="/img/products/<%= product.image %>" alt="<%= product.name %>">
                   <p class="product__name">
                     <%= product.name %>
@@ -69,11 +70,19 @@
                   </p>
                   <button class="product-detail__add-to-cart">Agregar al carrito</button>
                 </div>
-                <%}%>
-                  <% }) %>
+              <%}%>
+            <% }) %>
           </div>
         </section>
+
       </main>
+
+      <template id="product_popup_template">
+        <div class="product__popup">
+          <h3></h3>
+          <img class="product__popup-img" src="" alt="">
+        </div>
+      </template>
 
       <%- include('../partials/footer.ejs') %>
       <script src="/js/productToCart.js"></script>
