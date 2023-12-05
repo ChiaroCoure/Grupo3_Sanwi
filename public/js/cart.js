@@ -84,6 +84,14 @@ window.addEventListener('load', function(){
     })
   } else if (!storedCart || storedCart === '[]') {
     $form.style.display = 'none'
+    const $emptyCartTemplate = document.querySelector('#empty-cart').content
+    const $fragment = document.createDocumentFragment()
+    const $main= document.querySelector('main')
+
+    const $clone = document.importNode($emptyCartTemplate, true)
+    $fragment.appendChild($clone)
+    $main.appendChild($fragment)
+
   }
   
 })

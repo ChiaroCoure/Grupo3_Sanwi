@@ -18,7 +18,7 @@
               placeholder="Correo electrónico"
               value="<%= ( locals.old && old.email ) ? old.email : '' %>"
               />
-            </div>
+          </div>
 
             <% if( locals.errors && errors.email ){ %>
                 <p class="login__errors"><%= errors.email.msg %></p>

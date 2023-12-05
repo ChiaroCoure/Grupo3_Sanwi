@@ -56,18 +56,19 @@
 }
 
 .list-text-container{
-    margin: 5px 20px;
-    color: black;
+    padding: 20px;
+    color: black;    
 }
 
 .list-text-container h3{
     font-family: Tommy;
     font-size: 25px;
+    margin-bottom: 10px;
 }
 
 .list-price{
     font-weight: 300;
-    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 .list-text-container p{
