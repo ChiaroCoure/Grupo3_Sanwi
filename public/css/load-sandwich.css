@@ -71,3 +71,8 @@ body{
 .load-submit-cargar:hover{
     background-color: #e77c39;
 }
+
+.load-errors {
+  color: #CD3333;
+  margin-bottom: 16px;
+}
