@@ -71,14 +71,34 @@ const productsController = {
   },
 
   productList: (req, res) => {
-    Product.findAll()
+
+    const { limit = 5, page = 1 } = req.query;
+
+    Product.findAndCountAll({
+      limit: Number(limit),
+      offset: (Number(page) - 1) * Number(limit)
+    })
       .then((products) => {
-        const productsWithDiscount = products.filter((product) => product.discount > 0);
+        const totalPages = Math.ceil(products.count / Number(limit));
+
+        const productsWithDiscount = products.rows.filter((product) => product.discount > 0);
+
         res.render('products/product-list', {
-          products,
-          offers: productsWithDiscount
-        });
+          offers: productsWithDiscount,
+          products: products.rows,
+          totalPages,
+          currentPage: page          
+        })
       })
+
+    // Product.findAll()
+    //   .then((products) => {
+    //     const productsWithDiscount = products.filter((product) => product.discount > 0);
+    //     res.render('products/product-list', {
+    //       products,
+    //       offers: productsWithDiscount
+    //     });
+    //   })
   },
 
   redirect: (req, res) => {
