@@ -76,3 +76,14 @@ body{
   color: #CD3333;
   margin-bottom: 16px;
 }
+
+.load-image-text {
+  font-weight: 400;
+}
+
+.load-image {
+  margin-bottom: 1rem;
+  max-width: 200px;
+  display: block;
+  width: 100%;
+}
