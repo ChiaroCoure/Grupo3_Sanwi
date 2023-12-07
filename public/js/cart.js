@@ -2,9 +2,15 @@ window.addEventListener('load', function(){
   const storedCart = this.localStorage.getItem('cart')
   const $tbody = document.querySelector('.products-cart__table tbody')
   const $form = document.querySelector('#products-cart__form')
+  const $subtotal = document.querySelector('.products-cart__subtotal span')
 
   if(storedCart && storedCart !== '[]' ){
     const parsedCart = JSON.parse(storedCart)
+
+    $subtotal.textContent = `$${parsedCart.reduce((acc, product) => {
+      return acc + Number(product.price)
+    }, 0)}`
+
     parsedCart.forEach(product => {
       const { id, name, imagePath, price } = product
       $tbody.innerHTML += `
@@ -68,6 +74,12 @@ window.addEventListener('load', function(){
         const $td = $tr.querySelector('td:nth-child(4)')
         $td.textContent = `$${value * price}`
 
+        const totals = $tbody.querySelectorAll('td:nth-child(4)')
+
+        $subtotal.textContent = `$${Array.from(totals).map(td => td.textContent.slice(1)).reduce((acc, td) => {
+          return acc + Number(td)
+        }, 0)}`
+
       })
 
       $quantityInput.addEventListener('input', function(e) {
@@ -79,6 +91,12 @@ window.addEventListener('load', function(){
         const price = +$span.textContent.slice(1)
         const $td = $tr.querySelector('td:nth-child(4)')
         $td.textContent = `$${value * price}`
+
+        const totals = $tbody.querySelectorAll('td:nth-child(4)')
+
+        $subtotal.textContent = `$${Array.from(totals).map(td => td.textContent.slice(1)).reduce((acc, td) => {
+          return acc + Number(td)
+        }, 0)}`
 
       })
     })
