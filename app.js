@@ -8,6 +8,7 @@ const productsRouter = require('./routers/products');
 const usersRouter = require('./routers/users');
 const usersApiRouter = require('./routers/usersApi');
 const userLogged = require('./middlewares/userLogged');
+const cors = require('cors');
 
 const port = 3000;
 const app = express();
