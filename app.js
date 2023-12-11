@@ -7,6 +7,7 @@ const mainRouter = require('./routers/main');
 const productsRouter = require('./routers/products');
 const usersRouter = require('./routers/users');
 const usersApiRouter = require('./routers/usersApi');
+const productApiRouter = require('./routers/productsApi');
 const userLogged = require('./middlewares/userLogged');
 const cors = require('cors');
 
@@ -33,6 +34,7 @@ app.use('/', mainRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/api/users', usersApiRouter);
+app.use('/api/products', productApiRouter);
 
 app.listen(port, () => {
   console.log(`App listening on port http://localhost:${port}`);
