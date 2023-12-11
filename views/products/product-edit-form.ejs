@@ -9,8 +9,10 @@
     <div class="load-container">
       <form action="/products/edit/<%= product.id %>?_method=PUT" method="post" class="load-form" enctype="multipart/form-data">
         <% if (product.image) { %>
-          <p>Imagen actual: <%= product.image %></p>
-          <img src="/img/products/<%= product.image %>" alt="Imagen actual" id="imagenProductoPreview" style="max-width: 200px; max-height: 200px; display: block; margin: auto;">
+          <p class="load-label">Imagen actual: <span class="load-image-text"><%= product.image %></span></p>
+          <img
+           class="load-image"
+           src="/img/products/<%= product.image %>" alt="Imagen actual" id="imagenProductoPreview">
         <% } %>
         <div class="load-input-container">
           <label for="image" class="load-label">Imagen del Sandwich (png, jpg, jpeg):</label>

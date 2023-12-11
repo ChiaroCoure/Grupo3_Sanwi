@@ -4,8 +4,6 @@ const path = require('path');
 const db = require('../dataBase/models');
 const { Category } = db;
 
-
-// Configuración de Multer
 const productStorage = multer.diskStorage({
     destination: (req, file, cb) => {
         const pathImage = path.join(__dirname, '..', 'public', 'img/products');
@@ -19,53 +17,44 @@ const productStorage = multer.diskStorage({
 
 const upload = multer({ storage: productStorage });
 
-// Middleware de validación
 const validateProduct = [
     body('name').isLength({ min: 5 }).withMessage('El nombre debe tener al menos 5 caracteres.'),
+    body('price').isNumeric().withMessage('El precio debe ser un número.'),
+    body('stock').isNumeric().withMessage('La cantidad disponible debe ser un número.'),
+    body('discount').isNumeric().withMessage('El descuento debe ser un número.'),
     body('description').isLength({ min: 20 }).withMessage('La descripción debe tener al menos 20 caracteres.'),
     body('image').custom((value, { req }) => {
-        if (!req.file) {
-            throw new Error('Debes subir una imagen.');
-        }
+      let file = req.file;
+      let acceptedExtensions = ['.jpg', '.png', '.gif', '.jpeg'];
 
-        const allowedExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
-        const ext = path.extname(req.file.originalname).toLowerCase();
+      if (!file) {
+        throw new Error('Tienes que subir una imagen');
+      }
 
-        if (!allowedExtensions.includes(ext)) {
-            throw new Error('Solo se permiten archivos JPG, JPEG, PNG o GIF.');
-        }
+      let fileExtension = path.extname(file.originalname);
 
-        return true;
-    }).withMessage('Solo se permiten archivos JPG, JPEG, PNG o GIF.'),
+      if (!acceptedExtensions.includes(fileExtension)) {
+        throw new Error(`Las extensiones aceptadas son ${acceptedExtensions.join(', ')}`);
+      }
+
+      return true;
+    }),
     (req, res, next) => {
-        const errors = validationResult(req);
-
-        if (!errors.isEmpty()) {
-
-            const errorMessages = {};
-            errors.array().forEach(error => {
-                switch (error.param) {
-                    case 'name':
-                        errorMessages.name = error.msg;
-                        break;
-                    case 'description':
-                        errorMessages.description = error.msg;
-                        break;
-                    case 'image':
-                        errorMessages.image = error.msg;
-                        break;
-                }
-            });
-    
-            return Category.findAll()
-            .then((categories) => {
-                res.render('products/product-create-form', { categories , errorMessages});
-            })
-        }
-        else
-        {
-            next();
-        }
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+  
+        return Category.findAll()
+        .then((categories) => {
+          res.render('products/product-create-form', {
+            errors: errors.mapped(), 
+            old: req.body,
+            categories
+          });
+        })
+      }
+      else {
+        next();
+      }
     }
 ];
 

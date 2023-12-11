@@ -8,17 +8,47 @@
       <div class="load-container">
         <form action='/products/create' method="post" class="load-form" enctype="multipart/form-data">
           <div class="load-input-container">
-            <label for="image" class="load-label">Imagen del Sandwich (png, jpg, jpeg):</label>
-            <input type="file" id="image" name="image" accept="image/png, image/jpeg, image/jpg, image/gif" class="load-input">
-          </div>
+            <label for="image" class="load-label">Imagen (png, jpg, jpeg):</label>
+            <input 
+              type="file"
+              id="image"
+              name="image"
+              accept="image/png, image/jpeg, image/jpg, image/gif"
+              class="load-input"
+            >
+          </div>   
+          
+          <% if (locals.errors && errors.image){%>
+            <div class="load-errors">
+              <i>
+                <%= errors.image.msg %>
+              </i>
+            </div>
+          <% } %>
+
           <div class="load-input-container">
-            <label for="name" class="load-label">Nombre del Sandwich:</label>
-            <input type="text" id="name" name="name" class="load-input" 
-            required pattern=".{5,}" placeholder="Debe tener al menos 5 caracteres">
+            <label for="name" class="load-label">Nombre:</label>
+            <input 
+              type="text"
+              id="name"
+              name="name"
+              class="load-input" 
+              placeholder="Ingresa el nombre del sandwich"
+              value="<%= (locals.old && old.name) ? old.name : '' %>" 
+            >
           </div>
+
+          <% if (locals.errors && errors.name){%>
+            <div class="load-errors">
+              <i>
+                <%= errors.name.msg %>
+              </i>
+            </div>
+          <% } %>
+
           <div class="load-input-container">
-            <label for="category" class="load-label">Tipo de Sandwich:</label>
-            <select id="category" name="category" class="load-input">
+            <label for="category" class="load-label">Tipo:</label>
+            <select id="category" name="category"                 class="load-input">
               <% categories.forEach(item=> { %>
                 <option value="<%= item.id %>">
                   <%= item.name %>
@@ -26,25 +56,91 @@
                 <% }) %>
             </select>
           </div>
+
           <div class="load-input-container">
-            <label for="price" class="load-label">Precio del Sandwich:</label>
-            <input type="number" id="price" name="price" step="1" class="load-input" placeholder="Ej: 5">
+            <label for="price" class="load-label">Precio:</label>
+            <input 
+              type="number"
+              id="price"
+              name="price"
+              step="1"
+              class="load-input"
+              placeholder="Ingresa el precio"
+              value="<%= (locals.old && old.price) ? old.price : '' %>" 
+            >
           </div>
+
+          <% if (locals.errors && errors.price){%>
+            <div class="load-errors">
+              <i>
+                <%= errors.price.msg %>
+              </i>
+            </div>
+          <% } %>
+
           <div class="load-input-container">
-            <label for="stock" class="load-label">Stock</label>
-            <input type="number" id="stock" name="stock" step="1" class="load-input" placeholder="Ej: 10">
+            <label for="stock" class="load-label">Cantidad disponible:</label>
+            <input 
+              type="number"
+              id="stock"
+              name="stock"
+              step="1"
+              class="load-input"
+              placeholder="Ingresa la cantidad disponible"
+              value="<%= (locals.old && old.stock) ? old.stock : '' %>" 
+            >
           </div>
+
+          <% if (locals.errors && errors.stock){%>
+            <div class="load-errors">
+              <i>
+                <%= errors.stock.msg %>
+              </i>
+            </div>
+          <% } %>
+
           <div class="load-input-container">
-            <label for="stock" class="load-label">Descuento</label>
-            <input type="number" id="discount" name="discount" step="1" class="load-input" placeholder="Ej: 5">
+            <label for="discount" class="load-label">Descuento:</label>
+            <input 
+              type="number"
+              id="discount"
+              name="discount"
+              step="1"
+              class="load-input"
+              placeholder="Ingresa el descuento"
+              value="<%= (locals.old && old.discount) ? old.discount : '' %>" 
+            >
           </div>
+
+          <% if (locals.errors && errors.discount){%>
+            <div class="load-errors">
+              <i>
+                <%= errors.discount.msg %>
+              </i>
+            </div>
+          <% } %>
+
           <div class="load-input-container">
-            <label for="description" class="load-label">Descripción del Sandwich:</label>
-            <textarea id="description" name="description" rows="4" class="load-textarea" required
-            pattern=".{20,}" title="Debe tener al menos 20 caracteres"
-            placeholder="Debe tener al menos 20 caracteres"></textarea>
+            <label for="description" class="load-label">Descripción:</label>
+            <textarea 
+              id="description"
+              name="description"
+              rows="4"
+              class="load-textarea"            
+              placeholder="Ingresa la descripción"
+              value="<%= (locals.old && old.description) ? old.description : '' %>" 
+            ></textarea>
           </div>
-          <button type="submit" class="load-submit-cargar">Subir Sandwich</button>
+
+          <% if (locals.errors && errors.description){%>
+            <div class="load-errors">
+              <i>
+                <%= errors.description.msg %>
+              </i>
+            </div>
+          <% } %>
+          
+          <button type="submit" class="load-submit-cargar">Guardar</button>
         </form>
       </div>
       <%- include('../partials/footer.ejs') %>
