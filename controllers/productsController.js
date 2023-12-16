@@ -73,22 +73,26 @@ const productsController = {
   productList: (req, res) => {
 
     const { limit = 5, page = 1 } = req.query;
-
     Product.findAndCountAll({
       limit: Number(limit),
-      offset: (Number(page) - 1) * Number(limit)
+      offset: (Number(page) - 1) * Number(limit),
     })
       .then((products) => {
-        const totalPages = Math.ceil(products.count / Number(limit));
-
-        const productsWithDiscount = products.rows.filter((product) => product.discount > 0);
-
-        res.render('products/product-list', {
-          offers: productsWithDiscount,
-          products: products.rows,
-          totalPages,
-          currentPage: page          
-        })
+          Category.findAll()
+          .then((categories) => {
+            
+            const totalPages = Math.ceil(products.count / Number(limit));
+    
+            const productsWithDiscount = products.rows.filter((product) => product.discount > 0);
+            res.render('products/product-list', {
+              offers: productsWithDiscount,
+              products: products.rows,
+              totalPages,
+              currentPage: page, 
+              categories
+            })
+            
+          })
       })
 
     // Product.findAll()
@@ -143,6 +147,23 @@ const productsController = {
         res.render('products/results', {
           products: products
         });
+      })
+  },
+  filterProduct: (req, res) => {
+    const { category } = req.query;
+
+    Product.findAll({
+    })
+      .then((products) => {
+        Category.findAll()
+        .then((categories) => {
+          const categoryId= categories.filter((cat)=> cat.name == category);
+          const filted= products.filter((product)=> product.categories_id == categoryId[0].dataValues.id)
+          res.render('products/products-filter', {
+            products: filted,
+            categories
+          });
+        })
       })
   }
 }
