@@ -1,7 +1,7 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "admin123",
     "database": "sanwi_db",
     "host": "127.0.0.1",
     "dialect": "mysql"

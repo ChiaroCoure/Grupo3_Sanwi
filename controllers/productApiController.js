@@ -14,6 +14,41 @@ const productApiController = {
     const productsParsed = products.map(product => ({ ...product.dataValues, image: `http://localhost:3000/img/products/${product.image}` }))
     res.status(200).json(productsParsed);
 
+  },
+  removeProduct: async function (req, res) {
+    const { id } = req.params;
+
+    await db.Product.destroy({
+      where: {
+        id
+      }
+    })
+
+    res.status(200).json({ message: 'Product deleted successfully' });
+  },
+  updateProduct: async function (req, res) {
+    const { id } = req.params;
+    await db.Product.update(
+      { 
+        ...req.body,
+        image: req.file?.filename,
+        categories_id: req.body.category,
+      },
+      {
+        where: { id },
+      }
+    )
+
+    res.status(200).json({ message: 'Product updated successfully' });
+      
+  },
+  getProduct: async function (req, res) {
+    const { id } = req.params;
+    const product = await db.Product.findByPk(id);
+    res.status(200).json({
+      ...product.dataValues,
+      image: `http://localhost:3000/img/products/${product.image}`
+    });
   }
 }
 
