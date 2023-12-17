@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<%- include('../partials/head.ejs', { cssSheets: ["login","form"], title: "Inicio de sesión" }) %>
+<%- include('../partials/head.ejs', { cssSheets: ["user"], title: "Inicio de sesión" }) %>
 
-<body>
-  <%- include('../partials/header.ejs') %>
-    <main>
-      <h1>Bienvenido <%= locals.user.username %></h1>
-
-                
-            <div class="register__button">
-                <a href="/users/profile-edit/<%= locals.user.id %>">
-                    <button class="login__button">Editar</button>
-                </a>
-                <form action="/users/logout" method="post" >
-                  <button class="login__button" type="submit">Cerrar sesion</button>                
-                </form>
-                
-            </div>
-        
-        
-      
-    </main>
-    <footer>
-      <%- include('../partials/footer.ejs') %>
-    </footer>
-    
-</body>
+  <body>
+    <%- include('../partials/header.ejs') %>
+      <main>
+        <h1>Es un gusto verte de nuevo, <%= locals.user.username %></h1>
+        <div class = profile-card-user>
+          <img class="profile-user-img" src="/img/users/<%= user.image %>" alt="foto de perfil de  <%= user.username %>">
+          <section>
+            <p class= "profile-username"><%= locals.user.username %></p>
+            <% if (locals.user.role_id === 1) { %>
+              <p class="profile-description">Administrador de página</p>
+            <% } else { %>
+              <p class="profile-description">Devora Sandwiches Profesional</p>
+            <% } %>
+          </section>
+          <div></div>
+          <div class="register__button">
+            <a href="/users/profile-edit/<%= locals.user.id %>">
+              <button class="user__button">Editar</button>
+            </a>
+            <form action="/users/logout" method="post">
+              <button class="user__button" type="submit">Cerrar sesion</button>
+            </form>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <%- include('../partials/footer.ejs') %>
+      </footer>
+  </body>
 
 </html>
