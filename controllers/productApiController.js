@@ -45,6 +45,7 @@ const productApiController = {
   },
   getProduct: async function (req, res) {
     const { id } = req.params;
+   
     const product = await db.Product.findByPk(id, {
       include: [
         {
@@ -53,11 +54,28 @@ const productApiController = {
         }
       ]
     });
+
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+   
     res.status(200).json({
       ...product.dataValues,
       image: `http://localhost:3000/img/products/${product.image}`
     });
-  }
-}
+  },
+  lastProduct: async function (req, res) {
 
+    const last = await db.Product.findOne({
+      order: [['id', 'DESC']], // Ordena por id en orden descendente (DESC)
+    });
+
+    res.status(200).json({
+      ...last.dataValues,
+      image: `http://localhost:3000/img/products/${last.image}`
+    });
+
+  }
+
+}
 module.exports = productApiController;

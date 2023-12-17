@@ -40,4 +40,6 @@ router.put(
   productApiController.updateProduct
 );
 
+router.get('/last', productApiController.lastProduct)
+
 module.exports = router;
