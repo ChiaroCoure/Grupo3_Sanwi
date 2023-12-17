@@ -28,6 +28,7 @@ const productApiController = {
   },
   updateProduct: async function (req, res) {
     const { id } = req.params;
+    console.log('req.file', req.file);
     await db.Product.update(
       { 
         ...req.body,
@@ -44,7 +45,14 @@ const productApiController = {
   },
   getProduct: async function (req, res) {
     const { id } = req.params;
-    const product = await db.Product.findByPk(id);
+    const product = await db.Product.findByPk(id, {
+      include: [
+        {
+          association: 'category',
+          attributes: ['id', 'name']
+        }
+      ]
+    });
     res.status(200).json({
       ...product.dataValues,
       image: `http://localhost:3000/img/products/${product.image}`
