@@ -4,4 +4,6 @@ const router = express.Router();
 
 router.get('/', productApiController.getProducts)
 
+router.get('/last', productApiController.lastProduct)
+
 module.exports = router;
