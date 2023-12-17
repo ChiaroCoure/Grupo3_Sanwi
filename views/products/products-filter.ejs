@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs', { cssSheets: ["product-list"], title: "Resultado de búsqueda" }) %>
+
+  <body>
+    <%- include('../partials/header.ejs') %>
+      <main>
+        <div class="filter">
+          <div class="filter__icon">
+            <h6>Filtrar</h6>
+            <i class="fas fa-filter"></i>
+          </div>
+          <form action="/products/products-filter" method="get">
+            <% categories.forEach((cat)=> {%>
+              <button type="submit" class="filter__button" value="<%= cat.name %>" name="category"><%= cat.name %></button>
+              <% }) %>
+          </form>
+        </div>
+        <div class="list-sign-container">
+          <% if(products.length>0){%>
+            <h2>SE ENCONTRARON <%= products.length %> RESULTADOS</h2>
+            <% }else{%>
+              <h2>NO SE ENCONTRARON RESULTADOS</h2>
+              <% } %>
+        </div>
+        <div class="list-products">
+          <% products.forEach((prod)=> {%>
+            <div class="list-tarjeta">
+              <a href="/products/detail/<%= prod.id %>">
+                <img src="/img/products/<%=prod.image%>" alt="<%= prod.name %>">
+                <div class="list-text-container">
+                  <h3>
+                    <%= prod.name %>
+                  </h3>
+                  <p class="list-price">
+                    Precio: $ <%= prod.price %>
+                  </p>
+                  <p>
+                    Descripción: <%= prod.description %>
+                  </p>
+                </div>
+              </a>
+            </div>
+            <% }) %>
+        </div>
+      </main>
+      <%- include('../partials/footer.ejs') %>
+  </body>
+
+</html>
