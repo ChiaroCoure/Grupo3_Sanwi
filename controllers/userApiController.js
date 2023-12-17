@@ -24,6 +24,23 @@ const userApiController = {
       ...user.dataValues,
       image: `http://localhost:3000/img/users/${user.image}`
     });
+  },
+  getUsers: async function (req, res) {
+
+    const users = await db.User.findAll({
+      attributes: ['id', 'username', 'email', 'image'],
+      include: [
+        {
+          association: 'role',
+          attributes: ['id', 'name']
+        }
+      ]
+    });
+
+    const usersParsed=users.map(user=>({...user.dataValues, image: `http://localhost:3000/img/users/${user.image}`}))
+    res.status(200).json(
+      usersParsed
+    );
   }
 }
 

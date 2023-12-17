@@ -46,4 +46,9 @@ router.get(
   productsController.searchProduct
 );
 
+router.get(
+  '/products-filter',
+  productsController.filterProduct
+);
+
 module.exports = router
