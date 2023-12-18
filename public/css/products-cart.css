@@ -195,7 +195,7 @@ body {
 }
 
 .products-cart__container form button[type="submit"] {
-  display: block;
+  display: flex;
   width: 100%;
   background-color: var(--orange);
   font-weight: 700;
@@ -204,6 +204,9 @@ body {
   border: none;
   margin-bottom: 32px;
   font-size: 14px;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .products-cart__empty {
@@ -222,6 +225,22 @@ body {
   text-align: center;
   font-size: 24px;
   color: var(--light-black)
+}
+
+.products-cart__cellphone {
+  padding: .5rem;
+  border: 1px solid #ccc;
+}
+
+.products-cart__button {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.products-cart__whatsapp {
+  width: 30px;
+  display: block;
 }
 
 @media (min-width: 768px) {
@@ -256,6 +275,28 @@ body {
     width: 40%;
   }
 }
+
+.product__popup {
+  width: fit-content;
+  padding: 16px;
+  border-radius: 8px;
+  position: fixed;
+  z-index: 999;
+  bottom: 32px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.product__popup-img {
+  display: block;
+  width: 24px;  
+}
+
+.product__popup-success {
+  background-color: #4BB543;
+}
+
 
 @media (min-width: 1024px) {
   .products-cart__container {
