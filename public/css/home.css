@@ -29,8 +29,7 @@ body{
 
     }
 
-    .home-slider-box svg{
-        display: none;
+    .home-slider-box .img-12345{
         position: absolute;
         width: 100%;
         bottom: 0px;
