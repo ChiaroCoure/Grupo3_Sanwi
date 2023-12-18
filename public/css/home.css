@@ -30,6 +30,7 @@ body{
     }
 
     .home-slider-box svg{
+        display: none;
         position: absolute;
         width: 100%;
         bottom: 0px;
@@ -75,17 +76,32 @@ body{
 
     /*Texto introductorio*/
 
-    .home-caja-introduccion{
-        padding: 40px 10%;
+    .home-caja-introduccion {
         text-align: center;
-        margin: 0px 20px;
+        margin-top: 150px;
+        position: relative;
+    }
+    
+    .home-caja-introduccion img {
+        position: absolute;
+        width: 30%;
+        left: 50%;
+        top: -7%;
+        transform: translateX(-50%);
+    }
+    
+    .home-caja-introduccion-texto{
+        background-color: #CD3333;
+        margin-top: -5px;
+        padding: 30px 10% 0;
+        color: #fffae9;
     }
 
     .home-caja-introduccion h2{
         padding: 10px;
         font-family: Cocogoose;
         font-size: 30px;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid #fffae9;
     }
 
     .home-caja-introduccion h2 i{
@@ -271,12 +287,11 @@ body{
 
     /*Texto introductorio*/
 
-    .home-caja-introduccion{
-        padding: 10px 5%;
-        margin: 10px 0;
+    .home-caja-introduccion {
         text-align: center;
-        margin: 40px 0;
+        margin: 90px 0;
     }
+    
 
     .home-caja-introduccion h2{
         padding: 10px;
@@ -376,4 +391,18 @@ body{
         font-size: 20px;
     }
     
+}
+
+@media screen and (max-width: 600px){
+    .home-caja-introduccion img{
+        top: -6%;
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .home-caja-introduccion img{
+        top: -5%;
+        width: 40%;
+    }
 }
