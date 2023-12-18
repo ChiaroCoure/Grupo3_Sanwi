@@ -99,7 +99,7 @@ body{
     .home-caja-introduccion h2{
         padding: 10px;
         font-family: Cocogoose;
-        font-size: 30px;
+        font-size: 27px;
         border-bottom: 1px solid #fffae9;
     }
 
@@ -125,6 +125,8 @@ body{
     .home-caja-ofertas li{
         width: 400px;
         background-color: white;
+        border-radius: 10%;
+        border: 3px solid rgb(187, 169, 168);
         margin:20px;
         padding: 20px;
     }
@@ -135,16 +137,20 @@ body{
 
     .home-caja-ofertas img{
         width: 100%;
+        border-radius: 10%;
     }
 
     .home-caja-ofertas h3{
-        border-top: 1px solid #000;
+        background-color: rgb(187, 169, 168);
+        border-radius: 10%;
         width: 400px;
         text-align: center;
-        margin: 10px auto;
+        margin: 0 auto;
+        padding: 10px 0;
         font-family: Cocogoose;
         font-size: 35px;
-        border-bottom: 1px solid black;
+        color: #280c0c;
+
     }
 
     .home-caja-ofertas p{
@@ -216,6 +222,7 @@ body{
 
     .home-caja-recorrido{
         text-align: center;
+        color: rgb(64, 10, 10);
     }
 
     .home-caja-recorrido h3{
@@ -232,6 +239,14 @@ body{
         list-style: none;
     }
 
+    .home-caja-recorrido li{
+        background-color: #fff;
+        width: 25%;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 10px;
+    }
+
     .home-caja-recorrido i{
         margin: 30px 0 0;
         font-size: 50px;
@@ -239,11 +254,12 @@ body{
 
     .home-caja-recorrido h4{
         margin: 20px 0;
+        padding: 0 10px;
         font-size: 27px;
     }
 
     .home-caja-recorrido p{
-        margin-bottom: 30px;
+        margin: 0 0 30px;
     }
 
     @keyframes slide{
