@@ -25,12 +25,8 @@
         </table>
         <div>
           <div>
-            <label class="products-cart__date-of-delivery-or-takeout" for="date-of-delivery/takeout">¿Fecha de
-              delivery/takeout?</label>
-            <span class="products-cart__datepicker-toggle">
-              <span class="products-cart__datepicker-toggle-button"></span>
-              <input type="date" min="2023-07-26">
-            </span>
+            <label class="products-cart__date-of-delivery-or-takeout" for="date-of-delivery/takeout">Número de celular para recibir el pedido</label>              
+              <input type="tel" name="cellphone" id="date-of-delivery/takeout" class="products-cart__cellphone">
           </div>
           <div>
             <label for="note" class="products-cart__note">¿Querés agregar una nota a tu pedido? ¿Querés enviar un
@@ -45,7 +41,10 @@
         </div>
         <p>Impuestos incluidos. <a href="#">Revisá acá los gastos de envío</a> que se agregarán en la pantalla de pagos.
         </p>
-        <button type="submit">Continuar</button>
+        <button type="submit" id="products-cart__submit">
+          <img src="/img/icons/whatsapp.png" alt="whatsapp" class="products-cart__whatsapp">
+          <span>Enviar mensaje</span>
+        </button>
       </form>
     </main>
 
@@ -55,8 +54,18 @@
       </div>
     </template>
 
+    <template id="product_popup_template">
+      <div class="product__popup">
+        <h3></h3>
+        <img class="product__popup-img" src="" alt="">
+      </div>
+    </template>
+
+
     <%- include('../partials/footer.ejs') %>
     <script src="/js/cart.js"></script>
+    <script src="/js/submit-msg-cart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
 </body>
 
