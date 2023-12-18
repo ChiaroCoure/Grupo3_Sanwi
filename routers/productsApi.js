@@ -24,6 +24,8 @@ router.get(
   productApiController.getProducts
 );
 
+router.get('/last', productApiController.lastProduct)
+
 router.get(
   '/:id',
   productApiController.getProduct
@@ -40,6 +42,6 @@ router.put(
   productApiController.updateProduct
 );
 
-router.get('/last', productApiController.lastProduct)
+
 
 module.exports = router;
